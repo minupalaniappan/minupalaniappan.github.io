@@ -280,7 +280,6 @@ h1, h2, h3, h4, h5, h6
 	{
 	    width: 501px;
 	    text-align: center;
-	    margin: 0 auto;
 	    float: right;
 		margin-top: 170px; 
 	}
@@ -299,6 +298,14 @@ h1, h2, h3, h4, h5, h6
 		padding-left: 15px; 
 		margin-top: 20px; 
 		padding-bottom: 15px; 
+	}
+
+	.project-links
+	{
+		height: 200px; 
+		padding: 30px; 
+		background-color: #DBDBDB; 
+		margin-top: 730px; 
 	}
 
 
