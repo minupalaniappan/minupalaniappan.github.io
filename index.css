@@ -7,44 +7,17 @@
 @font-face {font-family: Light; src: url(fonts/PNLIGHT.otf);}
 
 html, body, p
-{
-	margin: 0;
-	padding: 0; 
-}
-
+{ margin: 0; padding: 0; }
 a 
-{
-	text-decoration: none;
-	cursor:default;
-}
-
-
-img {
-    width:inherit;
-}
-
-
-h1, h2, h3, h4, h5, h6
-{
-	padding: 0; 
-	margin: 0; 
-	margin-top: 30px; 
-}
-
-.wrapper
-{
-	text-align: center;
-	height: 100%;
-}
-
-.stick {
-    position: fixed;
-    top: 0;
-}
+{ text-decoration: none; cursor:default; }
+img { width:inherit; }
+h1, h2, h3, h4, h5, h6 { padding: 0; margin: 0; margin-top: 30px; }
+.wrapper { text-align: center; height: 100%; }
+.stick { position: fixed; top: 0; }
+button > a { text-decoration:  none }
 
 @media (min-width: 1000px) {
-	.toolbar_font
-	{
+	.navigationbarfont {
 		font-family: Light; 
 		color: white; 
 		font-size: 1em; 
@@ -55,12 +28,10 @@ h1, h2, h3, h4, h5, h6
 		margin-left: 25px; 
 		height: 100%; 
 	}
-
-	.toolbar_font:hover
+	.navigationbarfont:hover
 	{
 		color: #20cfb1;
 	}
-
 	h1
 	{
 		font-family: Bold; 
@@ -68,9 +39,7 @@ h1, h2, h3, h4, h5, h6
 		color: black; 
 		font-size: 4em; 
 		text-align: left;
-
 	}
-
 	h2
 	{
 		font-family: Semi; 
@@ -99,14 +68,18 @@ h1, h2, h3, h4, h5, h6
 		margin-left: auto;
 	}
 
-	.top_image
+	.splash_image
 	{
 		width: 100%; 
 		height: calc(100vh - 80px); 
-		background-color: white; 
+		background: url("imgs/dawn.jpg") no-repeat center center fixed; 
+  		-webkit-background-size: cover;
+  		-moz-background-size: cover;
+  		-o-background-size: cover;
+  		background-size: cover;
 	}
 
-	.toolbar
+	.navigationbar
 	{
 		position: absolute;
 		bottom: 0; 
@@ -114,6 +87,7 @@ h1, h2, h3, h4, h5, h6
 		width: 100%;
 		height: 80px; 
 		background-color: #2B3E50; 
+		z-index: 9000; 
 	}
 
 	.profile
@@ -137,10 +111,7 @@ h1, h2, h3, h4, h5, h6
 		border-bottom: 1px solid #C2C2C2; 
 
 	}
-
 	
-
-
 	.dojo_container
 	{
 		padding-left: 40px; 
@@ -150,6 +121,15 @@ h1, h2, h3, h4, h5, h6
 		height: auto; 
 		border-bottom: 1px solid #C2C2C2; 
 		padding-bottom: 30px; 
+	}
+
+	#bg
+	{
+		background: url("imgs/bg.png") no-repeat center center fixed; 
+  		-webkit-background-size: cover;
+  		-moz-background-size: cover;
+  		-o-background-size: cover;
+  		background-size: cover;
 	}
 
 	.dojoh1
@@ -169,13 +149,13 @@ h1, h2, h3, h4, h5, h6
 	{
 	
 		font-family: Light; 
-		font-size: 2.1em; 
+		font-size: 1.7em; 
 		color: #C7C7C7;
 		text-align: center; 
 		margin-left: auto; 
 		margin-right: auto; 
-		margin-top: 25px; 
-		padding-top: 15px; 
+		margin-top: 15px; 
+		padding-top: 0px; 
 		padding-bottom: 10px; 
 	}
 
@@ -188,7 +168,7 @@ h1, h2, h3, h4, h5, h6
 
 	}
 
-	.container
+	.container2
 	{
 		width: 100%; 
 		height: auto;
@@ -203,6 +183,7 @@ h1, h2, h3, h4, h5, h6
 	.app_split
 	{
 		width: 49.5%; 
+		height: 757px; 
 		background-color: white;
 		height: auto; 
 		float: left;
@@ -303,52 +284,356 @@ h1, h2, h3, h4, h5, h6
 	.project-links
 	{
 		height: 200px; 
-		padding: 30px; 
+		padding-top: 30px; 
+		padding-bottom: 30px; 
 		margin-top: 737px; 
-	    height:300px;
+	    height:auto;
 	   	background-color: white; 
 	   	-webkit-box-shadow: inset 0 30px 30px -20px rgba(204,204,204,1);
     	-moz-box-shadow: inset 0 30px 30px -20px rgba(204,204,204,1);
     	box-shadow: inset 0 30px 30px -20px rgba(204,204,204,1);
+    	border-bottom: 1px solid #C2C2C2; 
+
+
 	}
 
-	.project_link_container
+	.project-container
 	{
-		width: 
+		text-align: center; 
+		height: auto; 
+		display: inline-block;
+		margin-left: 150px; 
+		
 	}
 
+	.project-inline
+	{
+		width: 300px; 
+		height: auto; 
+		background-color: white; 
+		margin-bottom: 10px; 
+		margin-left: auto; 
+		margin-right: auto; 
+		border-radius: 5px; 
+		display: inline-block;
+	}
 
+	.project-text
+	{
+		font-family: Semi;
+		font-size: 1.8em; 
+		text-align: left;
+		margin-left: 10px; 
+	}
+
+	.project-text-h2
+	{
+		font-family: Light;
+		font-size: 1.4em; 
+		text-align: left;
+		margin-left: 10px; 
+		color: #B0B0B0; 
+		margin-top: 10px; 
+	}
+
+	.text-container
+	{
+		float: left;
+	}
+
+	.src
+	{
+		border: none; 
+		width: 45px; 
+		height: 60px; 
+		background-color: #ef4036; 
+		color: white;
+		font-family: Semi;
+		font-size: 1em; 
+		border-radius: 3px;
+		border-bottom: 4px solid #c91a10;
+		margin-right: 5px; 
+		vertical-align: top;
+	}
+
+	.src:focus
+	{
+		outline: none; 
+		
+	}
+
+	.single-project-container
+	{
+		margin-top: 20px; 
+		width: auto;
+		float: left;
+		margin-left: 10px; 
+		margin-right: 10px;
+		clear: right;
+	}
+
+	.project-text-h3
+	{
+		font-family: Bold;
+		font-size: 1.2em; 
+		text-align: left;
+		margin-left: 10px; 
+		margin-top: 10px; 
+		color: #CCCCCC; 
+	}
+
+	.profile-project
+	{
+		width: 40px; 
+		height: 40px; 
+		border-radius: 25px; 
+		float: left;
+		margin-top: 10px; 
+		margin-left: 9px; 
+	}
+
+	.bitshift
+	{
+		margin-left: -30px; 
+	}
+
+	.bitshifted
+	{
+		margin-left: 10px; 
+	}
+
+	.hackathonlinks
+	{
+
+		margin-top: 60px;
+		margin-left: auto; 
+		margin-right: auto;
+		width: auto; 
+		height: auto; 
+		display: inline-block;
+		margin-bottom: 90px; 
+
+	}
+
+	.hackblock
+	{
+		width: 205px; 
+		height: 205px; 
+		float: left;
+		margin-left: 10px; 
+		margin-right: 10px; 
+		margin-bottom: 15px; 
+	}
+
+	#scu
+	{
+		background: url(imgs/scu.png) no-repeat center center; 
+	 	 -webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	 	 background-size: cover;
+	 	-webkit-filter: grayscale(100%); filter: grayscale(100%);
+	 	-webkit-transition: all 1s ease;
+         -moz-transition: all 1s ease;
+           -o-transition: all 1s ease;
+          -ms-transition: all 1s ease;
+              transition: all 1s ease;
+	}
+
+	#internhack
+	{
+		background: url(imgs/yahoo.png) no-repeat center center; 
+	 	 -webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	 	 background-size: cover;
+	 	-webkit-filter: grayscale(100%); filter: grayscale(100%);
+	 	-webkit-transition: all 1s ease;
+         -moz-transition: all 1s ease;
+           -o-transition: all 1s ease;
+          -ms-transition: all 1s ease;
+              transition: all 1s ease;
+
+	}
+
+	#hshack
+	{
+		background: url(imgs/hshacks.png) no-repeat center center; 
+	 	 -webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	 	 background-size: cover;
+	 	background-color: white; 
+	 	-webkit-filter: grayscale(100%); filter: grayscale(100%);
+	 	-webkit-transition: all 1s ease;
+         -moz-transition: all 1s ease;
+           -o-transition: all 1s ease;
+          -ms-transition: all 1s ease;
+              transition: all 1s ease;
+
+	}
+
+	#hacktech
+	{
+		background: url(imgs/hacktech.png) no-repeat center center; 
+	 	 -webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	 	 background-size: cover;
+	 	-webkit-filter: grayscale(100%); filter: grayscale(100%);
+	 	-webkit-transition: all 1s ease;
+         -moz-transition: all 1s ease;
+           -o-transition: all 1s ease;
+          -ms-transition: all 1s ease;
+              transition: all 1s ease;
+
+
+	}
+
+	#pennapps
+	{
+		background: url(imgs/pennapps.png) no-repeat center center; 
+	 	 -webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	 	 background-size: cover;
+		-webkit-filter: grayscale(100%); filter: grayscale(100%);
+		-webkit-transition: all 1s ease;
+         -moz-transition: all 1s ease;
+           -o-transition: all 1s ease;
+          -ms-transition: all 1s ease;
+              transition: all 1s ease;
+
+	}
+
+	#calhacks
+	{
+		background: url(imgs/calhacks.png) no-repeat center center; 
+	 	 -webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	 	 background-size: cover;
+	 	background-color: white; 
+		-webkit-filter: grayscale(100%); filter: grayscale(100%);
+		-webkit-transition: all 1s ease;
+         -moz-transition: all 1s ease;
+           -o-transition: all 1s ease;
+          -ms-transition: all 1s ease;
+              transition: all 1s ease;
+
+	}
+
+	#scu:hover 
+	{
+		-webkit-filter: none;
+	}
+
+	#internhack:hover
+	{
+		-webkit-filter: none;
+	}
+
+	#hshack:hover
+	{
+		-webkit-filter: none;
+	}
+
+	#hacktech:hover
+	{
+		-webkit-filter: none;
+	}
+
+	#pennapps:hover
+	{
+		-webkit-filter: none;
+	}
+
+	#calhacks:hover
+	{
+		-webkit-filter: none;
+	}
+
+	.footer
+	{
+		height: 250px; 
+		background-color: #2B3E50; 
+		padding-left: 40px; 
+	}
+
+	.contact_text
+	{
+		font-family: Regular; 
+		font-size: 2em; 
+		color: #20cfb1;
+		padding-left: 10px; 
+		padding-top: 50px; 
+		padding-bottom: 10px; 
+	}
+
+	.contact
+	{
+		width: 500px; 
+		font-family: Light; 
+		font-size: 1.2em; 
+		color: white; 
+		border-collapse: separate;
+        border-spacing: 10px;
+	}
+
+	.resume
+	{
+		width: 120px; 
+		height: 40px; 
+		border: none;
+		border-radius: 5px; 
+		color: white; 
+		background-color: #21ce99; 
+		margin-left: 10px; 
+		font-family: Semi; 
+		font-size: 1.1em; 
+	}
+
+	.resume:focus 
+	{
+		outline: none; 
+	}
+
+	#fixed-height
+	{
+		height: 201px; 
+	}
+
+	#full-screen
+	{
+		padding-bottom: 0px; 
+		width: 50%; 
+	}
 }
 
 @media (max-width: 999px) and (min-width: 600px) {
-	.toolbar_font
-	{
+	.navigationbarfont {
 		font-family: Light; 
 		color: white; 
 		font-size: 0.7em; 
 		letter-spacing: 1px;
 		display: inline-block;
 		line-height: 80px; 
-		margin-right: 15px; 
-		margin-left: 15px; 
+		margin-right: 5px; 
+		margin-left: 5px; 
 		height: 100%; 
 	}
-
-	.toolbar_font:hover
+	.navigationbarfont:hover
 	{
 		color: #20cfb1;
 	}
-
 	h1
 	{
 		font-family: Bold; 
 		text-align: center;
 		color: black; 
-		font-size: 3em; 
+		font-size: 2em; 
 		text-align: left;
-
 	}
-
 	h2
 	{
 		font-family: Semi; 
@@ -362,29 +647,33 @@ h1, h2, h3, h4, h5, h6
 		font-family: Regular; 
 		text-align: center;
 		color: #8F8F8F; 
-		font-size: 1.3em; 
+		font-size: 1.4em; 
 	}
 
 	h4
 	{
 		font-family: Light; 
 		text-align: left;
-		width: 600px; 
+		width: 500px; 
 		line-height: 1.5em; 
 		color: #C4C4C4; 
-		font-size: 1.1em; 
+		font-size: 1em; 
 		margin-right: auto; 
 		margin-left: auto;
 	}
 
-	.top_image
+	.splash_image
 	{
 		width: 100%; 
 		height: calc(100vh - 80px); 
-		background-color: white; 
+		background: url("imgs/dawn.jpg") no-repeat center center fixed; 
+  		-webkit-background-size: cover;
+  		-moz-background-size: cover;
+  		-o-background-size: cover;
+  		background-size: cover;
 	}
 
-	.toolbar
+	.navigationbar
 	{
 		position: absolute;
 		bottom: 0; 
@@ -392,16 +681,17 @@ h1, h2, h3, h4, h5, h6
 		width: 100%;
 		height: 80px; 
 		background-color: #2B3E50; 
+		z-index: 9000; 
 	}
 
 	.profile
 	{
-		width: 40px; 
-		height: 40px; 
-		border-radius: 25px; 
+		width: 60px; 
+		height: 60px; 
+		border-radius: 40px; 
 		border: 3px solid white; 
-		margin-right: 15px; 
-		margin-left: 15px; 
+		margin-right: 25px; 
+		margin-left: 25px; 
 		vertical-align: middle;
 	}
 
@@ -410,28 +700,1079 @@ h1, h2, h3, h4, h5, h6
 		height: auto; 
 		margin-top: 80px; 
 		background-color: white; 
-		padding-top: 40px;  
+		padding-top: 70px;  
 		padding-bottom: 60px; 
-		padding-left: 10px; 
-		padding-right: 10px; 
+		border-bottom: 1px solid #C2C2C2; 
+
+	}
+	
+	.dojo_container
+	{
+		padding-left: 40px; 
+		padding-right: 40px; 
+		background-color: white; 
+		text-align: center; 
+		height: auto; 
+		border-bottom: 1px solid #C2C2C2; 
+		padding-bottom: 30px; 
+	}
+
+	#bg
+	{
+		background: url("imgs/bg.png") no-repeat center center fixed; 
+  		-webkit-background-size: cover;
+  		-moz-background-size: cover;
+  		-o-background-size: cover;
+  		background-size: cover;
+	}
+
+	.dojoh1
+	{
+	
+		font-family: Regular; 
+		font-size: 2em; 
+		color: #424242;
+		text-align: center; 
+		margin-left: auto; 
+		margin-right: auto; 
+		margin-top: 25px; 
+		padding-top: 15px; 
+	}
+
+	.quote
+	{
+	
+		font-family: Light; 
+		font-size: 1.3em; 
+		color: #C7C7C7;
+		text-align: center; 
+		margin-left: auto; 
+		margin-right: auto; 
+		margin-top: 15px; 
+		padding-top: 0px; 
+		padding-bottom: 10px; 
+	}
+
+	.dojo
+	{
+		background-color: white; 
+		width: 100%; 
+		height: auto; 
+		padding-bottom: 20px; 
+
+	}
+
+	.container2
+	{
+		width: 100%; 
+		height: auto;
+
+	}
+
+	#first_right
+	{
+		border-right: 1px solid #C2C2C2; 
+	}
+
+	.app_split
+	{
+		width: 100%; 
+		height: auto; 
+		background-color: white;
+		height: auto; 
+		border-bottom: 1px solid #C2C2C2; 
+		text-align:center;
+	}
+
+	.subtitle
+	{
+		font-family: Semi; 
+		font-size: 1em; 
+		color: #D6D6D6;
+		text-align: center; 
+		margin-left: auto; 
+		margin-right: auto; 
+		margin-top: 50px; 
+	}
+
+	.header
+	{
+		font-family: Regular; 
+		font-size: 2em; 
+		color: #424242;
+		text-align: center; 
+		margin-left: auto; 
+		margin-right: auto; 
+		margin-top: 25px; 
+	}
+
+	.readmore
+	{
+		font-family: Regular; 
+		font-size: 1.4em; 
+		color: #424242;
+		text-decoration: underline;
+		text-align: center; 
+		margin-left: auto; 
+		margin-right: auto; 
+		margin-top: 20px; 
+	}
+
+
+	.view_button
+	{
+		width: 150px; 
+		height: 30px; 
+		border-radius: 30px; 
+		border: none; 
+		margin: 0 auto;
+		text-align: center;
+		color: white; 
+		font-family: Bold; 
+		font-size: 1em; 
+		color: white;
+		text-align: center; 
+		margin-top: 30px; 
+	}
+
+	.view_button:focus
+	{
+		outline: none;
 	}
 
 	.img_container 
 	{
-	    width: 40px;
+    	width: 200px;
 		text-align: center;   
+		margin: 3px;
+		margin: 0 auto;
+		margin-top: 80px; 
 	}
 
 	.mac_container 
 	{
-	    width: 40px;
+	    width: 501px;
+	    text-align: center;
+	    margin-left: auto; 
+	    margin-right: auto; 
+	    margin-top: 50px; 
+	}
+
+	.description
+	{
+		padding-top: 15px; 
+		font-family: Light; 
+		text-align: left;
+		width: 550px; 
+		line-height: 2em; 
+		color: #9E9E9E; 
+		font-size: 1.3em; 
+		margin-right: auto; 
+		margin-left: auto;
+		padding-left: 15px; 
+		margin-top: 20px; 
+		padding-bottom: 15px; 
+	}
+
+	.project-links
+	{
+		height: 200px; 
+		padding-top: 30px; 
+		padding-bottom: 30px; 
+	    height:auto;
+	    margin-top: -20px; 
+	   	background-color: white; 
+	   	-webkit-box-shadow: inset 0 30px 30px -20px rgba(204,204,204,1);
+    	-moz-box-shadow: inset 0 30px 30px -20px rgba(204,204,204,1);
+    	box-shadow: inset 0 30px 30px -20px rgba(204,204,204,1);
+    	border-bottom: 1px solid #C2C2C2; 
+
+
+	}
+
+	.project-container
+	{
 		text-align: center; 
+		height: auto; 
+		display: inline-block;
+		margin-left: 20%; 
+		
+	}
+
+	.project-inline
+	{
+		width: 250px; 
+		height: auto; 
+		background-color: white; 
+		margin-bottom: 10px; 
+		margin-left: auto; 
+		margin-right: auto; 
+		border-radius: 5px; 
+		display: inline-block;
+	}
+
+	.project-text
+	{
+		font-family: Semi;
+		font-size: 1.1em; 
+		text-align: left;
+		margin-left: 10px; 
+	}
+
+	.project-text-h2
+	{
+		font-family: Light;
+		font-size: 0.8em; 
+		text-align: left;
+		margin-left: 10px; 
+		color: #B0B0B0; 
+		margin-top: 10px; 
+	}
+
+	.text-container
+	{
+		float: left;
+	}
+
+	.src
+	{
+		border: none; 
+		width: 40px; 
+		height: 40px; 
+		background-color: #ef4036; 
+		color: white;
+		font-family: Semi;
+		font-size: 1em; 
+		border-radius: 3px;
+		border-bottom: 4px solid #c91a10;
+		margin-right: 5px; 
+		vertical-align: top;
+	}
+
+	.src:focus
+	{
+		outline: none; 
+		
+	}
+
+	.single-project-container
+	{
+		margin-top: 20px; 
+		width: auto;
+		float: left;
+		margin-left: 10px; 
+		margin-right: 10px;
+		clear: right;
+	}
+
+	.project-text-h3
+	{
+		font-family: Bold;
+		font-size: 1.2em; 
+		text-align: left;
+		margin-left: 10px; 
+		margin-top: 10px; 
+		color: #CCCCCC; 
+	}
+
+	.profile-project
+	{
+		width: 30px; 
+		height: 30px; 
+		border-radius: 25px; 
+		float: left;
+		margin-top: 10px; 
+		margin-left: 9px; 
+	}
+
+	.bitshift
+	{
+		margin-left: -30px; 
+	}
+
+	.bitshifted
+	{
+		margin-left: 10px; 
+	}
+
+	.hackathonlinks
+	{
+
+		margin-top: 60px;
+		margin-left: auto; 
+		margin-right: auto;
+		width: auto; 
+		height: auto; 
+		display: inline-block;
+		margin-bottom: 90px; 
+
+	}
+
+	.hackblock
+	{
+		width: 130px; 
+		height: 130px; 
+		float: left;
+		margin-left: 10px; 
+		margin-right: 10px; 
+		margin-bottom: 15px; 
+	}
+
+	#scu
+	{
+		background: url(imgs/scu.png) no-repeat center center; 
+	 	 -webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	 	 background-size: cover;
+	 	-webkit-filter: grayscale(100%); filter: grayscale(100%);
+	 	-webkit-transition: all 1s ease;
+         -moz-transition: all 1s ease;
+           -o-transition: all 1s ease;
+          -ms-transition: all 1s ease;
+              transition: all 1s ease;
+	}
+
+	#internhack
+	{
+		background: url(imgs/yahoo.png) no-repeat center center; 
+	 	 -webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	 	 background-size: cover;
+	 	-webkit-filter: grayscale(100%); filter: grayscale(100%);
+	 	-webkit-transition: all 1s ease;
+         -moz-transition: all 1s ease;
+           -o-transition: all 1s ease;
+          -ms-transition: all 1s ease;
+              transition: all 1s ease;
+
+	}
+
+	#hshack
+	{
+		background: url(imgs/hshacks.png) no-repeat center center; 
+	 	 -webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	 	 background-size: cover;
+	 	background-color: white; 
+	 	-webkit-filter: grayscale(100%); filter: grayscale(100%);
+	 	-webkit-transition: all 1s ease;
+         -moz-transition: all 1s ease;
+           -o-transition: all 1s ease;
+          -ms-transition: all 1s ease;
+              transition: all 1s ease;
+
+	}
+
+	#hacktech
+	{
+		background: url(imgs/hacktech.png) no-repeat center center; 
+	 	 -webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	 	 background-size: cover;
+	 	-webkit-filter: grayscale(100%); filter: grayscale(100%);
+	 	-webkit-transition: all 1s ease;
+         -moz-transition: all 1s ease;
+           -o-transition: all 1s ease;
+          -ms-transition: all 1s ease;
+              transition: all 1s ease;
+
+
+	}
+
+	#pennapps
+	{
+		background: url(imgs/pennapps.png) no-repeat center center; 
+	 	 -webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	 	 background-size: cover;
+		-webkit-filter: grayscale(100%); filter: grayscale(100%);
+		-webkit-transition: all 1s ease;
+         -moz-transition: all 1s ease;
+           -o-transition: all 1s ease;
+          -ms-transition: all 1s ease;
+              transition: all 1s ease;
+
+	}
+
+	#calhacks
+	{
+		background: url(imgs/calhacks.png) no-repeat center center; 
+	 	 -webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	 	 background-size: cover;
+	 	background-color: white; 
+		-webkit-filter: grayscale(100%); filter: grayscale(100%);
+		-webkit-transition: all 1s ease;
+         -moz-transition: all 1s ease;
+           -o-transition: all 1s ease;
+          -ms-transition: all 1s ease;
+              transition: all 1s ease;
+
+	}
+
+	#scu:hover 
+	{
+		-webkit-filter: none;
+	}
+
+	#internhack:hover
+	{
+		-webkit-filter: none;
+	}
+
+	#hshack:hover
+	{
+		-webkit-filter: none;
+	}
+
+	#hacktech:hover
+	{
+		-webkit-filter: none;
+	}
+
+	#pennapps:hover
+	{
+		-webkit-filter: none;
+	}
+
+	#calhacks:hover
+	{
+		-webkit-filter: none;
+	}
+
+	.footer
+	{
+		height: 250px; 
+		background-color: #2B3E50; 
+		padding-left: 40px; 
+	}
+
+	.contact_text
+	{
+		font-family: Regular; 
+		font-size: 1.5em; 
+		color: #20cfb1;
+		padding-left: 10px; 
+		padding-top: 50px; 
+		padding-bottom: 10px; 
+	}
+
+	.contact
+	{
+		width: 300px; 
+		font-family: Light; 
+		font-size: 0.9em; 
+		color: white; 
+		border-collapse: separate;
+        border-spacing: 10px;
+	}
+
+	.resume
+	{
+		width: 120px; 
+		height: 40px; 
+		border: none;
+		border-radius: 5px; 
+		color: white; 
+		background-color: #21ce99; 
+		margin-left: 10px; 
+		font-family: Semi; 
+		font-size: 0.7em; 
+	}
+
+	.resume:focus 
+	{
+		outline: none; 
 	}
 
 }
 
 @media (max-width: 599px) and (min-width: 400px) {
+	.navigationbarfont {
+		font-family: Light; 
+		color: white; 
+		font-size: 0.4em; 
+		letter-spacing: 1px;
+		display: inline-block;
+		line-height: 80px; 
+		margin-right: 2px; 
+		margin-left: 2px; 
+		height: 100%; 
+	}
+	.navigationbarfont:hover
+	{
+		color: #20cfb1;
+	}
+	h1
+	{
+		font-family: Bold; 
+		text-align: center;
+		color: black; 
+		font-size: 1.5em; 
+		text-align: left;
+	}
+	h2
+	{
+		font-family: Semi; 
+		text-align: center;
+		color: #333333; 
+		font-size: 1em; 
+	}
 
+	h3
+	{
+		font-family: Regular; 
+		text-align: center;
+		color: #8F8F8F; 
+		font-size: 0.8em; 
+	}
+
+	h4
+	{
+		font-family: Light; 
+		text-align: left;
+		width: 300px; 
+		line-height: 1.5em; 
+		color: #C4C4C4; 
+		font-size: 0.8em; 
+		margin-right: auto; 
+		margin-left: auto;
+	}
+
+	.splash_image
+	{
+		width: 100%; 
+		height: calc(100vh - 80px); 
+		background: url("imgs/dawn.jpg") no-repeat center center fixed; 
+  		-webkit-background-size: cover;
+  		-moz-background-size: cover;
+  		-o-background-size: cover;
+  		background-size: cover;
+	}
+
+	.navigationbar
+	{
+		position: absolute;
+		bottom: 0; 
+		left: 0;
+		width: 100%;
+		height: 80px; 
+		background-color: #2B3E50; 
+		z-index: 9000; 
+	}
+
+	.profile
+	{
+		width: 20px; 
+		height: 20px; 
+		border-radius: 30px; 
+		border: 1px solid white; 
+		margin-right: 5px; 
+		margin-left: 5px; 
+		vertical-align: middle;
+	}
+
+	.me
+	{ 
+		height: auto; 
+		margin-top: 80px; 
+		background-color: white; 
+		padding-top: 70px;  
+		padding-bottom: 60px; 
+		border-bottom: 1px solid #C2C2C2; 
+
+	}
+	
+	.dojo_container
+	{
+		padding-left: 40px; 
+		padding-right: 40px; 
+		background-color: white; 
+		text-align: center; 
+		height: auto; 
+		border-bottom: 1px solid #C2C2C2; 
+		padding-bottom: 30px; 
+	}
+
+	#bg
+	{
+		background: url("imgs/bg.png") no-repeat center center fixed; 
+  		-webkit-background-size: cover;
+  		-moz-background-size: cover;
+  		-o-background-size: cover;
+  		background-size: cover;
+	}
+
+	.dojoh1
+	{
+	
+		font-family: Regular; 
+		font-size: 1em; 
+		color: #424242;
+		text-align: center; 
+		margin-left: auto; 
+		margin-right: auto; 
+		margin-top: 25px; 
+		padding-top: 15px; 
+	}
+
+	.quote
+	{
+	
+		font-family: Light; 
+		font-size: 0.7em; 
+		color: #C7C7C7;
+		text-align: center; 
+		margin-left: auto; 
+		margin-right: auto; 
+		margin-top: 15px; 
+		padding-top: 0px; 
+		padding-bottom: 10px; 
+	}
+
+	.dojo
+	{
+		background-color: white; 
+		width: 100%; 
+		height: auto; 
+		padding-bottom: 20px; 
+
+	}
+
+	.container2
+	{
+		width: 100%; 
+		height: auto;
+
+	}
+
+	#first_right
+	{
+		border-right: 1px solid #C2C2C2; 
+	}
+
+	.app_split
+	{
+		width: 100%; 
+		height: auto; 
+		background-color: white;
+		height: auto; 
+		border-bottom: 1px solid #C2C2C2; 
+		text-align:center;
+	}
+
+	.subtitle
+	{
+		font-family: Semi; 
+		font-size: 1em; 
+		color: #D6D6D6;
+		text-align: center; 
+		margin-left: auto; 
+		margin-right: auto; 
+		margin-top: 50px; 
+	}
+
+	.header
+	{
+		font-family: Regular; 
+		font-size: 2em; 
+		color: #424242;
+		text-align: center; 
+		margin-left: auto; 
+		margin-right: auto; 
+		margin-top: 25px; 
+	}
+
+	.readmore
+	{
+		font-family: Regular; 
+		font-size: 1.4em; 
+		color: #424242;
+		text-decoration: underline;
+		text-align: center; 
+		margin-left: auto; 
+		margin-right: auto; 
+		margin-top: 20px; 
+	}
+
+
+	.view_button
+	{
+		width: 150px; 
+		height: 30px; 
+		border-radius: 30px; 
+		border: none; 
+		margin: 0 auto;
+		text-align: center;
+		color: white; 
+		font-family: Bold; 
+		font-size: 1em; 
+		color: white;
+		text-align: center; 
+		margin-top: 30px; 
+	}
+
+	.view_button:focus
+	{
+		outline: none;
+	}
+
+	.img_container 
+	{
+    	width: 200px;
+		text-align: center;   
+		margin: 3px;
+		margin: 0 auto;
+		margin-top: 80px; 
+	}
+
+	.mac_container 
+	{
+	    width: 301px;
+	    text-align: center;
+	    margin-left: auto; 
+	    margin-right: auto; 
+	    margin-top: 50px; 
+	}
+
+	.description
+	{
+		padding-top: 15px; 
+		font-family: Light; 
+		text-align: left;
+		width: 230px; 
+		line-height: 2em; 
+		color: #9E9E9E; 
+		font-size: 1em; 
+		margin-right: auto; 
+		margin-left: auto;
+		padding-left: 15px; 
+		margin-top: 20px; 
+		padding-bottom: 15px; 
+	}
+
+	.project-links
+	{
+		height: 200px; 
+		padding-top: 30px; 
+		padding-bottom: 30px; 
+	    height:auto;
+	    margin-top: -20px; 
+	   	background-color: white; 
+	   	-webkit-box-shadow: inset 0 30px 30px -20px rgba(204,204,204,1);
+    	-moz-box-shadow: inset 0 30px 30px -20px rgba(204,204,204,1);
+    	box-shadow: inset 0 30px 30px -20px rgba(204,204,204,1);
+    	border-bottom: 1px solid #C2C2C2; 
+
+
+	}
+
+	.project-container
+	{
+		text-align: center; 
+		height: auto; 
+		display: inline-block;
+		margin-left: 20%; 
+		
+	}
+
+	.project-inline
+	{
+		width: 200px; 
+		height: auto; 
+		background-color: white; 
+		margin-bottom: 10px; 
+		margin-left: auto; 
+		margin-right: auto; 
+		border-radius: 5px; 
+		display: inline-block;
+	}
+
+	.project-text
+	{
+		font-family: Semi;
+		font-size: 1.1em; 
+		text-align: left;
+		margin-left: 10px; 
+	}
+
+	.project-text-h2
+	{
+		font-family: Light;
+		font-size: 0.8em; 
+		text-align: left;
+		margin-left: 10px; 
+		color: #B0B0B0; 
+		margin-top: 10px; 
+	}
+
+	.text-container
+	{
+		float: left;
+	}
+
+	.src
+	{
+		border: none; 
+		width: 40px; 
+		height: 40px; 
+		background-color: #ef4036; 
+		color: white;
+		font-family: Semi;
+		font-size: 1em; 
+		border-radius: 3px;
+		border-bottom: 4px solid #c91a10;
+		margin-right: 5px; 
+		vertical-align: top;
+	}
+
+	.src:focus
+	{
+		outline: none; 
+		
+	}
+
+	.single-project-container
+	{
+		margin-top: 20px; 
+		width: auto;
+		float: left;
+		margin-left: 10px; 
+		margin-right: 10px;
+		clear: right;
+	}
+
+	.project-text-h3
+	{
+		font-family: Bold;
+		font-size: 1.2em; 
+		text-align: left;
+		margin-left: 10px; 
+		margin-top: 10px; 
+		color: #CCCCCC; 
+	}
+
+	.profile-project
+	{
+		width: 30px; 
+		height: 30px; 
+		border-radius: 25px; 
+		float: left;
+		margin-top: 10px; 
+		margin-left: 9px; 
+	}
+
+	.bitshift
+	{
+		margin-left: -30px; 
+	}
+
+	.bitshifted
+	{
+		margin-left: 10px; 
+	}
+
+	.hackathonlinks
+	{
+
+		margin-top: 60px;
+		margin-left: auto; 
+		margin-right: auto;
+		width: auto; 
+		height: auto; 
+		display: inline-block;
+		margin-bottom: 90px; 
+
+	}
+
+	.hackblock
+	{
+		width: 80px; 
+		height: 80px; 
+		float: left;
+		margin-left: 10px; 
+		margin-right: 10px; 
+		margin-bottom: 15px; 
+	}
+
+	#scu
+	{
+		background: url(imgs/scu.png) no-repeat center center; 
+	 	 -webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	 	 background-size: cover;
+	 	-webkit-filter: grayscale(100%); filter: grayscale(100%);
+	 	-webkit-transition: all 1s ease;
+         -moz-transition: all 1s ease;
+           -o-transition: all 1s ease;
+          -ms-transition: all 1s ease;
+              transition: all 1s ease;
+	}
+
+	#internhack
+	{
+		background: url(imgs/yahoo.png) no-repeat center center; 
+	 	 -webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	 	 background-size: cover;
+	 	-webkit-filter: grayscale(100%); filter: grayscale(100%);
+	 	-webkit-transition: all 1s ease;
+         -moz-transition: all 1s ease;
+           -o-transition: all 1s ease;
+          -ms-transition: all 1s ease;
+              transition: all 1s ease;
+
+	}
+
+	#hshack
+	{
+		background: url(imgs/hshacks.png) no-repeat center center; 
+	 	 -webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	 	 background-size: cover;
+	 	background-color: white; 
+	 	-webkit-filter: grayscale(100%); filter: grayscale(100%);
+	 	-webkit-transition: all 1s ease;
+         -moz-transition: all 1s ease;
+           -o-transition: all 1s ease;
+          -ms-transition: all 1s ease;
+              transition: all 1s ease;
+
+	}
+
+	#hacktech
+	{
+		background: url(imgs/hacktech.png) no-repeat center center; 
+	 	 -webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	 	 background-size: cover;
+	 	-webkit-filter: grayscale(100%); filter: grayscale(100%);
+	 	-webkit-transition: all 1s ease;
+         -moz-transition: all 1s ease;
+           -o-transition: all 1s ease;
+          -ms-transition: all 1s ease;
+              transition: all 1s ease;
+
+
+	}
+
+	#pennapps
+	{
+		background: url(imgs/pennapps.png) no-repeat center center; 
+	 	 -webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	 	 background-size: cover;
+		-webkit-filter: grayscale(100%); filter: grayscale(100%);
+		-webkit-transition: all 1s ease;
+         -moz-transition: all 1s ease;
+           -o-transition: all 1s ease;
+          -ms-transition: all 1s ease;
+              transition: all 1s ease;
+
+	}
+
+	#calhacks
+	{
+		background: url(imgs/calhacks.png) no-repeat center center; 
+	 	 -webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	 	 background-size: cover;
+	 	background-color: white; 
+		-webkit-filter: grayscale(100%); filter: grayscale(100%);
+		-webkit-transition: all 1s ease;
+         -moz-transition: all 1s ease;
+           -o-transition: all 1s ease;
+          -ms-transition: all 1s ease;
+              transition: all 1s ease;
+
+	}
+
+	#scu:hover 
+	{
+		-webkit-filter: none;
+	}
+
+	#internhack:hover
+	{
+		-webkit-filter: none;
+	}
+
+	#hshack:hover
+	{
+		-webkit-filter: none;
+	}
+
+	#hacktech:hover
+	{
+		-webkit-filter: none;
+	}
+
+	#pennapps:hover
+	{
+		-webkit-filter: none;
+	}
+
+	#calhacks:hover
+	{
+		-webkit-filter: none;
+	}
+
+	.footer
+	{
+		height: 250px; 
+		background-color: #2B3E50; 
+		padding-left: 40px; 
+	}
+
+	.contact_text
+	{
+		font-family: Regular; 
+		font-size: 1.5em; 
+		color: #20cfb1;
+		padding-left: 10px; 
+		padding-top: 50px; 
+		padding-bottom: 10px; 
+	}
+
+	.contact
+	{
+		width: 200px; 
+		font-family: Light; 
+		font-size: 0.9em; 
+		color: white; 
+		border-collapse: separate;
+        border-spacing: 10px;
+	}
+
+	.resume
+	{
+		width: 120px; 
+		height: 40px; 
+		border: none;
+		border-radius: 5px; 
+		color: white; 
+		background-color: #21ce99; 
+		margin-left: 10px; 
+		font-family: Semi; 
+		font-size: 0.7em; 
+	}
+
+	.resume:focus 
+	{
+		outline: none; 
+	}
 }
 
 @media (max-width: 399px) and (min-width: 200px) {
