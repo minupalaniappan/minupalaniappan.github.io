@@ -1780,7 +1780,6 @@ button > a { text-decoration:  none }
 		color: white; 
 		font-size: 1.5em; 
 		letter-spacing: 1px;
-		line-height: auto; 
 		height: 100%; 
 		text-align: center; 
 	}
@@ -1839,7 +1838,7 @@ button > a { text-decoration:  none }
 	.navigationbar
 	{
 		position: absolute;
-		bottom: 0; 
+		top: 0; 
 		left: 0;
 		width: 100%;
 		height: auto; 
