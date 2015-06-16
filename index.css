@@ -1782,6 +1782,7 @@ button > a { text-decoration:  none }
 		letter-spacing: 1px;
 		text-align: center; 
 		display: block; 
+		margin-top: 20px; 
 	}
 	.navigationbarfont:hover
 	{
