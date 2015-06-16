@@ -1776,7 +1776,7 @@ button > a { text-decoration:  none }
 
 @media only screen and (max-device-width: 480px) {
 	.navigationbarfont {
-		font-family: Light; 
+		font-family: Semi; 
 		color: red; 
 		font-size: 1em; 
 		letter-spacing: 1px;
