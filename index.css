@@ -1774,10 +1774,6 @@ button > a { text-decoration:  none }
 	}
 }
 
-@media (max-width: 399px) and (min-width: 200px) {
-
-}
-
-@media (max-width: 199px) and (min-width: 50px) {
+@media only screen and (max-device-width: 480px) {
 
 }
