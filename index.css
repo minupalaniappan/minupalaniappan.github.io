@@ -302,7 +302,8 @@ button > a { text-decoration:  none }
 		text-align: center; 
 		height: auto; 
 		display: inline-block;
-		margin-left: 150px; 
+		width: 100%; 
+		/*margin-left: 150px; */
 		
 	}
 
@@ -366,7 +367,7 @@ button > a { text-decoration:  none }
 	{
 		margin-top: 20px; 
 		width: auto;
-		float: left;
+		display: inline-block; 
 		margin-left: 10px; 
 		margin-right: 10px;
 		clear: right;
@@ -895,7 +896,6 @@ button > a { text-decoration:  none }
 		text-align: center; 
 		height: auto; 
 		display: inline-block;
-		margin-left: 20%; 
 		
 	}
 
@@ -959,7 +959,7 @@ button > a { text-decoration:  none }
 	{
 		margin-top: 20px; 
 		width: auto;
-		float: left;
+		display: inline-block; 
 		margin-left: 10px; 
 		margin-right: 10px;
 		clear: right;
@@ -1478,8 +1478,7 @@ button > a { text-decoration:  none }
 		text-align: center; 
 		height: auto; 
 		display: inline-block;
-		margin-left: 20%; 
-		
+		margin-left: 20%; 		
 	}
 
 	.project-inline
@@ -1542,7 +1541,7 @@ button > a { text-decoration:  none }
 	{
 		margin-top: 20px; 
 		width: auto;
-		float: left;
+		display: inline-block; 
 		margin-left: 10px; 
 		margin-right: 10px;
 		clear: right;
