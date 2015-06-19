@@ -604,10 +604,17 @@ button > a { text-decoration:  none }
 		height: 201px; 
 	}
 
-	#full-screen
+	/*#full-screen
 	{
 		padding-bottom: 0px; 
 		width: 50%; 
+	}*/ 
+	.sizing
+	{
+		height: 350px;
+		width: auto; 
+		text-align: center;  
+		margin-top: 177px; 
 	}
 }
 
@@ -1191,6 +1198,14 @@ button > a { text-decoration:  none }
 		outline: none; 
 	}
 
+	.sizing
+	{
+		height: 350px;
+		width: auto; 
+		text-align: center;  
+		margin-top: 80px; 
+	}
+
 }
 
 @media (max-width: 599px) and (min-width: 400px) {
@@ -1771,6 +1786,14 @@ button > a { text-decoration:  none }
 	.resume:focus 
 	{
 		outline: none; 
+	}
+
+	.sizing
+	{
+		height: 250px;
+		width: auto; 
+		text-align: center;  
+		margin-top: 80px; 
 	}
 }
 
@@ -2353,5 +2376,13 @@ button > a { text-decoration:  none }
 	.resume:focus 
 	{
 		outline: none; 
+	}
+
+	.sizing
+	{
+		height: 350px;
+		width: auto; 
+		text-align: center;  
+		margin-top: 80px; 
 	}
 }
