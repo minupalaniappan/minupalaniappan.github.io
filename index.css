@@ -64,3 +64,16 @@ h5
 	margin: 0px; 
 
 }
+
+.title
+{
+	color: #3D3D3D; 
+	padding-bottom: 10px; 
+	padding-top: 10px; 
+}
+
+.title-sub
+{
+	color: #A1A1A1; 
+	padding-bottom: 10px; 
+}
