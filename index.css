@@ -1,98 +1,105 @@
-@font-face {font-family: Regular; src: url(fonts/HelveticaNeue-Light.otf);}
-@font-face {font-family: Bold; src: url(fonts/HelveticaNeue.ttf);}
-@font-face {font-family: Proxima-Black; src: url(fonts/PNBLACK.otf);}
-@font-face {font-family: Proxima-Bold; src: url(fonts/PNBOLD.otf);}
-@font-face {font-family: Proxima-Light; src: url(fonts/PNLIGHT.otf);}
-@font-face {font-family: Proxima-Regular; src: url(fonts/PNREGULAR.otf);}
-@font-face {font-family: Proxima-SemiBold; src: url(fonts/PNSEMIBOLD.otf);}
-@font-face {font-family: Dojo; src: url(fonts/CO.ttf);}
+@font-face {font-family: Regular; src: url(fonts/Karla-Regular.ttf);}
+@font-face {font-family: Bold; src: url(fonts/Karla-Bold.ttf);}
 
-html, body, p 
-{
-	padding: 0px; 
-	margin: 0px; 
-	background-color: #fafafa; 
-	padding-left: 50px; 
-	padding-right: 50px; 
+* {
+	padding: 0px;
+	margin: 0px;
+}
+body {
+	max-width: 800px;
+	margin: 0 auto;
+	position: relative;
+}
+a {
+	color: #5ba7c2;
+}
+.container {
+	padding: 10px;
+}
+.experiences {
+	margin: 10px 0px 10px 0px;
+}
+.Header {
+	padding: 10px;
+	border-bottom: 1px solid #EBEBEB;
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    background-color: white;
+    max-width: 800px;
+    right: 0px;
+    left: 0px;
+    margin: 0 auto;
+}
+.Header .inbox {
+	vertical-align: middle;
 }
 
-p
-{
-	background-color: white; 
+.Logo {
+	font-size: 25px;
+	font-family: Regular;
 }
 
-.profile
-{
-	height: auto; 
-	padding-top: 100px; 
-	padding-bottom: 30px; 
-	text-align: center; 
+.Nav {
+	font-size: 15px;
+	font-family: Bold;
 }
-
-.profile-pic
-{
-	width: 200px; 
-	height: 200px; 
-	border-radius: 100px; 
+.Nav:hover {
+	text-decoration: underline;
+	cursor: pointer;
 }
-
-h1
-{
-	font-family: Bold; 
-	padding: 0px; 
-	margin: 0px; 
+.paragraph {
+	max-width: 600px;
 }
-
-h4
-{
-	font-family: Proxima-Regular; 
-	padding: 0px; 
-	margin: 0px; 
+.paragraph p {
+	line-height: 1.5em;
 }
-
-h3
-{
-	font-family: Proxima-SemiBold; 
-	padding: 0px; 
-	margin: 0px; 
+.Title1 {
+	font-family: Bold;
+	font-size: 44px;
+	color: black;
 }
-
-h5
-{
-	font-family: Proxima-Light; 
-	padding: 0px; 
-	margin: 0px; 
-
+.Title2 {
+	font-family: Bold;
+	font-size: 32px;
+	color: #333;
 }
-
-.title
-{
-	color: #3D3D3D; 
-	padding-bottom: 10px; 
-	padding-top: 10px; 
+.Title3 {
+	font-family: Regular;
+	font-size: 24px;
+	color: #656674;
 }
-
-.title-sub
-{
-	color: #A1A1A1; 
-	padding-bottom: 10px; 
-	line-height: 2em; 
-
+.Large {
+	font-family: Regular;
+	font-size: 19px;
 }
-
-.skill-tag
-{
-	width: auto; 
-	height: auto; 
-	padding: 5px; 
-	padding-left: 8px; 
-	padding-right: 8px; 
-	border-radius: 4px; 
-	background-color: #DEDEDE; 
+.Regular {
+	font-family: Regular;
+	font-size: 17px;
+	color: #ABABAB;
+}
+.Small {
+	font-family: Regular;
+	font-size: 14px;
+}
+.Micro {
+	font-family: Regular;
+	font-size: 8px;
+}
+.padding5 {
+	padding: 5px 0px 5px 0px;
+}
+.borderBottom {
+	border-bottom: 1px solid #EBEBEB;
+}
+.content {
+}
+.content p, .content img{
 	display: inline-block;
-	font-family: Proxima-Regular; 
-	color: #5C5C5C; 
-	margin-right: 10px; 
-	margin-top: 5px; 
-	margin-bottom: 5px; 
+	vertical-align: middle;
+}
+.prgImg {
+	width: 15px;
+	padding-right: 3px;
 }
