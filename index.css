@@ -13,6 +13,13 @@ body {
 a {
 	color: #5ba7c2;
 }
+.inbox a {
+	color: #333;
+	text-decoration: none;
+}
+.inbox a:hover {
+	text-decoration: underline;
+}
 .container {
 	padding: 10px;
 }
