@@ -15,16 +15,22 @@ $base-line-height: 1.5;
 $width: 800px;
 $postPadding: 40px;
 
+//fontsize
+$h1: 44px; $h1color: #333;
+$h2: 32px; $h2color: #44484a;
+$h3: 24px; $h3color: #7C7E80;
+$large: 19px; $largecolor: #656674;
+$regular: 17px; $regularcolor: #B4B5B6;
+$small: 14px; $smallcolor: #C6C8C8;
+$micro: 8px; $microcolor: black;
+$link: #2b6dad;
+
+//border
+$border: 1px solid #D9DADA;
+
+//banner
+$base-img-width: 300px;
 $spacing-unit:     30px;
-
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
-
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
-
 // Width of the content area
 $content-width:    800px;
 

@@ -2,7 +2,7 @@
  * Site header
  */
 .site-header {
-    border-bottom: 1px solid $grey-color-light;
+    border-bottom: $border;
     min-height: 56px;
     // Positioning context for the mobile navigation icon
     position: fixed;
@@ -23,82 +23,53 @@
     line-height: 56px;
     letter-spacing: -1px;
     margin-bottom: 0;
+    color: $h1color;
     &,
     &:visited {
-        color: $grey-color-dark;
     }
+    text-decoration: none;
 }
 
-.site-nav {
-    line-height: 56px;
-
-    .menu-icon {
-        display: none;
+.page-link {
+    line-height: $base-line-height;
+    font-weight: 700;
+    vertical-align: middle;
+    color: $h3color;
+    // Gaps between nav items, but not on the last one
+    &:not(:last-child) {
+        margin-right: 20px;
     }
-
-    .page-link {
-        color: $text-color;
-        line-height: $base-line-height;
-        font-weight: 700;
-        vertical-align: middle;
-        // Gaps between nav items, but not on the last one
-        &:not(:last-child) {
-            margin-right: 20px;
-        }
-    }
-
-    @include media-query($on-palm) {
-        position: absolute;
-        top: 9px;
-        right: $spacing-unit / 2;
-        background-color: $background-color;
-        border: 1px solid $grey-color-light;
-        border-radius: 5px;
-        text-align: right;
-
-        .menu-icon {
-            display: block;
-            float: right;
-            width: 36px;
-            height: 26px;
-            line-height: 0;
-            padding-top: 10px;
-            text-align: center;
-
-            > svg {
-                width: 18px;
-                height: 15px;
-
-                path {
-                    fill: $grey-color-dark;
-                }
-            }
-        }
-
-
-        &:hover .trigger {
-            display: block;
-            padding-bottom: 5px;
-        }
-
-        .page-link {
-            display: block;
-            padding: 5px 10px;
-            &:not(:last-child) {
-                margin-right: 0;
-            }
-            margin-left: 20px;
-        }
-    }
+    text-decoration: none;
+}
+.page-link:hover {
+    text-decoration: underline;
 }
 
-
+/*
+    templates
+*/
+.padding60 {
+    padding: 60px 0px 0px 0px;
+}
+.padding80 {
+    padding: 80px 0px 0px 0px;
+}
+.articleContainer {
+    padding: 10px 0px 10px 0px;
+    .regular {
+        max-width: 600px;
+        line-height: 1.5em;
+    }
+    .small {
+        padding: 3px 0px 5px 0px;
+    }
+}
 
 /**
  * Site footer
  */
 .site-footer {
-    border-top: 1px solid $grey-color-light;
+    border-top: $border;
     padding: $spacing-unit 0;
 }
 
@@ -115,7 +86,6 @@
 
 .footer-col-wrapper {
     font-size: 15px;
-    color: $grey-color;
     margin-left: -$spacing-unit / 2;
     @extend %clearfix;
 }
@@ -159,87 +129,5 @@
         float: none;
         width: -webkit-calc(100% - (#{$spacing-unit} / 2));
         width:         calc(100% - (#{$spacing-unit} / 2));
-    }
-}
-
-
-
-/**
- * Page content
- */
-.page-content {
-    padding: $spacing-unit 0;
-}
-
-.page-heading {
-    font-size: 20px;
-}
-
-.post-list {
-    margin-left: 0;
-    list-style: none;
-
-    > li {
-        margin-bottom: $spacing-unit;
-    }
-}
-
-.post-meta {
-    font-size: $small-font-size;
-    color: $grey-color;
-}
-
-.post-link {
-    display: block;
-    font-size: 24px;
-}
-
-
-
-/**
- * Posts
- */
-.post {
-    padding-top: $postPadding;
-}
-.post-header {
-    margin-bottom: $spacing-unit;
-}
-
-.post-title {
-    font-size: 42px;
-    letter-spacing: -1px;
-    line-height: 1;
-
-    @include media-query($on-laptop) {
-        font-size: 36px;
-    }
-}
-
-.post-content {
-    margin-bottom: $spacing-unit;
-
-    h2 {
-        font-size: 32px;
-
-        @include media-query($on-laptop) {
-            font-size: 28px;
-        }
-    }
-
-    h3 {
-        font-size: 26px;
-
-        @include media-query($on-laptop) {
-            font-size: 22px;
-        }
-    }
-
-    h4 {
-        font-size: 20px;
-
-        @include media-query($on-laptop) {
-            font-size: 18px;
-        }
     }
 }

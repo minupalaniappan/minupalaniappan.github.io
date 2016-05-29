@@ -15,8 +15,6 @@ dl, dd, ol, ul, figure {
  */
 body {
     font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
-    color: $text-color;
-    background-color: $background-color;
     -webkit-text-size-adjust: 100%;
     -webkit-font-feature-settings: "kern" 1;
     -moz-font-feature-settings: "kern" 1;
@@ -37,10 +35,8 @@ h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 ul, ol, dl, figure,
 %vertical-rhythm {
-    margin-bottom: $spacing-unit / 2;
+    margin-bottom: 0px;
 }
-
-
 
 /**
  * Images
@@ -84,41 +80,46 @@ li {
 /**
  * Headings
  */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3 {
+    font-weight: $bold-font-weight;
+}
+h4, h5, h6, .large, .regular, .small, .micro {
     font-weight: $base-font-weight;
 }
-
-
-
-/**
- * Links
- */
-a {
-    color: $brand-color;
-    text-decoration: none;
-
-    &:visited {
-        color: darken($brand-color, 15%);
-    }
-
-    &:hover {
-        color: $text-color;
-        text-decoration: underline;
-    }
+h1 {
+    font-size: $h1;
+    color: $h1color;
+    line-height: $h1;
 }
-
-a.site-title {
-    &:hover {
-        text-decoration: none;
-    }
+h2 {
+    font-size: $h2;
+    color: $h2color;
+    line-height: $h2;
 }
-a.page-link {
-    color: $text-color;
-    font-weight: 700;
-    &:hover {
-        text-decoration: underline;
-    }
-
+h3 {
+    font-size: $h3;
+    color: $h3color;
+    line-height: $h3;
+}
+.large {
+    font-size: $large;
+    color: $largecolor;
+    line-height: $large;
+}
+.regular {
+    font-size: $regular;
+    color: $regularcolor;
+    line-height: $regular;
+}
+.small {
+    font-size: $small;
+    color: $smallcolor;
+    line-height: $small;
+}
+.micro {
+    font-size: $micro;
+    color: $microcolor;
+    line-height: $micro;
 }
 
 
@@ -126,8 +127,8 @@ a.page-link {
  * Blockquotes
  */
 blockquote {
-    color: $grey-color;
-    border-left: 4px solid $grey-color-light;
+    //color: $grey-color;
+    //border-left: 4px solid $grey-color-light;
     padding-left: $spacing-unit / 2;
     font-size: 18px;
     letter-spacing: -1px;
@@ -146,7 +147,7 @@ blockquote {
 pre,
 code {
     font-size: 15px;
-    border: 1px solid $grey-color-light;
+    //border: 1px solid $grey-color-light;
     border-radius: 3px;
     background-color: #eef;
 }
@@ -167,6 +168,23 @@ pre {
 }
 
 
+/*
+    Links
+*/
+.aLinkNone {
+    text-decoration: none;
+    color: inherit;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+a {
+    text-decoration: none;
+    color: $link;
+    &:hover {
+        text-decoration: underline;
+    }
+}
 
 /**
  * Wrapper
@@ -206,7 +224,7 @@ pre {
         vertical-align: middle;
 
         path {
-            fill: $grey-color;
+            fill: $smallcolor;
         }
     }
 }

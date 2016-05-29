@@ -3,18 +3,25 @@ layout: default
 ---
 
 <div class="home">
-
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
+  <div class="post-list padding80">
+    <h1>Platforms</h1>
+    {% for post in site.categories['platforms'] %}
+      <div class = "articleContainer">
+        <h3><a href="{{ post.url | prepend: site.baseurl }}" class = "aLinkNone">{{ post.title }}</a></h3>
+        <p class="small">{{ post.date | date: "%b %-d, %Y" }}</p>
+        <p class = "regular">{{ post.summary }}</p>
+      </div>
     {% endfor %}
-  </ul>
+
+    <h1>Projects</h1>
+    {% for post in site.categories['projects'] %}
+      <div class = "articleContainer">
+        <h3><a href="{{ post.url | prepend: site.baseurl }}" class = "aLinkNone">{{ post.title }}</a></h3>
+        <p class="small">{{ post.date | date: "%b %-d, %Y" }}</p>
+        <p class = "regular">{{ post.summary }}</p>
+      </div>
+    {% endfor %}
+
+
+  </div>
 </div>
