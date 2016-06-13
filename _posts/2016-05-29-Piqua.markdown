@@ -1,0 +1,9 @@
+---
+layout: platform
+title: "Me at Piqua"
+date:   2016-05-29
+categories: work
+summary: "UI & UX at a innovative messaging app, Piqua."
+link: ""
+---
+hi there

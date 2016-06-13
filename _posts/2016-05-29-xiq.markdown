@@ -1,0 +1,9 @@
+---
+layout: platform
+title: "Me at xiq.io"
+date:   2016-05-29
+categories: work
+summary: "Worked at a local Cupertino startup focused on content intelligence."
+link: ""
+---
+hi there

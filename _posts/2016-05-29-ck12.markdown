@@ -1,0 +1,9 @@
+---
+layout: platform
+title: "Me at CK-12"
+date:   2016-05-29
+categories: work
+summary: "I worked at an EDU based non-profit in Palo Alto, CA"
+link: ""
+---
+hi there
