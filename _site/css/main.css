@@ -1,15 +1,15 @@
 @font-face {
   font-family: "Bold";
-  src: url(../fonts/Bold.otf); }
+  src: url(../fonts/Bold.ttf); }
 @font-face {
   font-family: "Semibold";
-  src: url(../fonts/Semibold.otf); }
+  src: url(../fonts/Semibold.ttf); }
 @font-face {
   font-family: "Regular";
-  src: url(../fonts/Regular.otf); }
+  src: url(../fonts/Regular.ttf); }
 @font-face {
   font-family: "Light";
-  src: url(../fonts/Light.otf); }
+  src: url(../fonts/Light.ttf); }
 /**
  * Reset some basic elements
  */
