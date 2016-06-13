@@ -1,0 +1,9 @@
+---
+layout: project
+title: "Using AngularFire to build a notes analyzer"
+date:   2016-05-29
+categories: projects
+summary: "Realtime platform that lets teachers know how effective their lectures are based on student notes."
+link: ""
+---
+hi there

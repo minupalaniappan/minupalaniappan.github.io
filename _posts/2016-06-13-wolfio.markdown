@@ -1,0 +1,9 @@
+---
+layout: project
+title: "Adapting Twilio and Wolfram Alpha to produce a robust solving solution"
+date:   2016-05-29
+categories: projects
+summary: "I built an SMS tool that responds to math-based texts; it solves the question and responds on any phone."
+link: ""
+---
+hi there

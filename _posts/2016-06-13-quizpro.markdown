@@ -1,0 +1,9 @@
+---
+layout: project
+title: "How Android's SDK and Flash allowed me to gamify CK12's edu content"
+date:   2016-05-29
+categories: projects
+summary: "I interned at CK-12, working as a Android engineer."
+link: ""
+---
+hi there

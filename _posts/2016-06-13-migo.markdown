@@ -1,0 +1,9 @@
+---
+layout: project
+title: "Scaling Django to build an awesome search engine"
+date:   2016-05-29
+categories: projects
+summary: "Built a search engine that lets you search for philanthropy events near you."
+link: ""
+---
+hi there

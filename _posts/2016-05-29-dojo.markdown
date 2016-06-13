@@ -1,0 +1,9 @@
+---
+layout: platform
+title: "My first big adventure into social networking"
+date:   2016-05-29
+categories: platforms
+summary: "A year and a half spent building and managing my own social network."
+link: ""
+---
+hi there
