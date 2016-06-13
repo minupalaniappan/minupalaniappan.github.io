@@ -4,7 +4,9 @@ layout: default
 
 <div class="home">
   <div class="post-list padding80">
-    <h1>Platforms</h1>
+    <div class = "padding10">
+      <h1>Platforms</h1>
+    </div>
     {% for post in site.categories['platforms'] %}
       <div class = "articleContainer">
         <h3><a href="{{ post.url | prepend: site.baseurl }}" class = "aLinkNone">{{ post.title }}</a></h3>
@@ -13,7 +15,9 @@ layout: default
       </div>
     {% endfor %}
 
-    <h1>Projects</h1>
+    <div class = "padding10">
+      <h1>Projects</h1>
+    </div>
     {% for post in site.categories['projects'] %}
       <div class = "articleContainer">
         <h3><a href="{{ post.url | prepend: site.baseurl }}" class = "aLinkNone">{{ post.title }}</a></h3>
