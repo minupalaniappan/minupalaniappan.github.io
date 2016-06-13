@@ -1,3 +1,15 @@
+@font-face {
+  font-family: "Bold";
+  src: url(../fonts/Bold.otf); }
+@font-face {
+  font-family: "Semibold";
+  src: url(../fonts/Semibold.otf); }
+@font-face {
+  font-family: "Regular";
+  src: url(../fonts/Regular.otf); }
+@font-face {
+  font-family: "Light";
+  src: url(../fonts/Light.otf); }
 /**
  * Reset some basic elements
  */
@@ -11,7 +23,7 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-  font: 400 16px/1.5 "Karla";
+  font: 400 16px/1.5 Karla;
   -webkit-text-size-adjust: 100%;
   -webkit-font-feature-settings: "kern" 1;
   -moz-font-feature-settings: "kern" 1;
@@ -60,26 +72,29 @@ li > ol {
 /**
  * Headings
  */
-h1, h2, h3 {
-  font-weight: 700; }
+h1 {
+  font-family: Bold; }
+
+h2, h3 {
+  font-family: Semibold; }
 
 h4, h5, h6, .large, .regular, .small, .micro {
-  font-weight: 400; }
+  font-family: Regular; }
 
 h1 {
-  font-size: 40px;
+  font-size: 30px;
   color: #333;
-  line-height: 40px; }
+  line-height: 30px; }
 
 h2 {
-  font-size: 32px;
+  font-size: 25px;
   color: #44484a;
-  line-height: 32px; }
+  line-height: 25px; }
 
 h3 {
-  font-size: 24px;
+  font-size: 21px;
   color: #7C7E80;
-  line-height: 24px; }
+  line-height: 21px; }
 
 .large {
   font-size: 19px;
@@ -222,7 +237,9 @@ a {
   padding: 80px 0px 0px 0px; }
 
 .articleContainer {
-  padding: 10px 0px 10px 0px; }
+  width: 780px;
+  padding: 10px 0px 10px 0px;
+  border-top: 1px solid #EDEDED; }
   .articleContainer .regular {
     max-width: 600px;
     line-height: 1.5em; }

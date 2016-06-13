@@ -80,11 +80,14 @@ li {
 /**
  * Headings
  */
-h1, h2, h3 {
-    font-weight: $bold-font-weight;
+h1 {
+    font-family: Bold;
+}
+h2, h3 {
+    font-family: Semibold;
 }
 h4, h5, h6, .large, .regular, .small, .micro {
-    font-weight: $base-font-weight;
+    font-family: Regular;
 }
 h1 {
     font-size: $h1;

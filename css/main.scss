@@ -3,10 +3,14 @@
 ---
 @charset "utf-8";
 
+@font-face { font-family: "Bold"; src: url(../fonts/Bold.otf); }
+@font-face { font-family: "Semibold"; src: url(../fonts/Semibold.otf); }
+@font-face { font-family: "Regular"; src: url(../fonts/Regular.otf); }
+@font-face { font-family: "Light"; src: url(../fonts/Light.otf); }
 
 
 // Our variables
-$base-font-family: 'Karla';
+$base-font-family: Karla;
 $base-font-size:   16px;
 $base-font-weight: 400;
 $bold-font-weight: 700;
@@ -16,9 +20,9 @@ $width: 800px;
 $postPadding: 40px;
 
 //fontsize
-$h1: 40px; $h1color: #333;
-$h2: 32px; $h2color: #44484a;
-$h3: 24px; $h3color: #7C7E80;
+$h1: 30px; $h1color: #333;
+$h2: 25px; $h2color: #44484a;
+$h3: 21px; $h3color: #7C7E80;
 $large: 19px; $largecolor: #656674;
 $regular: 17px; $regularcolor: #B4B5B6;
 $small: 14px; $smallcolor: #C6C8C8;
