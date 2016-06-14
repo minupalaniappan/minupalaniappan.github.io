@@ -1,4 +1,10 @@
-.seperator {
-	@extend .padding10;
-	border-bottom: 1px solid #D9DADA;
+article {
+	h3, h4 {
+		@extend .padding10;
+	}
+	p {
+		padding-bottom: 5px;
+		line-height: 2em;
+	}
 }
+

@@ -95,31 +95,31 @@ h1 {
 }
 h2 {
     font-size: $h2;
-    color: $h2color;
+    color: $h1color;
 }
 h3 {
     font-size: $h3;
-    color: $h3color;
+    color: $h1color;
 }
 .large {
     font-size: $large;
     color: $largecolor;
-    line-height: $base-line-height;
 }
 .regular {
     font-size: $regular;
     color: black;
-    line-height: $base-line-height;
 }
 .small {
     font-size: $small;
     color: $smallcolor;
-    line-height: $base-line-height;
 }
 .micro {
     font-size: $micro;
     color: $microcolor;
-    line-height: $base-line-height;
+}
+.link {
+    color: $link;
+    text-decoration: underline;
 }
 
 

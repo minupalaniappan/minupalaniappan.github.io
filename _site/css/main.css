@@ -23,7 +23,7 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-  font: 400 16px/1.5em Karla;
+  font: 400 19px/1.5em Regular;
   -webkit-text-size-adjust: 100%;
   -webkit-font-feature-settings: "kern" 1;
   -moz-font-feature-settings: "kern" 1;
@@ -57,7 +57,7 @@ figure > img {
   display: block; }
 
 figcaption {
-  font-size: 14px; }
+  font-size: 16.625px; }
 
 /**
  * Lists
@@ -87,31 +87,31 @@ h1 {
 
 h2 {
   font-size: 25px;
-  color: #44484a; }
+  color: #333; }
 
 h3 {
   font-size: 21px;
-  color: #7C7E80; }
+  color: #333; }
 
 .large {
-  font-size: 19px;
-  color: #656674;
-  line-height: 1.5em; }
+  font-size: 20px;
+  color: #656674; }
 
 .regular {
-  font-size: 17px;
-  color: black;
-  line-height: 1.5em; }
+  font-size: 19px;
+  color: black; }
 
 .small {
   font-size: 14px;
-  color: #C6C8C8;
-  line-height: 1.5em; }
+  color: #C6C8C8; }
 
 .micro {
   font-size: 8px;
-  color: black;
-  line-height: 1.5em; }
+  color: black; }
+
+.link {
+  color: #2b6dad;
+  text-decoration: underline; }
 
 /**
  * Blockquotes
@@ -204,6 +204,7 @@ a {
     vertical-align: middle; }
 
 .site-title {
+  font-family: Semibold;
   font-size: 26px;
   font-weight: 300;
   line-height: 56px;
@@ -227,7 +228,7 @@ a {
 /*
     templates
 */
-.padding10, .seperator {
+.padding10, article h3, article h4 {
   padding: 10px 0px 10px 0px; }
 
 .padding60 {
@@ -240,11 +241,6 @@ a {
   width: 780px;
   padding: 10px 0px 10px 0px;
   border-top: 1px solid #EDEDED; }
-  .articleContainer .regular {
-    max-width: 600px;
-    line-height: 1.5em; }
-  .articleContainer .small {
-    padding: 3px 0px 5px 0px; }
 
 /**
  * Site footer
@@ -438,5 +434,6 @@ a {
   .highlight .il {
     color: #099; }
 
-.seperator {
-  border-bottom: 1px solid #D9DADA; }
+article p {
+  padding-bottom: 5px;
+  line-height: 2em; }
