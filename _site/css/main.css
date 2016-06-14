@@ -23,7 +23,7 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-  font: 400 16px/1.5 Karla;
+  font: 400 16px/1.5em Karla;
   -webkit-text-size-adjust: 100%;
   -webkit-font-feature-settings: "kern" 1;
   -moz-font-feature-settings: "kern" 1;
@@ -83,38 +83,35 @@ h4, h5, h6, .large, .regular, .small, .micro {
 
 h1 {
   font-size: 30px;
-  color: #333;
-  line-height: 30px; }
+  color: #333; }
 
 h2 {
   font-size: 25px;
-  color: #44484a;
-  line-height: 25px; }
+  color: #44484a; }
 
 h3 {
   font-size: 21px;
-  color: #7C7E80;
-  line-height: 21px; }
+  color: #7C7E80; }
 
 .large {
   font-size: 19px;
   color: #656674;
-  line-height: 19px; }
+  line-height: 1.5em; }
 
 .regular {
   font-size: 17px;
-  color: #B4B5B6;
-  line-height: 17px; }
+  color: black;
+  line-height: 1.5em; }
 
 .small {
   font-size: 14px;
   color: #C6C8C8;
-  line-height: 14px; }
+  line-height: 1.5em; }
 
 .micro {
   font-size: 8px;
   color: black;
-  line-height: 8px; }
+  line-height: 1.5em; }
 
 /**
  * Blockquotes
@@ -216,7 +213,7 @@ a {
   text-decoration: none; }
 
 .page-link {
-  line-height: 1.5;
+  line-height: 1.5em;
   font-weight: 700;
   vertical-align: middle;
   color: #7C7E80;
@@ -230,7 +227,7 @@ a {
 /*
     templates
 */
-.padding10 {
+.padding10, .seperator {
   padding: 10px 0px 10px 0px; }
 
 .padding60 {
@@ -440,3 +437,6 @@ a {
     color: #008080; }
   .highlight .il {
     color: #099; }
+
+.seperator {
+  border-bottom: 1px solid #D9DADA; }

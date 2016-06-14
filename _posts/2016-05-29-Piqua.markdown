@@ -1,5 +1,5 @@
 ---
-layout: platform
+layout: work
 title: "Me at Piqua"
 date:   2016-05-29
 categories: work

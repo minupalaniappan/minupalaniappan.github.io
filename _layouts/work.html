@@ -4,7 +4,7 @@ layout: default
 <article class="padding80">
   <header>
     <h2>{{ page.title }}</h2>
-    <p class = "small padding10"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span>{{ page.author }}</span></span>{% endif %}</p>
+    <p class = "small"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span>{{ page.author }}</span></span>{% endif %}</p>
   </header>
   <div>
     {{ content }}

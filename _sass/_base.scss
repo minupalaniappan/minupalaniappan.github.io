@@ -92,37 +92,34 @@ h4, h5, h6, .large, .regular, .small, .micro {
 h1 {
     font-size: $h1;
     color: $h1color;
-    line-height: $h1;
 }
 h2 {
     font-size: $h2;
     color: $h2color;
-    line-height: $h2;
 }
 h3 {
     font-size: $h3;
     color: $h3color;
-    line-height: $h3;
 }
 .large {
     font-size: $large;
     color: $largecolor;
-    line-height: $large;
+    line-height: $base-line-height;
 }
 .regular {
     font-size: $regular;
-    color: $regularcolor;
-    line-height: $regular;
+    color: black;
+    line-height: $base-line-height;
 }
 .small {
     font-size: $small;
     color: $smallcolor;
-    line-height: $small;
+    line-height: $base-line-height;
 }
 .micro {
     font-size: $micro;
     color: $microcolor;
-    line-height: $micro;
+    line-height: $base-line-height;
 }
 
 
