@@ -6,8 +6,8 @@
 </description>
     <link>http://minupalaniappan.com/</link>
     <atom:link href="http://minupalaniappan.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 15 Jun 2016 00:09:18 -0700</pubDate>
-    <lastBuildDate>Wed, 15 Jun 2016 00:09:18 -0700</lastBuildDate>
+    <pubDate>Wed, 15 Jun 2016 00:16:49 -0700</pubDate>
+    <lastBuildDate>Wed, 15 Jun 2016 00:16:49 -0700</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -38,6 +38,8 @@
 &lt;/div&gt;
 
 &lt;p&gt;We fetch the content, which in this case is &lt;code class=&quot;highlighter-rouge&quot;&gt;body&lt;/code&gt;. We then bundle it in the Twilio &lt;code class=&quot;highlighter-rouge&quot;&gt;response&lt;/code&gt; and throw it in &lt;code class=&quot;highlighter-rouge&quot;&gt;retrieveTokens()&lt;/code&gt;. This function was the blackbox that would essentially tokenize the query and send it over to custom written Wolfram APIs.&lt;/p&gt;
+
+&lt;p&gt;The string manipulation was fairly intensive. Just think about it; we are building a calculator that doesn’t just solve basic addition and subtraction. We are building a comprehensive tool that solves multivariable calculus and complex alegbra. Developing an intuitive notation for users proved to be a tremendous challenge.&lt;/p&gt;
 
 &lt;p&gt;The string manipulation was half the battle; the other half of this fight was in building the Wolfram APIs. Matt seemed to pick up their Wolfram’s function builder pretty quickly, so our teamwork really kicked in halfway through the hackathon.&lt;/p&gt;
 
