@@ -6,13 +6,41 @@
 </description>
     <link>http://minupalaniappan.com/</link>
     <atom:link href="http://minupalaniappan.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 14 Jun 2016 15:01:25 -0700</pubDate>
-    <lastBuildDate>Tue, 14 Jun 2016 15:01:25 -0700</lastBuildDate>
+    <pubDate>Wed, 15 Jun 2016 00:09:18 -0700</pubDate>
+    <lastBuildDate>Wed, 15 Jun 2016 00:09:18 -0700</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
         <title>Adapting Twilio and Wolfram Alpha to produce a robust solving solution</title>
-        <description>&lt;p&gt;hi there&lt;/p&gt;
+        <description>&lt;p&gt;Wolfio is an SMS tool that allows you to solve any mathematics-based question.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-did-the-project-start&quot;&gt;How did the project start?&lt;/h3&gt;
+&lt;p&gt;Well, the idea for Wolfio was concieved at HackingEDU: a 36 hour programming competition in the heart of San Mateo, CA. I had just wrapped up my last quarter of math; it was on linear algebra so naturally I evolved into a Wolfram Alpha power-user during that time.&lt;/p&gt;
+
+&lt;p&gt;I loved Wolfram, so I thought about ways of extending its powerful symbolic interpreter. I realized that the best way to extend the technology was through MMS and SMS; after all, all mobile devices have the ability to send and view MMS/SMS messages.&lt;/p&gt;
+
+&lt;p&gt;I told my friend Matt about the idea, and he was ready to tackle it with me at HackingEDU.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-development-proccess&quot;&gt;The development proccess&lt;/h3&gt;
+
+&lt;p&gt;The technology stack was fairly simple. I whipped up a Flask project that came standard with routing. I then integrated Twilio’s Python service so that it could interact with Flask GET params. This is how we were going to fetch inputs and serve the output (solution).&lt;/p&gt;
+
+&lt;p&gt;All inputs would be recieved at the root route like so…&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@app.route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;methods&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;GET&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;POST&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;from_number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;From&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;Body&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;twilio&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;twiml&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Answer: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;retrieveTokens&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We fetch the content, which in this case is &lt;code class=&quot;highlighter-rouge&quot;&gt;body&lt;/code&gt;. We then bundle it in the Twilio &lt;code class=&quot;highlighter-rouge&quot;&gt;response&lt;/code&gt; and throw it in &lt;code class=&quot;highlighter-rouge&quot;&gt;retrieveTokens()&lt;/code&gt;. This function was the blackbox that would essentially tokenize the query and send it over to custom written Wolfram APIs.&lt;/p&gt;
+
+&lt;p&gt;The string manipulation was half the battle; the other half of this fight was in building the Wolfram APIs. Matt seemed to pick up their Wolfram’s function builder pretty quickly, so our teamwork really kicked in halfway through the hackathon.&lt;/p&gt;
+
 </description>
         <pubDate>Sun, 29 May 2016 00:00:00 -0700</pubDate>
         <link>http://minupalaniappan.com/projects/2016/05/29/wolfio.html</link>

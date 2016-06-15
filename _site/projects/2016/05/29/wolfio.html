@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Adapting Twilio and Wolfram Alpha to produce a robust solving solution</title>
-  <meta name="description" content="hi there">
+  <meta name="description" content="Wolfio is an SMS tool that allows you to solve any mathematics-based question.">
   <link href='https://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://minupalaniappan.com/projects/2016/05/29/wolfio.html">
@@ -55,7 +55,35 @@
     <p class = "small"><time datetime="2016-05-29T00:00:00-07:00">May 29, 2016</time></p>
   </header>
   <div>
-    <p>hi there</p>
+    <p>Wolfio is an SMS tool that allows you to solve any mathematics-based question.</p>
+
+<h3 id="how-did-the-project-start">How did the project start?</h3>
+<p>Well, the idea for Wolfio was concieved at HackingEDU: a 36 hour programming competition in the heart of San Mateo, CA. I had just wrapped up my last quarter of math; it was on linear algebra so naturally I evolved into a Wolfram Alpha power-user during that time.</p>
+
+<p>I loved Wolfram, so I thought about ways of extending its powerful symbolic interpreter. I realized that the best way to extend the technology was through MMS and SMS; after all, all mobile devices have the ability to send and view MMS/SMS messages.</p>
+
+<p>I told my friend Matt about the idea, and he was ready to tackle it with me at HackingEDU.</p>
+
+<h3 id="the-development-proccess">The development proccess</h3>
+
+<p>The technology stack was fairly simple. I whipped up a Flask project that came standard with routing. I then integrated Twilio’s Python service so that it could interact with Flask GET params. This is how we were going to fetch inputs and serve the output (solution).</p>
+
+<p>All inputs would be recieved at the root route like so…</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nd">@app.route</span><span class="p">(</span><span class="s">"/"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">'GET'</span><span class="p">,</span> <span class="s">'POST'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+	<span class="n">from_number</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'From'</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+	<span class="n">body</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'Body'</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+	<span class="n">resp</span> <span class="o">=</span> <span class="n">twilio</span><span class="o">.</span><span class="n">twiml</span><span class="o">.</span><span class="n">Response</span><span class="p">()</span>
+	<span class="n">resp</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="s">"Answer: "</span> <span class="o">+</span> <span class="n">retrieveTokens</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">body</span><span class="p">)))</span>
+	<span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>We fetch the content, which in this case is <code class="highlighter-rouge">body</code>. We then bundle it in the Twilio <code class="highlighter-rouge">response</code> and throw it in <code class="highlighter-rouge">retrieveTokens()</code>. This function was the blackbox that would essentially tokenize the query and send it over to custom written Wolfram APIs.</p>
+
+<p>The string manipulation was half the battle; the other half of this fight was in building the Wolfram APIs. Matt seemed to pick up their Wolfram’s function builder pretty quickly, so our teamwork really kicked in halfway through the hackathon.</p>
+
 
   </div>
   <footer>
