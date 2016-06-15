@@ -6,13 +6,19 @@
 </description>
     <link>http://minupalaniappan.com/</link>
     <atom:link href="http://minupalaniappan.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 15 Jun 2016 00:16:49 -0700</pubDate>
-    <lastBuildDate>Wed, 15 Jun 2016 00:16:49 -0700</lastBuildDate>
+    <pubDate>Wed, 15 Jun 2016 16:02:24 -0700</pubDate>
+    <lastBuildDate>Wed, 15 Jun 2016 16:02:24 -0700</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
         <title>Adapting Twilio and Wolfram Alpha to produce a robust solving solution</title>
         <description>&lt;p&gt;Wolfio is an SMS tool that allows you to solve any mathematics-based question.&lt;/p&gt;
+
+&lt;h3 id=&quot;source&quot;&gt;Source&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/minupalaniappan/Wolfio&quot;&gt;Github code&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://devpost.com/software/wolfio&quot;&gt;Devpost&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;how-did-the-project-start&quot;&gt;How did the project start?&lt;/h3&gt;
 &lt;p&gt;Well, the idea for Wolfio was concieved at HackingEDU: a 36 hour programming competition in the heart of San Mateo, CA. I had just wrapped up my last quarter of math; it was on linear algebra so naturally I evolved into a Wolfram Alpha power-user during that time.&lt;/p&gt;
@@ -42,6 +48,42 @@
 &lt;p&gt;The string manipulation was fairly intensive. Just think about it; we are building a calculator that doesn’t just solve basic addition and subtraction. We are building a comprehensive tool that solves multivariable calculus and complex alegbra. Developing an intuitive notation for users proved to be a tremendous challenge.&lt;/p&gt;
 
 &lt;p&gt;The string manipulation was half the battle; the other half of this fight was in building the Wolfram APIs. Matt seemed to pick up their Wolfram’s function builder pretty quickly, so our teamwork really kicked in halfway through the hackathon.&lt;/p&gt;
+
+&lt;p&gt;So, lets assume that we now have all the tokens neccesary to solve a math problem. We now need to route these tokens to the right Wolfram API.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;s&quot;&gt;&#39;functionName&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;DERfunction&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;s&quot;&gt;&#39;parameterNames&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;q&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;withRespect&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;nth&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Here, given these three tokens, we route it to the &lt;code class=&quot;highlighter-rouge&quot;&gt;&#39;DERfunction&#39;&lt;/code&gt; in our bank of Wolfram APIs. It is done like so…&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;executeMethod&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parameters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;baseURL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;...&#39;&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;functions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;functionName&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;URLsuffix&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;functions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;functionName&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;?q=&#39;&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;URLsuffix&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urllib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;quote_plus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parameters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pvalue&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;zip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;functions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;parameterNames&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parameters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:]):&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;URLsuffix&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;&amp;amp;&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urllib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;quote_plus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;URLsuffix&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;=&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urllib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;quote_plus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pvalue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urllib2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urlopen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;baseURL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;URLsuffix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;URLsuffix&lt;/code&gt; is our concanetated GET string that is then manipulated by the specific Wolfram function. We then fetch the URL repsonses using &lt;code class=&quot;highlighter-rouge&quot;&gt;urllib2.urlopen&lt;/code&gt; and iterate the given output in a pretty print.&lt;/p&gt;
+
+&lt;h3 id=&quot;results&quot;&gt;Results&lt;/h3&gt;
+&lt;p&gt;The application worked like a charm and it what was even more impressive was that it was compatible with standard flip phones. We want to optimize this tool so that it can interpret more queries and answer more complex questions. Below are images of the hack working on Matt’s flip phone.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://minupalaniappan.com/assets/wolfio/wolfio1.jpg&quot; alt=&quot;img&quot; /&gt;
+&lt;img src=&quot;http://minupalaniappan.com/assets/wolfio/wolfio2.jpg&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Thanks for reading.&lt;/p&gt;
 
 </description>
         <pubDate>Sun, 29 May 2016 00:00:00 -0700</pubDate>
@@ -145,8 +187,18 @@
       </item>
     
       <item>
-        <title>My first big adventure into social networking</title>
-        <description>&lt;p&gt;This is a story about a failed attempt at building a network to discover micro-communities. Dojo was the first underground ecosystem that empowered powerful opinions, unadulterated content and free thought.&lt;/p&gt;
+        <title>Dojo</title>
+        <description>
+&lt;hr /&gt;
+&lt;p&gt;layout: platform
+title: “My first big adventure into social networking”
+date:   2016-05-29
+categories: platforms
+summary: “A year and a half spent building and managing my own social network.”
+link: “”
+—&lt;/p&gt;
+
+&lt;p&gt;This is a story about a failed attempt at building a network to discover micro-communities. Dojo was the first underground ecosystem that empowered powerful opinions, unadulterated content and free thought.&lt;/p&gt;
 
 &lt;h3 id=&quot;demo&quot;&gt;Demo&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=uqW92ejxgDM&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/uqW92ejxgDM/0.jpg&quot; alt=&quot;IMAGE ALT TEXT HERE&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
@@ -252,11 +304,9 @@ From then on, we believed that a great hire stemmed from their willingness to ma
 &lt;p&gt;Fetch the source code at the top of this post.&lt;/p&gt;
 </description>
         <pubDate>Sun, 29 May 2016 00:00:00 -0700</pubDate>
-        <link>http://minupalaniappan.com/platforms/2016/05/29/dojo.html</link>
-        <guid isPermaLink="true">http://minupalaniappan.com/platforms/2016/05/29/dojo.html</guid>
+        <link>http://minupalaniappan.com/2016/05/29/dojo.html</link>
+        <guid isPermaLink="true">http://minupalaniappan.com/2016/05/29/dojo.html</guid>
         
-        
-        <category>platforms</category>
         
       </item>
     

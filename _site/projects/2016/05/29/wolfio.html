@@ -57,6 +57,12 @@
   <div>
     <p>Wolfio is an SMS tool that allows you to solve any mathematics-based question.</p>
 
+<h3 id="source">Source</h3>
+<ul>
+  <li><a href="https://github.com/minupalaniappan/Wolfio">Github code</a></li>
+  <li><a href="http://devpost.com/software/wolfio">Devpost</a></li>
+</ul>
+
 <h3 id="how-did-the-project-start">How did the project start?</h3>
 <p>Well, the idea for Wolfio was concieved at HackingEDU: a 36 hour programming competition in the heart of San Mateo, CA. I had just wrapped up my last quarter of math; it was on linear algebra so naturally I evolved into a Wolfram Alpha power-user during that time.</p>
 
@@ -85,6 +91,42 @@
 <p>The string manipulation was fairly intensive. Just think about it; we are building a calculator that doesn’t just solve basic addition and subtraction. We are building a comprehensive tool that solves multivariable calculus and complex alegbra. Developing an intuitive notation for users proved to be a tremendous challenge.</p>
 
 <p>The string manipulation was half the battle; the other half of this fight was in building the Wolfram APIs. Matt seemed to pick up their Wolfram’s function builder pretty quickly, so our teamwork really kicked in halfway through the hackathon.</p>
+
+<p>So, lets assume that we now have all the tokens neccesary to solve a math problem. We now need to route these tokens to the right Wolfram API.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
+	<span class="s">'functionName'</span><span class="p">:</span> <span class="s">'DERfunction'</span><span class="p">,</span>
+	<span class="s">'parameterNames'</span><span class="p">:</span> <span class="p">[</span><span class="s">'q'</span><span class="p">,</span> <span class="s">'withRespect'</span><span class="p">,</span> <span class="s">'nth'</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>Here, given these three tokens, we route it to the <code class="highlighter-rouge">'DERfunction'</code> in our bank of Wolfram APIs. It is done like so…</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">executeMethod</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">parameters</span><span class="p">):</span>
+	<span class="n">baseURL</span> <span class="o">=</span> <span class="s">'...'</span>
+	<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+	<span class="k">while</span> <span class="n">function</span> <span class="o">!=</span> <span class="n">functions</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s">'functionName'</span><span class="p">]:</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+	<span class="n">URLsuffix</span> <span class="o">=</span> <span class="n">functions</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s">'functionName'</span><span class="p">]</span> <span class="o">+</span> <span class="s">'?q='</span>
+	<span class="n">URLsuffix</span> <span class="o">+=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">quote_plus</span><span class="p">(</span><span class="n">parameters</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+	<span class="k">for</span> <span class="n">pname</span><span class="p">,</span> <span class="n">pvalue</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">functions</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s">'parameterNames'</span><span class="p">][</span><span class="mi">1</span><span class="p">:],</span> <span class="n">parameters</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+		<span class="n">URLsuffix</span> <span class="o">+=</span> <span class="s">'&amp;'</span> <span class="o">+</span> <span class="n">urllib</span><span class="o">.</span><span class="n">quote_plus</span><span class="p">(</span><span class="n">pname</span><span class="p">)</span>
+		<span class="n">URLsuffix</span> <span class="o">+=</span> <span class="s">'='</span> <span class="o">+</span> <span class="n">urllib</span><span class="o">.</span><span class="n">quote_plus</span><span class="p">(</span><span class="n">pvalue</span><span class="p">)</span>
+	<span class="n">answer</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">baseURL</span> <span class="o">+</span> <span class="n">URLsuffix</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">answer</span><span class="p">:</span>
+		<span class="k">return</span> <span class="n">line</span>
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">URLsuffix</code> is our concanetated GET string that is then manipulated by the specific Wolfram function. We then fetch the URL repsonses using <code class="highlighter-rouge">urllib2.urlopen</code> and iterate the given output in a pretty print.</p>
+
+<h3 id="results">Results</h3>
+<p>The application worked like a charm and it what was even more impressive was that it was compatible with standard flip phones. We want to optimize this tool so that it can interpret more queries and answer more complex questions. Below are images of the hack working on Matt’s flip phone.</p>
+
+<p><img src="http://minupalaniappan.com/assets/wolfio/wolfio1.jpg" alt="img" />
+<img src="http://minupalaniappan.com/assets/wolfio/wolfio2.jpg" alt="img" /></p>
+
+<p>Thanks for reading.</p>
 
 
   </div>

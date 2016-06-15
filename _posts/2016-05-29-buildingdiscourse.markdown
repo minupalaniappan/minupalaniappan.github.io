@@ -25,4 +25,3 @@ We were both working fulltime over summer, so the "getting started part" never r
 This emptiness eventually boiled over and so I quit my job in hopes of working on Discourse fulltime.
 
 The following winter quarter was fairly easy from an academic standpoint; I decided to tread light on coursework simply because I wanted to push out a live version of Discourse asap. It took a month to plugin all the Javascript, routes, HTML and Sass;
-
