@@ -6,4 +6,103 @@ categories: projects
 summary: "I interned at CK-12, working as a Android engineer."
 link: ""
 ---
-hi there
+At the end of my senior year of High school, I interned at CK-12; my task was to take their educational content and bake it into an Android application. I chose to gamify it.
+
+### Source
+* [Github code](https://github.com/minupalaniappan/CK12QuizPro)
+
+### Authentication
+
+Many of the function calls I make require direct queries to CK-12's database. In addition, since this is a game, I want to record a user's scores, performance and test-taking times. The core of this application requires a url builder like so...
+
+```java
+if(requestType == "GET") {
+      //  System.out.println("Requeted URL:" + myURL);
+        StringBuilder sb = new StringBuilder();
+        URLConnection urlConn = null;
+        InputStreamReader in = null;
+        	CookieManager cm = new CookieManager();
+        	 URL url = new URL(myURL);
+            urlConn = url.openConnection();
+            String myCookie = "auth-astro = " + cookie;
+            urlConn.setRequestProperty("Cookie", myCookie);
+            urlConn.connect();
+           cm.storeCookies(urlConn);
+           cm.setCookies(url.openConnection());
+```
+Above, I am setting up the cookie for a specific user and opening a line of authentication so that the user can make requests back and forth from the database.
+
+Additionally, I also had to work with KeyValue pairs in order to properly authenticate each user.
+
+```java
+urlParameters.add(new BasicNameValuePair("login", username));
+urlParameters.add(new BasicNameValuePair("token", password));
+urlParameters.add(new BasicNameValuePair("authType", authType));
+```
+
+### Gaming
+
+So, once the user has been authenticated, we need to allow them to start taking quizzes. Building the workflow for each quiz was straightforward.
+
+* We begin the quiz state like so...
+
+```java
+new Runnable () {
+	public void run () {
+		WebSettings webSettings = mainDisplay.getSettings();
+		webSettings.setJavaScriptEnabled(true);
+		mainDisplay.addJavascriptInterface(TESTUI.this, "Android");
+		mainDisplay.loadData(client.HTMLasString(TESTUI.this,
+			R.raw.truefalse, true, 1,
+			(String) questionData.get(2),
+			(String) questionData.get(3),
+			(String) questionData.get(4),
+			(String) null,
+			(String) null),
+		"text/html", "utf-8");
+	}
+});
+```
+
+Here, we are fetching a set of questions. Each question is boxed into 3 attributes, and that is why you see the ```questionData.get()``` run 3 times.
+
+* We begin the stopwatch.
+
+
+```java
+timer.start();
+```
+
+* We record correct and incorrect answers.
+
+```java
+string crt = returnedResult.get("response"));
+crt = crt.get("correctAnswer").getAsString());
+if(userInput.equals(((crt)){
+	response.setTextColor(Color.parseColor("#A6E3A6"));
+	response.setText("\u2713");
+	correct++;
+}
+```
+
+We fetch the string and set it to ```crt```. After this, we compare it to the ```userInput```. If the condition is met, we increment the ```correct``` count and produce a green checkmark (```"\u2713"```).
+
+* At the end, we compile a performance report, and write it to the profile.
+
+```java
+Bundle b = getIntent().getExtras();
+final String ENCODEDID = b.getString("TITLE");
+final String DURATION = b.getString("DURATION");
+final String TOTALQUESTION = b.getString("TOTALQUESTION");
+final int SCORE = b.getInt("SCORE");
+final String SKIPPED = b.getString("SKIPPED");
+final String WRONG = b.getString("WRONG");
+final String [] submissions = b.getStringArray("SUBMISSIONS");
+```
+
+Many of the components written for each view are passed through what are called Bundles. Essentially, you can bundle sets of meta data and tie it to objects of type ```Bundle```. That is what ```b``` is here. I simply unwrap the bundle when I want to retrieve the quiz performance. This can be done with ```getString()```.
+
+### Project timeline
+
+This application was fairly comprehensive and was a proof-of-concept for many of CK-12's mobile games. It was especially important, because it was developed by a student; at CK-12, the student perspective was valued and foundational to many of the tools that were built.
+

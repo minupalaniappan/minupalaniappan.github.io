@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>How Android&#39;s SDK and Flash allowed me to gamify CK12&#39;s edu content</title>
-  <meta name="description" content="hi there">
+  <meta name="description" content="At the end of my senior year of High school, I interned at CK-12; my task was to take their educational content and bake it into an Android application. I ch...">
   <link href='https://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://minupalaniappan.com/projects/2016/05/29/quizpro.html">
@@ -55,11 +55,119 @@
     <p class = "small"><time datetime="2016-05-29T00:00:00-07:00">May 29, 2016</time></p>
   </header>
   <div>
-    <p>hi there</p>
+    <p>At the end of my senior year of High school, I interned at CK-12; my task was to take their educational content and bake it into an Android application. I chose to gamify it.</p>
+
+<h3 id="source">Source</h3>
+<ul>
+  <li><a href="https://github.com/minupalaniappan/CK12QuizPro">Github code</a></li>
+</ul>
+
+<h3 id="authentication">Authentication</h3>
+
+<p>Many of the function calls I make require direct queries to CK-12’s database. In addition, since this is a game, I want to record a user’s scores, performance and test-taking times. The core of this application requires a url builder like so…</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">if</span><span class="o">(</span><span class="n">requestType</span> <span class="o">==</span> <span class="s">"GET"</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">//  System.out.println("Requeted URL:" + myURL);</span>
+        <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
+        <span class="n">URLConnection</span> <span class="n">urlConn</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="n">InputStreamReader</span> <span class="n">in</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        	<span class="n">CookieManager</span> <span class="n">cm</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CookieManager</span><span class="o">();</span>
+        	 <span class="n">URL</span> <span class="n">url</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="n">myURL</span><span class="o">);</span>
+            <span class="n">urlConn</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="na">openConnection</span><span class="o">();</span>
+            <span class="n">String</span> <span class="n">myCookie</span> <span class="o">=</span> <span class="s">"auth-astro = "</span> <span class="o">+</span> <span class="n">cookie</span><span class="o">;</span>
+            <span class="n">urlConn</span><span class="o">.</span><span class="na">setRequestProperty</span><span class="o">(</span><span class="s">"Cookie"</span><span class="o">,</span> <span class="n">myCookie</span><span class="o">);</span>
+            <span class="n">urlConn</span><span class="o">.</span><span class="na">connect</span><span class="o">();</span>
+           <span class="n">cm</span><span class="o">.</span><span class="na">storeCookies</span><span class="o">(</span><span class="n">urlConn</span><span class="o">);</span>
+           <span class="n">cm</span><span class="o">.</span><span class="na">setCookies</span><span class="o">(</span><span class="n">url</span><span class="o">.</span><span class="na">openConnection</span><span class="o">());</span>
+</code></pre>
+</div>
+<p>Above, I am setting up the cookie for a specific user and opening a line of authentication so that the user can make requests back and forth from the database.</p>
+
+<p>Additionally, I also had to work with KeyValue pairs in order to properly authenticate each user.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">urlParameters</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">BasicNameValuePair</span><span class="o">(</span><span class="s">"login"</span><span class="o">,</span> <span class="n">username</span><span class="o">));</span>
+<span class="n">urlParameters</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">BasicNameValuePair</span><span class="o">(</span><span class="s">"token"</span><span class="o">,</span> <span class="n">password</span><span class="o">));</span>
+<span class="n">urlParameters</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">BasicNameValuePair</span><span class="o">(</span><span class="s">"authType"</span><span class="o">,</span> <span class="n">authType</span><span class="o">));</span>
+</code></pre>
+</div>
+
+<h3 id="gaming">Gaming</h3>
+
+<p>So, once the user has been authenticated, we need to allow them to start taking quizzes. Building the workflow for each quiz was straightforward.</p>
+
+<ul>
+  <li>We begin the quiz state like so…</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">new</span> <span class="nf">Runnable</span> <span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="n">run</span> <span class="o">()</span> <span class="o">{</span>
+		<span class="n">WebSettings</span> <span class="n">webSettings</span> <span class="o">=</span> <span class="n">mainDisplay</span><span class="o">.</span><span class="na">getSettings</span><span class="o">();</span>
+		<span class="n">webSettings</span><span class="o">.</span><span class="na">setJavaScriptEnabled</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+		<span class="n">mainDisplay</span><span class="o">.</span><span class="na">addJavascriptInterface</span><span class="o">(</span><span class="n">TESTUI</span><span class="o">.</span><span class="na">this</span><span class="o">,</span> <span class="s">"Android"</span><span class="o">);</span>
+		<span class="n">mainDisplay</span><span class="o">.</span><span class="na">loadData</span><span class="o">(</span><span class="n">client</span><span class="o">.</span><span class="na">HTMLasString</span><span class="o">(</span><span class="n">TESTUI</span><span class="o">.</span><span class="na">this</span><span class="o">,</span>
+			<span class="n">R</span><span class="o">.</span><span class="na">raw</span><span class="o">.</span><span class="na">truefalse</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span>
+			<span class="o">(</span><span class="n">String</span><span class="o">)</span> <span class="n">questionData</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">),</span>
+			<span class="o">(</span><span class="n">String</span><span class="o">)</span> <span class="n">questionData</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">),</span>
+			<span class="o">(</span><span class="n">String</span><span class="o">)</span> <span class="n">questionData</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">4</span><span class="o">),</span>
+			<span class="o">(</span><span class="n">String</span><span class="o">)</span> <span class="kc">null</span><span class="o">,</span>
+			<span class="o">(</span><span class="n">String</span><span class="o">)</span> <span class="kc">null</span><span class="o">),</span>
+		<span class="s">"text/html"</span><span class="o">,</span> <span class="s">"utf-8"</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">});</span>
+</code></pre>
+</div>
+
+<p>Here, we are fetching a set of questions. Each question is boxed into 3 attributes, and that is why you see the <code class="highlighter-rouge">questionData.get()</code> run 3 times.</p>
+
+<ul>
+  <li>We begin the stopwatch.</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">timer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>We record correct and incorrect answers.</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">string</span> <span class="n">crt</span> <span class="o">=</span> <span class="n">returnedResult</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"response"</span><span class="o">));</span>
+<span class="n">crt</span> <span class="o">=</span> <span class="n">crt</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"correctAnswer"</span><span class="o">).</span><span class="na">getAsString</span><span class="o">());</span>
+<span class="k">if</span><span class="o">(</span><span class="n">userInput</span><span class="o">.</span><span class="na">equals</span><span class="o">(((</span><span class="n">crt</span><span class="o">)){</span>
+	<span class="n">response</span><span class="o">.</span><span class="na">setTextColor</span><span class="o">(</span><span class="n">Color</span><span class="o">.</span><span class="na">parseColor</span><span class="o">(</span><span class="s">"#A6E3A6"</span><span class="o">));</span>
+	<span class="n">response</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">"\u2713"</span><span class="o">);</span>
+	<span class="n">correct</span><span class="o">++;</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>We fetch the string and set it to <code class="highlighter-rouge">crt</code>. After this, we compare it to the <code class="highlighter-rouge">userInput</code>. If the condition is met, we increment the <code class="highlighter-rouge">correct</code> count and produce a green checkmark (<code class="highlighter-rouge">"\u2713"</code>).</p>
+
+<ul>
+  <li>At the end, we compile a performance report, and write it to the profile.</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">Bundle</span> <span class="n">b</span> <span class="o">=</span> <span class="n">getIntent</span><span class="o">().</span><span class="na">getExtras</span><span class="o">();</span>
+<span class="kd">final</span> <span class="n">String</span> <span class="n">ENCODEDID</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">"TITLE"</span><span class="o">);</span>
+<span class="kd">final</span> <span class="n">String</span> <span class="n">DURATION</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">"DURATION"</span><span class="o">);</span>
+<span class="kd">final</span> <span class="n">String</span> <span class="n">TOTALQUESTION</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">"TOTALQUESTION"</span><span class="o">);</span>
+<span class="kd">final</span> <span class="kt">int</span> <span class="n">SCORE</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="na">getInt</span><span class="o">(</span><span class="s">"SCORE"</span><span class="o">);</span>
+<span class="kd">final</span> <span class="n">String</span> <span class="n">SKIPPED</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">"SKIPPED"</span><span class="o">);</span>
+<span class="kd">final</span> <span class="n">String</span> <span class="n">WRONG</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">"WRONG"</span><span class="o">);</span>
+<span class="kd">final</span> <span class="n">String</span> <span class="o">[]</span> <span class="n">submissions</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="na">getStringArray</span><span class="o">(</span><span class="s">"SUBMISSIONS"</span><span class="o">);</span>
+</code></pre>
+</div>
+
+<p>Many of the components written for each view are passed through what are called Bundles. Essentially, you can bundle sets of meta data and tie it to objects of type <code class="highlighter-rouge">Bundle</code>. That is what <code class="highlighter-rouge">b</code> is here. I simply unwrap the bundle when I want to retrieve the quiz performance. This can be done with <code class="highlighter-rouge">getString()</code>.</p>
+
+<h3 id="project-timeline">Project timeline</h3>
+
+<p>This application was fairly comprehensive and was a proof-of-concept for many of CK-12’s mobile games. It was especially important, because it was developed by a student; at CK-12, the student perspective was valued and foundational to many of the tools that were built.</p>
+
 
   </div>
   <footer>
-  	<a href="">Link</a>
+  	<a href="">Go up</a>
   </footer>
 
 </article>
