@@ -62,6 +62,87 @@
   <li><a href="https://github.com/minupalaniappan/Noteme">Github code</a></li>
 </ul>
 
+<h3 id="how-it-got-started">How it got started</h3>
+<p>Noteme was an idea I had during the <a href="https://piazza.com">Piazza</a> hackathon. The competition, which focused on education hacks, empowered students to think outside the box on solutions to many of the problems we would see in the University system.</p>
+
+<p>As a result, I thought about optimizing the notetaking proccess since many students get lost in lecture.</p>
+
+<h3 id="the-development-proccess">The development proccess</h3>
+
+<p>That summer, I was interning at a company that heavily used AngularJS. To me, this frontend framework was really cool because of the 3-way databinding solutions it offered. In specific, I was used to working with Firebase’s Angular wrapper called AngularFire. The wrapper is pretty much a stack of its own - Firebase covers all your backend needs, while the Angular serves as the middleware and frontend. I decided to use AngularFire to build out Noteme.</p>
+
+<ul>
+  <li>Backend</li>
+</ul>
+
+<p>We first had to deal with authentication; each user would have a portal where all their notes would be stored.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">$scope</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s1">'login'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span>
+<span class="nx">$scope</span><span class="p">.</span><span class="nx">model</span> <span class="o">=</span> <span class="nx">data</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+  <span class="kd">var</span> <span class="nx">flag</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Firebase</span><span class="p">(</span><span class="s2">"https://noteme.firebaseio.com/users"</span><span class="p">);</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">users</span> <span class="o">=</span> <span class="nx">$firebaseArray</span><span class="p">(</span><span class="nx">users</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">$scope</code> is equivalent to <code class="highlighter-rouge">this</code> in many programming languages. It essentially allows you to bind metadata and in this case we are determining which user to choose based on the user logging in a.k.a (<code class="highlighter-rouge">$scope.model</code>).</p>
+
+<p>If they weren’t in the system, we would record their data…</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">$scope</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">$add</span><span class="p">({</span>
+	<span class="na">name</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">facebook</span><span class="p">.</span><span class="nx">displayName</span><span class="p">,</span>
+	<span class="na">userownerID</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">facebook</span><span class="p">.</span><span class="nx">id</span> <span class="p">,</span>
+	<span class="na">ownerImage</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">facebook</span><span class="p">.</span><span class="nx">profileImageURL</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>Once the user has been authenticated, we begin a new page of notes for them like so…</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">$scope</span><span class="p">.</span><span class="nx">notes</span><span class="p">.</span><span class="nx">$loaded</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">notes</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">$scope</span><span class="p">.</span><span class="nx">notes</span><span class="p">.</span><span class="nx">$add</span><span class="p">({</span>
+		<span class="na">classname</span><span class="p">:</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">classname</span><span class="p">,</span>
+    <span class="na">lecture</span><span class="p">:</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">lecturename</span><span class="p">,</span>
+    <span class="na">owner</span><span class="p">:</span> <span class="nx">body</span><span class="p">.</span><span class="nx">facebook</span><span class="p">.</span><span class="nx">id</span>
+<span class="p">});</span>
+	<span class="nx">$scope</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">classname</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+	<span class="nx">$scope</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">lecturename</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>Here the <code class="highlighter-rouge">$add</code> function is a built into Angular; we add the <code class="highlighter-rouge">lecturename</code> and <code class="highlighter-rouge">classname</code> before we initialize the input for the set of notes.</p>
+
+<ul>
+  <li>Frontend</li>
+</ul>
+
+<p>The frontend was fairly straightforward. It includes a large input field where the notes are recieved. You can additionally add collaborators (teachers or students).</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">ng-repeat =</span><span class="s">"note in notes"</span> <span class="na">id =</span><span class="s">"subjects"</span><span class="nt">&gt;</span>
+ 	<span class="nt">&lt;p</span> <span class="na">class =</span><span class="s">"login"</span> <span class="na">style =</span><span class="s">"color: black; display: inline-block"</span><span class="nt">&gt;</span>
+ 		note.classname
+ 	<span class="nt">&lt;/p&gt;</span>
+ 	<span class="nt">&lt;p</span> <span class="na">class =</span><span class="s">"login"</span> <span class="na">style =</span><span class="s">"color: gray; display: inline-block"</span><span class="nt">&gt;</span>
+ 		note.lecture
+ 	<span class="nt">&lt;/p&gt;</span>
+ 	<span class="nt">&lt;button</span> <span class="na">ng-click =</span><span class="s">"addUsers(note.owner, note.$id)"</span><span class="nt">&gt;</span>
+ 		Add users
+ 	<span class="nt">&lt;/button&gt;</span>
+ <span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
+
+<p>The last button above allows you to add those users.</p>
+
+<h3 id="future">Future</h3>
+
+<p>There were many bugs in this project that prevented me from building a working prototype. It was a 12 hour hackathon, so it was certainly a time crunch. I definetly want to continue developing this platform and making a shippable product out of it. The idea has tremendous value in the classroom; this comes from a student who suffers in the lecture based system.</p>
+
+<p>Thanks for reading!</p>
+
   </div>
   <footer>
   	<a href="">Go up</a>

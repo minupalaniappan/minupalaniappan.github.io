@@ -10,3 +10,80 @@ Noteme is an easy way for teachers to analyze their students' notes
 
 ### Source
 * [Github code](https://github.com/minupalaniappan/Noteme)
+
+### How it got started
+Noteme was an idea I had during the [Piazza](https://piazza.com) hackathon. The competition, which focused on education hacks, empowered students to think outside the box on solutions to many of the problems we would see in the University system.
+
+As a result, I thought about optimizing the notetaking proccess since many students get lost in lecture.
+
+### The development proccess
+
+That summer, I was interning at a company that heavily used AngularJS. To me, this frontend framework was really cool because of the 3-way databinding solutions it offered. In specific, I was used to working with Firebase's Angular wrapper called AngularFire. The wrapper is pretty much a stack of its own - Firebase covers all your backend needs, while the Angular serves as the middleware and frontend. I decided to use AngularFire to build out Noteme.
+
+* Backend
+
+We first had to deal with authentication; each user would have a portal where all their notes would be stored.
+
+```javascript
+$scope.$on('login', function (event, data)
+$scope.model = data;
+console.log(data);
+if(data)
+  var flag = false;
+  var users = new Firebase("https://noteme.firebaseio.com/users");
+  $scope.users = $firebaseArray(users);
+```
+
+```$scope``` is equivalent to ```this``` in many programming languages. It essentially allows you to bind metadata and in this case we are determining which user to choose based on the user logging in a.k.a (```$scope.model```).
+
+If they weren't in the system, we would record their data...
+
+```javascript
+$scope.users.$add({
+	name: data.facebook.displayName,
+	userownerID: data.facebook.id ,
+	ownerImage: data.facebook.profileImageURL
+});
+```
+
+Once the user has been authenticated, we begin a new page of notes for them like so...
+
+```javascript
+$scope.notes.$loaded().then(function(notes) {
+	$scope.notes.$add({
+		classname: $scope.user.classname,
+    lecture: $scope.user.lecturename,
+    owner: body.facebook.id
+});
+	$scope.user.classname = '';
+	$scope.user.lecturename = '';
+});
+```
+
+Here the ```$add``` function is a built into Angular; we add the ```lecturename``` and ```classname``` before we initialize the input for the set of notes.
+
+* Frontend
+
+The frontend was fairly straightforward. It includes a large input field where the notes are recieved. You can additionally add collaborators (teachers or students).
+
+```html
+<div ng-repeat ="note in notes" id ="subjects">
+ 	<p class ="login" style ="color: black; display: inline-block">
+ 		note.classname
+ 	</p>
+ 	<p class ="login" style ="color: gray; display: inline-block">
+ 		note.lecture
+ 	</p>
+ 	<button ng-click ="addUsers(note.owner, note.$id)">
+ 		Add users
+ 	</button>
+ </div>
+```
+
+The last button above allows you to add those users.
+
+### Future
+
+There were many bugs in this project that prevented me from building a working prototype. It was a 12 hour hackathon, so it was certainly a time crunch. I definetly want to continue developing this platform and making a shippable product out of it. The idea has tremendous value in the classroom; this comes from a student who suffers in the lecture based system.
+
+Thanks for reading!
