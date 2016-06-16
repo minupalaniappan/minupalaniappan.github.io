@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Using NodeJS to build the ultimate lyric tool</title>
-  <meta name="description" content="Migo is a search engine that lets you find philanthropy events near you">
+  <meta name="description" content="I built a tool that lets you speak a lyric and identify the exact timestamp in the music video.">
   <link href='https://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://minupalaniappan.com/projects/2016/05/29/drakify.html">
@@ -55,12 +55,71 @@
     <p class = "small"><time datetime="2016-05-29T00:00:00-07:00">May 29, 2016</time></p>
   </header>
   <div>
-    <p>Migo is a search engine that lets you find philanthropy events near you</p>
+    <p>I built a tool that lets you speak a lyric and identify the exact timestamp in the music video.</p>
 
 <h3 id="source">Source</h3>
 <ul>
-  <li><a href="https://github.com/minupalaniappan/migo">Github code</a></li>
+  <li><a href="https://github.com/minupalaniappan/drakify">Github code</a></li>
 </ul>
+
+<h3 id="how-it-started">How it started</h3>
+<p>Drakify was one of those projects that only materialized at the end of competition. I was at Cal Hacks 2016, and I was still without a solid idea midway through hacking. I had always wanted to play around with <a href="https://rap.genius.com">Rap Genius</a>, so I thought about building some sort of lyrics tool. I was also interested in Node at the time, so building some sort of active listener was what I ended up ideating.</p>
+
+<h3 id="development-proccess">Development Proccess</h3>
+<p>The roadmap was simple; build a button that would wait for audio input, an embedded YT video at a specific timestamp and “Genius” annotations that were written at that specific line of music.</p>
+
+<ul>
+  <li>Retrieving and transcribing audio
+Major thanks to the open source project <a href="https://github.com/TalAter/annyang">Annyang</a>. Annyang is incredibly effective at recognizing speech and its powered on Javascript. Here is how Annyang works…</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">search</span> <span class="o">*</span><span class="nx">something</span><span class="err">':</span> <span class="kd">function</span><span class="p">(</span><span class="nx">something</span><span class="p">)</span> <span class="p">{</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+    <span class="na">url</span><span class="p">:</span> <span class="s2">"https://api.genius.com/search?q="</span> <span class="o">+</span> <span class="nx">something</span><span class="p">,</span>
+    <span class="na">type</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
+    <span class="na">headers</span><span class="p">:</span> <span class="p">{</span><span class="s2">"Authorization"</span><span class="p">:</span> <span class="s2">"..."</span><span class="p">},</span>
+		<span class="na">success</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kd">var</span> <span class="nx">title</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">hits</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">result</span><span class="p">.</span><span class="nx">title</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">artist</span> <span class="o">=</span> <span class="s2">"By "</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">hits</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">result</span><span class="p">.</span><span class="nx">primary_artist</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"artist"</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">title</span><span class="p">;</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"title"</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">artist</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">hits</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">result</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
+        <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+		    <span class="na">url</span><span class="p">:</span> <span class="s2">"https://api.genius.com/songs/"</span> <span class="o">+</span> <span class="nx">str</span><span class="p">,</span>
+		    <span class="na">type</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
+		    <span class="na">headers</span><span class="p">:</span> <span class="p">{</span><span class="s2">"Authorization"</span><span class="p">:</span> <span class="s2">"..."</span><span class="p">},</span>
+				<span class="na">success</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+	        <span class="p">}</span>
+		<span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>In this case <code class="highlighter-rouge">*something</code> is the portion of text that is transcribed from audio. Annyang allows you mobilize audio clips and place them anywhere in the function. It makes your voice modular within the code, resulting in great usability. After getting the text query from your voice, you query it to Genius’s API and get JSON returned on the Artist and title of the song. To get this type of data we use <code class="highlighter-rouge">$.ajax</code>.</p>
+
+<p>We then set up our YT object to start quering specific parts of the video. Its done like so…</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s2">"https://www.googleapis.com/youtube/v3/search"</span><span class="p">,</span> <span class="p">{</span>
+	<span class="na">part</span><span class="p">:</span> <span class="s1">'snippet'</span><span class="p">,</span>
+	<span class="na">maxResults</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+	<span class="na">order</span><span class="p">:</span> <span class="s1">'viewCount'</span><span class="p">,</span>
+	<span class="na">q</span><span class="p">:</span> <span class="nx">something</span><span class="p">,</span>
+	<span class="na">type</span><span class="p">:</span> <span class="s1">'video'</span><span class="p">,</span>
+	<span class="na">key</span><span class="p">:</span> <span class="s1">'...'</span>
+<span class="p">},</span>
+</code></pre>
+</div>
+<p>Here, I construct a JSON object that is returned from a YouTube Ajax call. YT is typically very accurate, so cutting <code class="highlighter-rouge">maxResults</code> to just 10 results and optimizing by <code class="highlighter-rouge">viewCount</code> is all that is needed to get the desired video.
+In this case, <code class="highlighter-rouge">something</code> is the transcribed text from annyang.</p>
+
+<p>With the fetched video ID, we can call upon the embedded YouTube video.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">videoToPlay</span> <span class="o">=</span> <span class="s2">"https://www.youtube.com/watch?v="</span> <span class="o">+</span> <span class="nx">item</span><span class="p">.</span><span class="nx">id</span><span class="p">.</span><span class="nx">videoId</span> <span class="o">+</span> <span class="s2">"&amp;autoplay=1"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">videoToPlay</span> <span class="o">=</span> <span class="nx">videoToPlay</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">"watch?v="</span><span class="p">,</span> <span class="s2">"v/"</span><span class="p">);</span>
+</code></pre>
+</div>
+<p>Thanks for reading!</p>
 
   </div>
   <footer>

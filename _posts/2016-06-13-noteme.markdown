@@ -6,4 +6,7 @@ categories: projects
 summary: "Realtime platform that lets teachers know how effective their lectures are based on student notes."
 link: ""
 ---
-hi there
+Noteme is an easy way for teachers to analyze their students' notes
+
+### Source
+* [Github code](https://github.com/minupalaniappan/Noteme)

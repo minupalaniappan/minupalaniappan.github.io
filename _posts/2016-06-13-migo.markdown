@@ -48,5 +48,31 @@ startday, endyear, endmonth, endday, page):
   	data = json.loads(response.read())
 ```
 
-Once these functions were properly routed, we would like to call the proper APIs. As you can see, our data source of choice was Eventbrite.
+Once these functions were properly routed, we would like to call the proper APIs. As you can see, our data source of choice was Eventbrite. So once the url was built with the parameters passed into ```spec2```, we would convert the returned output to JSON. At this point, handling the JSON with Jinja on the front-end was simple.
+
 * Front-end
+
+There were only two templates used for this project. The search page included a big input field similar to what you would see on Google's homepage. The results page is where there was significant thought put into design. Providing visuals on that page was important to me, so I decided to implement Google Maps to provide more relatibility for the user.
+
+```javascript
+<script type="text/javascript">
+function initialize() {
+    var mapCanvas = document.getElementById('map');
+    var mapOptions = {
+      center: new google.maps.LatLng("{{ events.0.lat }}","{{ events.0.lon }}"),
+      zoom: 3,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    var map = new google.maps.Map(mapCanvas, mapOptions)
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+```
+
+I fetched the latitude and longitude from the evenbrite data and injected it into a JS object. Thats what ```events.0.lat``` and ```events.0.lon``` are in this case.
+
+* In Competition
+
+Migo worked fairly well, although applying some sort of Cache via Redis could have really made the technology more impressive. Broncohack had some great projects, so beating out competition proved to be tough.
+
+Thanks for reading!

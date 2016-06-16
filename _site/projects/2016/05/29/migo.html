@@ -102,8 +102,38 @@ The nex route is a little more specific; this time, it takes <code class="highli
 </code></pre>
 </div>
 
-<p>Once these functions were properly routed, we would like to call the proper APIs. As you can see, our data source of choice was Eventbrite.
-* Front-end</p>
+<p>Once these functions were properly routed, we would like to call the proper APIs. As you can see, our data source of choice was Eventbrite. So once the url was built with the parameters passed into <code class="highlighter-rouge">spec2</code>, we would convert the returned output to JSON. At this point, handling the JSON with Jinja on the front-end was simple.</p>
+
+<ul>
+  <li>Front-end</li>
+</ul>
+
+<p>There were only two templates used for this project. The search page included a big input field similar to what you would see on Google’s homepage. The results page is where there was significant thought put into design. Providing visuals on that page was important to me, so I decided to implement Google Maps to provide more relatibility for the user.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"text/javascript"</span><span class="o">&gt;</span>
+<span class="kd">function</span> <span class="nx">initialize</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">mapCanvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'map'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">mapOptions</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">center</span><span class="p">:</span> <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">LatLng</span><span class="p">(</span><span class="s2">""</span><span class="p">,</span><span class="s2">""</span><span class="p">),</span>
+      <span class="na">zoom</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+      <span class="na">mapTypeId</span><span class="p">:</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">MapTypeId</span><span class="p">.</span><span class="nx">ROADMAP</span>
+    <span class="p">}</span>
+    <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">Map</span><span class="p">(</span><span class="nx">mapCanvas</span><span class="p">,</span> <span class="nx">mapOptions</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">addDomListener</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="s1">'load'</span><span class="p">,</span> <span class="nx">initialize</span><span class="p">);</span>
+<span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span></code></pre>
+</div>
+
+<p>I fetched the latitude and longitude from the evenbrite data and injected it into a JS object. Thats what <code class="highlighter-rouge">events.0.lat</code> and <code class="highlighter-rouge">events.0.lon</code> are in this case.</p>
+
+<ul>
+  <li>In Competition</li>
+</ul>
+
+<p>Migo worked fairly well, although applying some sort of Cache via Redis could have really made the technology more impressive. Broncohack had some great projects, so beating out competition proved to be tough.</p>
+
+<p>Thanks for reading!</p>
 
   </div>
   <footer>
