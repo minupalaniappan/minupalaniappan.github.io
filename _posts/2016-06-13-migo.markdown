@@ -6,4 +6,47 @@ categories: projects
 summary: "Built a search engine that lets you search for philanthropy events near you."
 link: ""
 ---
-hi there
+Migo is a search engine that lets you find philanthropy events near you
+
+### Source
+* [Github code](https://github.com/minupalaniappan/migo)
+
+### How it got started
+
+Migo was a hack I wrote for Bronco Hack, the official Santa Clara University Hackathon. At the time of the hackathon, I was playing around with Django and wanted to implement the framework in a 24 hour period. This hackathon was the perfect time play around with it.
+
+### The development proccess
+
+* Routing
+Django, like most python frameworks, allows you to route your params to a function. In Django, GET params are routed like so...
+
+```python
+url(r'^search/(?P<searchterm>[\w|\W]+)/1/(?P<page>\w+)/', 'migoapp.views.spec'),
+url(r'^search/(?P<searchterm>[\w|\W]+)/(?P<startyear>\w+)-
+(?P<startmonth>\w+)-(?P<startday>\w+)/(?P<endyear>\w+)-
+(?P<endmonth>\w+)-(?P<endday>\w+)/2/(?P<page>\w+)/',
+'migoapp.views.spec2'),
+```
+
+These are two different routes; one takes ```searchterm``` and fetches the specific ```page``` in the list of results.
+The nex route is a little more specific; this time, it takes ```startday```, ```startyear```, 	```startmonth``` and the respect end variables.
+
+
+* API Calls
+
+```python
+def spec2(request, searchterm, startyear, startmonth,
+startday, endyear, endmonth, endday, page):
+	city = str(searchterm)
+  	tempurl = 'http://127.0.0.1:8000/search/' + searchterm + '/'
+  	str = 'https://www.eventbriteapi.com/v3/events/search/?'
+  	str += 'token=4FDXOHJM6UTWIHWH76TA&format=json&q=volunteer&venue.city='
+  	response = urllib.urlopen('' + city + '&start_date.range_start='
+  	+ startyear + '-' + startmonth + '-' + startday + 'T00:00:00Z'
+  	+ '&start_date.range_end=' + endyear + '-'
+  	+ endmonth + '-' + endday + 'T00:00:00Z' + '&page=' + page);
+  	data = json.loads(response.read())
+```
+
+Once these functions were properly routed, we would like to call the proper APIs. As you can see, our data source of choice was Eventbrite.
+* Front-end

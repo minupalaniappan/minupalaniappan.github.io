@@ -6,8 +6,8 @@
 </description>
     <link>http://minupalaniappan.com/</link>
     <atom:link href="http://minupalaniappan.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 15 Jun 2016 23:18:12 -0700</pubDate>
-    <lastBuildDate>Wed, 15 Jun 2016 23:18:12 -0700</lastBuildDate>
+    <pubDate>Thu, 16 Jun 2016 00:41:02 -0700</pubDate>
+    <lastBuildDate>Thu, 16 Jun 2016 00:41:02 -0700</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -267,11 +267,77 @@
     
       <item>
         <title>Scaling Django to build an awesome search engine</title>
-        <description>&lt;p&gt;hi there&lt;/p&gt;
+        <description>&lt;p&gt;Migo is a search engine that lets you find philanthropy events near you&lt;/p&gt;
+
+&lt;h3 id=&quot;source&quot;&gt;Source&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/minupalaniappan/migo&quot;&gt;Github code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;how-it-got-started&quot;&gt;How it got started&lt;/h3&gt;
+
+&lt;p&gt;Migo was a hack I wrote for Bronco Hack, the official Santa Clara University Hackathon. At the time of the hackathon, I was playing around with Django and wanted to implement the framework in a 24 hour period. This hackathon was the perfect time play around with it.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-development-proccess&quot;&gt;The development proccess&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Routing
+Django, like most python frameworks, allows you to route your params to a function. In Django, GET params are routed like so…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;r&#39;^search/(?P&amp;lt;searchterm&amp;gt;[&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;w|&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;W]+)/1/(?P&amp;lt;page&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;w+)/&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;migoapp.views.spec&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;r&#39;^search/(?P&amp;lt;searchterm&amp;gt;[&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;w|&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;W]+)/(?P&amp;lt;startyear&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;w+)-&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;(?P&amp;lt;startmonth&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;w+)-(?P&amp;lt;startday&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;w+)/(?P&amp;lt;endyear&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;w+)-&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;(?P&amp;lt;endmonth&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;w+)-(?P&amp;lt;endday&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;w+)/2/(?P&amp;lt;page&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;w+)/&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;&#39;migoapp.views.spec2&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;These are two different routes; one takes &lt;code class=&quot;highlighter-rouge&quot;&gt;searchterm&lt;/code&gt; and fetches the specific &lt;code class=&quot;highlighter-rouge&quot;&gt;page&lt;/code&gt; in the list of results.
+The nex route is a little more specific; this time, it takes &lt;code class=&quot;highlighter-rouge&quot;&gt;startday&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;startyear&lt;/code&gt;, 	&lt;code class=&quot;highlighter-rouge&quot;&gt;startmonth&lt;/code&gt; and the respect end variables.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;API Calls&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;spec2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;searchterm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;startyear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;startmonth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;startday&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endyear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endmonth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endday&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;city&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;searchterm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  	&lt;span class=&quot;n&quot;&gt;tempurl&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;http://127.0.0.1:8000/search/&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;searchterm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;/&#39;&lt;/span&gt;
+  	&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;https://www.eventbriteapi.com/v3/events/search/?&#39;&lt;/span&gt;
+  	&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;token=4FDXOHJM6UTWIHWH76TA&amp;amp;format=json&amp;amp;q=volunteer&amp;amp;venue.city=&#39;&lt;/span&gt;
+  	&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urllib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urlopen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;city&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;&amp;amp;start_date.range_start=&#39;&lt;/span&gt;
+  	&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;startyear&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;-&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;startmonth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;-&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;startday&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;T00:00:00Z&#39;&lt;/span&gt;
+  	&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;&amp;amp;start_date.range_end=&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endyear&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;-&#39;&lt;/span&gt;
+  	&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endmonth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;-&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endday&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;T00:00:00Z&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;&amp;amp;page=&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  	&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loads&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Once these functions were properly routed, we would like to call the proper APIs. As you can see, our data source of choice was Eventbrite.
+* Front-end&lt;/p&gt;
 </description>
         <pubDate>Sun, 29 May 2016 00:00:00 -0700</pubDate>
         <link>http://minupalaniappan.com/projects/2016/05/29/migo.html</link>
         <guid isPermaLink="true">http://minupalaniappan.com/projects/2016/05/29/migo.html</guid>
+        
+        
+        <category>projects</category>
+        
+      </item>
+    
+      <item>
+        <title>Using NodeJS to build the ultimate lyric tool</title>
+        <description>&lt;p&gt;Migo is a search engine that lets you find philanthropy events near you&lt;/p&gt;
+
+&lt;h3 id=&quot;source&quot;&gt;Source&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/minupalaniappan/migo&quot;&gt;Github code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 29 May 2016 00:00:00 -0700</pubDate>
+        <link>http://minupalaniappan.com/projects/2016/05/29/drakify.html</link>
+        <guid isPermaLink="true">http://minupalaniappan.com/projects/2016/05/29/drakify.html</guid>
         
         
         <category>projects</category>
@@ -430,19 +496,6 @@ From then on, we believed that a great hire stemmed from their willingness to ma
         
         
         <category>platforms</category>
-        
-      </item>
-    
-      <item>
-        <title>Me at CK-12</title>
-        <description>&lt;p&gt;hi there&lt;/p&gt;
-</description>
-        <pubDate>Sun, 29 May 2016 00:00:00 -0700</pubDate>
-        <link>http://minupalaniappan.com/work/2016/05/29/ck12.html</link>
-        <guid isPermaLink="true">http://minupalaniappan.com/work/2016/05/29/ck12.html</guid>
-        
-        
-        <category>work</category>
         
       </item>
     

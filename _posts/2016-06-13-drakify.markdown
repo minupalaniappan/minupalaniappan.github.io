@@ -1,0 +1,12 @@
+---
+layout: project
+title: "Using NodeJS to build the ultimate lyric tool"
+date:   2016-05-29
+categories: projects
+summary: "Built a search engine that lets you search for philanthropy events near you."
+link: ""
+---
+Migo is a search engine that lets you find philanthropy events near you
+
+### Source
+* [Github code](https://github.com/minupalaniappan/migo)

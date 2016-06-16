@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Scaling Django to build an awesome search engine</title>
+  <title>Using NodeJS to build the ultimate lyric tool</title>
   <meta name="description" content="Migo is a search engine that lets you find philanthropy events near you">
   <link href='https://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://minupalaniappan.com/projects/2016/05/29/migo.html">
+  <link rel="canonical" href="http://minupalaniappan.com/projects/2016/05/29/drakify.html">
   <link rel="alternate" type="application/rss+xml" title="MSP" href="http://minupalaniappan.com/feed.xml">
 </head>
 
@@ -51,7 +51,7 @@
       <div class="wrapper">
         <article class="padding80">
   <header>
-    <h2>Scaling Django to build an awesome search engine</h2>
+    <h2>Using NodeJS to build the ultimate lyric tool</h2>
     <p class = "small"><time datetime="2016-05-29T00:00:00-07:00">May 29, 2016</time></p>
   </header>
   <div>
@@ -61,49 +61,6 @@
 <ul>
   <li><a href="https://github.com/minupalaniappan/migo">Github code</a></li>
 </ul>
-
-<h3 id="how-it-got-started">How it got started</h3>
-
-<p>Migo was a hack I wrote for Bronco Hack, the official Santa Clara University Hackathon. At the time of the hackathon, I was playing around with Django and wanted to implement the framework in a 24 hour period. This hackathon was the perfect time play around with it.</p>
-
-<h3 id="the-development-proccess">The development proccess</h3>
-
-<ul>
-  <li>Routing
-Django, like most python frameworks, allows you to route your params to a function. In Django, GET params are routed like so…</li>
-</ul>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">url</span><span class="p">(</span><span class="s">r'^search/(?P&lt;searchterm&gt;[</span><span class="err">\</span><span class="s">w|</span><span class="err">\</span><span class="s">W]+)/1/(?P&lt;page&gt;</span><span class="err">\</span><span class="s">w+)/'</span><span class="p">,</span> <span class="s">'migoapp.views.spec'</span><span class="p">),</span>
-<span class="n">url</span><span class="p">(</span><span class="s">r'^search/(?P&lt;searchterm&gt;[</span><span class="err">\</span><span class="s">w|</span><span class="err">\</span><span class="s">W]+)/(?P&lt;startyear&gt;</span><span class="err">\</span><span class="s">w+)-</span><span class="err">
-</span><span class="s">(?P&lt;startmonth&gt;</span><span class="err">\</span><span class="s">w+)-(?P&lt;startday&gt;</span><span class="err">\</span><span class="s">w+)/(?P&lt;endyear&gt;</span><span class="err">\</span><span class="s">w+)-</span><span class="err">
-</span><span class="s">(?P&lt;endmonth&gt;</span><span class="err">\</span><span class="s">w+)-(?P&lt;endday&gt;</span><span class="err">\</span><span class="s">w+)/2/(?P&lt;page&gt;</span><span class="err">\</span><span class="s">w+)/'</span><span class="p">,</span>
-<span class="s">'migoapp.views.spec2'</span><span class="p">),</span>
-</code></pre>
-</div>
-
-<p>These are two different routes; one takes <code class="highlighter-rouge">searchterm</code> and fetches the specific <code class="highlighter-rouge">page</code> in the list of results.
-The nex route is a little more specific; this time, it takes <code class="highlighter-rouge">startday</code>, <code class="highlighter-rouge">startyear</code>, 	<code class="highlighter-rouge">startmonth</code> and the respect end variables.</p>
-
-<ul>
-  <li>API Calls</li>
-</ul>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">spec2</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">searchterm</span><span class="p">,</span> <span class="n">startyear</span><span class="p">,</span> <span class="n">startmonth</span><span class="p">,</span>
-<span class="n">startday</span><span class="p">,</span> <span class="n">endyear</span><span class="p">,</span> <span class="n">endmonth</span><span class="p">,</span> <span class="n">endday</span><span class="p">,</span> <span class="n">page</span><span class="p">):</span>
-	<span class="n">city</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">searchterm</span><span class="p">)</span>
-  	<span class="n">tempurl</span> <span class="o">=</span> <span class="s">'http://127.0.0.1:8000/search/'</span> <span class="o">+</span> <span class="n">searchterm</span> <span class="o">+</span> <span class="s">'/'</span>
-  	<span class="nb">str</span> <span class="o">=</span> <span class="s">'https://www.eventbriteapi.com/v3/events/search/?'</span>
-  	<span class="nb">str</span> <span class="o">+=</span> <span class="s">'token=4FDXOHJM6UTWIHWH76TA&amp;format=json&amp;q=volunteer&amp;venue.city='</span>
-  	<span class="n">response</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">''</span> <span class="o">+</span> <span class="n">city</span> <span class="o">+</span> <span class="s">'&amp;start_date.range_start='</span>
-  	<span class="o">+</span> <span class="n">startyear</span> <span class="o">+</span> <span class="s">'-'</span> <span class="o">+</span> <span class="n">startmonth</span> <span class="o">+</span> <span class="s">'-'</span> <span class="o">+</span> <span class="n">startday</span> <span class="o">+</span> <span class="s">'T00:00:00Z'</span>
-  	<span class="o">+</span> <span class="s">'&amp;start_date.range_end='</span> <span class="o">+</span> <span class="n">endyear</span> <span class="o">+</span> <span class="s">'-'</span>
-  	<span class="o">+</span> <span class="n">endmonth</span> <span class="o">+</span> <span class="s">'-'</span> <span class="o">+</span> <span class="n">endday</span> <span class="o">+</span> <span class="s">'T00:00:00Z'</span> <span class="o">+</span> <span class="s">'&amp;page='</span> <span class="o">+</span> <span class="n">page</span><span class="p">);</span>
-  	<span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-</code></pre>
-</div>
-
-<p>Once these functions were properly routed, we would like to call the proper APIs. As you can see, our data source of choice was Eventbrite.
-* Front-end</p>
 
   </div>
   <footer>
