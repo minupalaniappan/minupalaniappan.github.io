@@ -85,6 +85,84 @@ This program’s efficiency is directly correlated to the thresholds read by the
 </code></pre>
 </div>
 
+<p>The thresholds are determined by the average values returned for pressure and color. Its done like so…</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">allReadings</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">sample</span><span class="p">[</span><span class="s">'image'</span><span class="p">]))</span>
+<span class="n">maxReading</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">allReadings</span><span class="p">)</span>
+<span class="n">minReading</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">allReadings</span><span class="p">)</span>
+<span class="n">avgReading</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">allReadings</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">allReadings</span><span class="p">))</span>
+<span class="k">return</span> <span class="p">{</span>
+	<span class="s">'all'</span><span class="p">:</span> <span class="n">allReadings</span><span class="p">,</span>
+	<span class="s">'max'</span><span class="p">:</span> <span class="n">maxReading</span><span class="p">,</span>
+	<span class="s">'min'</span><span class="p">:</span> <span class="n">minReading</span><span class="p">,</span>
+	<span class="s">'avg'</span><span class="p">:</span> <span class="n">avgReading</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>This function determined all the readings on the touch board. If you look at the Git source code, you can see all the output files created from these readings.</p>
+
+<p>The driver for the whole program occured in <code class="highlighter-rouge">driverFunc()</code> and this is the function that derived all readings. It was written like so…</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">driverFunc</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+	<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span>
+	<span class="n">samples</span> <span class="o">=</span> <span class="p">[</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()]</span>
+	<span class="n">choordList</span> <span class="o">=</span> <span class="p">[]</span>
+	<span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">samples</span><span class="p">:</span>
+		<span class="n">readings</span> <span class="o">=</span> <span class="n">fetchReadings</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+		<span class="n">colors</span> <span class="o">=</span> <span class="n">fetchColors</span><span class="p">(</span><span class="n">readings</span><span class="p">)</span>
+		<span class="k">if</span><span class="p">(</span><span class="n">colors</span><span class="p">[</span><span class="s">'avg'</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">AVG_COLOR_THRESHOLD</span><span class="p">):</span>
+			<span class="n">replaceSampleReadingsWithColors</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="n">colors</span><span class="p">[</span><span class="s">'colors'</span><span class="p">])</span>
+			<span class="n">coords</span> <span class="o">=</span> <span class="n">findTouchCoordinates</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">sample</span><span class="p">[</span><span class="s">'sequence'</span><span class="p">]</span> <span class="ow">and</span> <span class="n">coords</span><span class="p">):</span>
+				<span class="n">choordList</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+					<span class="s">'num'</span><span class="p">:</span> <span class="n">sample</span><span class="p">[</span><span class="s">'sequence'</span><span class="p">],</span>
+					<span class="s">'coordinates'</span><span class="p">:</span> <span class="n">coords</span><span class="p">,</span>
+					<span class="s">'max'</span><span class="p">:</span> <span class="n">colors</span><span class="p">[</span><span class="s">'max'</span><span class="p">]}</span>
+				<span class="p">)</span>
+	<span class="n">fetchAndAddMiddlePointOfState</span><span class="p">(</span><span class="n">choordList</span><span class="p">)</span>
+	<span class="n">imgList</span> <span class="o">=</span> <span class="p">[]</span>
+	<span class="k">for</span> <span class="n">tup</span> <span class="ow">in</span> <span class="n">registeredPoints</span><span class="p">:</span>
+		<span class="n">imgList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">tup</span><span class="p">))</span>
+	<span class="k">return</span> <span class="p">(</span><span class="n">imgList</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Here we open up a new pipeline to file generated by the touchboard. Using Python’s filestream library, we can implement <code class="highlighter-rouge">open()</code> and read each line using <code class="highlighter-rouge">json.loads</code>. From here we can analyze each point to determine which ones were above the <code class="highlighter-rouge">AVG_COLOR_THRESHOLD</code>.</p>
+
+<p>So what does this tell us?</p>
+
+<p>It tells us exactly where the user dropped their finger on the touchpad. These boards react to pressure from any given finger, and a result of increased pressure is a change in color. We can determine if the point had an above or below color threshold and determine if there was user-touch there.</p>
+
+<p>We can now recreate the image given the points at which the board was touched.</p>
+
+<p>So, given an image, we can compare it to an actual shape drawn by a graphics tool. Here, I’ve imported 4 images I created on Sketch.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">imgCircle</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s">'imgs/circle.png'</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">imgSquare</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s">'imgs/square.png'</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">imgTriangle</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s">'imgs/triangle.png'</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">imgStar</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s">'imgs/star.png'</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>It can currently recognize 4 shapes, since I’ve plugged in a <code class="highlighter-rouge">imgCircle</code>, <code class="highlighter-rouge">imgSquare</code>, <code class="highlighter-rouge">imgTriangle</code>, <code class="highlighter-rouge">imgStar</code>. Furthermore, <code class="highlighter-rouge">cv2</code> is derived from the OpenCV library; hence, I have access to a lot of image comparison functions that allow me to build confidence ratings for each potential match.</p>
+
+<p>In order to transpose and compare the drawn image to the pngs, I have to first add a black and white polyfill to the draw image like so…</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">cv2</span><span class="o">.</span><span class="n">fillPoly</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">([</span><span class="n">pts</span><span class="p">]),</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">))</span>
+</code></pre>
+</div>
+
+<p>Here <code class="highlighter-rouge">img</code> is the list of points we’ve compiled from above. The magic of this hack comes from OpenCV’s powerful matchShape function.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">cmpScores</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s">'Circle'</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">matchShapes</span><span class="p">(</span><span class="n">img2</span><span class="p">,</span> <span class="n">imgCircle</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)))</span>
+<span class="n">cmpScores</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s">'Square'</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">matchShapes</span><span class="p">(</span><span class="n">img2</span><span class="p">,</span> <span class="n">imgSquare</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)))</span>
+<span class="n">cmpScores</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s">'Triangle'</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">matchShapes</span><span class="p">(</span><span class="n">img2</span><span class="p">,</span> <span class="n">imgTriangle</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)))</span>
+<span class="n">cmpScores</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s">'Star'</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">matchShapes</span><span class="p">(</span><span class="n">img2</span><span class="p">,</span> <span class="n">imgStar</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)))</span>
+</code></pre>
+</div>
+<p>matchShapes returns a confidence rating which we use to determine certain thresholds.</p>
+
+<p>Given these confidence ratings, we can compare them to the ratings of the actual shapes. Based on how close each confidence rating was, we could determine the shape and vocalize it using Python’s <code class="highlighter-rouge">os</code>.</p>
+
   </div>
   <footer>
   	<a href="">Go up</a>
