@@ -3,7 +3,16 @@ layout: project
 title: "Developing on iOS to build a patient logger"
 date:   2016-05-29
 categories: projects
-summary: "A simple way to character your patients."
+summary: "A simple way to characterize your patients."
 link: ""
 ---
-hi there
+My first iOS project that I did in high school; I built a simple tool to log patient information
+
+### Source
+* [Github code](https://github.com/minupalaniappan/iOSDoctorApp)
+
+### Summary
+
+In high school, I was part of the [SHS App Developer's club](http://www.appdevclubshs.com/). For many years, my involvement was revolved around developing mobile applications (iOS and Android). One of my first big projects ever was a logger to store patient data.
+
+

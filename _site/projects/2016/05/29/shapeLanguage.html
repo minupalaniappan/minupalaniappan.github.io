@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Working with OpenCV to build ShapeLanguage</title>
-  <meta name="description" content="hi there">
+  <meta name="description" content="I built a winning hack that was able to recognize shapes drawn on the Synaptics Touch board.">
   <link href='https://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://minupalaniappan.com/projects/2016/05/29/shapeLanguage.html">
@@ -55,7 +55,35 @@
     <p class = "small"><time datetime="2016-05-29T00:00:00-07:00">May 29, 2016</time></p>
   </header>
   <div>
-    <p>hi there</p>
+    <p>I built a winning hack that was able to recognize shapes drawn on the Synaptics Touch board.</p>
+
+<h3 id="source">Source</h3>
+<ul>
+  <li><a href="https://github.com/minupalaniappan/ShapeLanguage">Github code</a></li>
+  <li><a href="http://devpost.com/software/shapelanguage">Devpost</a></li>
+</ul>
+
+<h3 id="demo">Demo</h3>
+<p><a href="http://www.youtube.com/watch?v=ca-KuZu4P08"><img src="http://img.youtube.com/vi/ca-KuZu4P08/0.jpg" alt="IMAGE ALT TEXT HERE" /></a></p>
+
+<h3 id="how-it-came-about">How it came about</h3>
+<p>This is probably my favorite hack of all time. It was the first project that allowed me to interact with hardware and use the python vision library, OpenCV. The project went on to win an award at HackDavis for best use of Synaptics Touch Hardware. The competition lasted for 24 hours.</p>
+
+<h3 id="development-proccess">Development proccess</h3>
+<p>The entire application runs right on the terminal; as a result, handling a Node Server or a Python framework wasn’t neccesary; all we had to do was write Python and plugin some javascript to listen to the board.</p>
+
+<ul>
+  <li>Thresholds
+This program’s efficiency is directly correlated to the thresholds read by the touchboard. If a certain drawing reaches the threshold of a given shape, we then determine that the shape to state was the one drawn.</li>
+</ul>
+
+<p>The first step is to determine the threshold colors in which the board is touched or not touched. Remember at each (x,y) coordinate, we compare it against the threshold.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">TOUCH_COLOR_THRESHOLD</span> <span class="o">=</span> <span class="mi">200</span> <span class="o">//</span><span class="n">the</span> <span class="n">average</span> <span class="n">white</span> <span class="p">(</span><span class="n">touched</span><span class="p">)</span>
+<span class="n">AVG_COLOR_THRESHOLD</span> <span class="o">=</span> <span class="mi">150</span> <span class="o">//</span><span class="n">the</span> <span class="n">average</span> <span class="n">gray</span>
+<span class="n">AREA</span> <span class="o">=</span> <span class="mi">64</span><span class="o">*</span><span class="mi">72</span> <span class="o">//</span><span class="n">total</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">board</span>
+</code></pre>
+</div>
 
   </div>
   <footer>

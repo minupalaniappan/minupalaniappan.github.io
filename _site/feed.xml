@@ -6,8 +6,8 @@
 </description>
     <link>http://minupalaniappan.com/</link>
     <atom:link href="http://minupalaniappan.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 16 Jun 2016 13:55:07 -0700</pubDate>
-    <lastBuildDate>Thu, 16 Jun 2016 13:55:07 -0700</lastBuildDate>
+    <pubDate>Thu, 16 Jun 2016 23:56:55 -0700</pubDate>
+    <lastBuildDate>Thu, 16 Jun 2016 23:56:55 -0700</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -521,7 +521,17 @@ In this case, &lt;code class=&quot;highlighter-rouge&quot;&gt;something&lt;/code
     
       <item>
         <title>Developing on iOS to build a patient logger</title>
-        <description>&lt;p&gt;hi there&lt;/p&gt;
+        <description>&lt;p&gt;My first iOS project that I did in high school; I built a simple tool to log patient information&lt;/p&gt;
+
+&lt;h3 id=&quot;source&quot;&gt;Source&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/minupalaniappan/iOSDoctorApp&quot;&gt;Github code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;summary&quot;&gt;Summary&lt;/h3&gt;
+
+&lt;p&gt;In high school, I was part of the &lt;a href=&quot;http://www.appdevclubshs.com/&quot;&gt;SHS App Developer’s club&lt;/a&gt;. For many years, my involvement was revolved around developing mobile applications (iOS and Android). One of my first big projects ever was a logger to store patient data.&lt;/p&gt;
+
 </description>
         <pubDate>Sun, 29 May 2016 00:00:00 -0700</pubDate>
         <link>http://minupalaniappan.com/projects/2016/05/29/doctorly.html</link>
@@ -534,7 +544,35 @@ In this case, &lt;code class=&quot;highlighter-rouge&quot;&gt;something&lt;/code
     
       <item>
         <title>Working with OpenCV to build ShapeLanguage</title>
-        <description>&lt;p&gt;hi there&lt;/p&gt;
+        <description>&lt;p&gt;I built a winning hack that was able to recognize shapes drawn on the Synaptics Touch board.&lt;/p&gt;
+
+&lt;h3 id=&quot;source&quot;&gt;Source&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/minupalaniappan/ShapeLanguage&quot;&gt;Github code&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://devpost.com/software/shapelanguage&quot;&gt;Devpost&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;demo&quot;&gt;Demo&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=ca-KuZu4P08&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/ca-KuZu4P08/0.jpg&quot; alt=&quot;IMAGE ALT TEXT HERE&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;how-it-came-about&quot;&gt;How it came about&lt;/h3&gt;
+&lt;p&gt;This is probably my favorite hack of all time. It was the first project that allowed me to interact with hardware and use the python vision library, OpenCV. The project went on to win an award at HackDavis for best use of Synaptics Touch Hardware. The competition lasted for 24 hours.&lt;/p&gt;
+
+&lt;h3 id=&quot;development-proccess&quot;&gt;Development proccess&lt;/h3&gt;
+&lt;p&gt;The entire application runs right on the terminal; as a result, handling a Node Server or a Python framework wasn’t neccesary; all we had to do was write Python and plugin some javascript to listen to the board.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Thresholds
+This program’s efficiency is directly correlated to the thresholds read by the touchboard. If a certain drawing reaches the threshold of a given shape, we then determine that the shape to state was the one drawn.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The first step is to determine the threshold colors in which the board is touched or not touched. Remember at each (x,y) coordinate, we compare it against the threshold.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;TOUCH_COLOR_THRESHOLD&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;average&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;white&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;touched&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;AVG_COLOR_THRESHOLD&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;150&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;average&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gray&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;AREA&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;72&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;total&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;board&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 </description>
         <pubDate>Sun, 29 May 2016 00:00:00 -0700</pubDate>
         <link>http://minupalaniappan.com/projects/2016/05/29/shapeLanguage.html</link>
