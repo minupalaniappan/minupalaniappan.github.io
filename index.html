@@ -1,29 +1,101 @@
----
-layout: default
----
-
-<div class="home">
-  <div class="post-list padding80">
-    <div class = "padding10">
-      <h1>Platforms</h1>
-    </div>
-    {% for post in site.categories['platforms'] %}
-      <div class = "articleContainer">
-        <h3><a href="{{ post.url | prepend: site.baseurl }}" class = "aLinkNone">{{ post.title }}</a></h3>
-        <p class="small">{{ post.date | date: "%b %-d, %Y" }}</p>
-        <p class = "regular">{{ post.summary }}</p>
-      </div>
-    {% endfor %}
-
-    <div class = "padding10">
-      <h1>Projects</h1>
-    </div>
-    {% for post in site.categories['projects'] %}
-      <div class = "articleContainer">
-        <h3><a href="{{ post.url | prepend: site.baseurl }}" class = "aLinkNone">{{ post.title }}</a></h3>
-        <p class="small">{{ post.date | date: "%b %-d, %Y" }}</p>
-        <p class = "regular">{{ post.summary }}</p>
-      </div>
-    {% endfor %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Minu Palaniappan</title>
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700" rel="stylesheet">
+  <style type="text/css">
+    body {
+      background-color: #1A1A1A;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+    }
+    .wrapper {
+      max-width: 800px;
+      padding: 20px 0px;
+      margin: 0 auto;
+    }
+    p {
+      color: #5E5E5E;
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.5em;
+      margin: 0px;
+      padding: 3px 0px;
+    }
+    .header {
+      color: white;
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 600;
+      padding: 20px 0px;
+      font-size: 13px;
+    }
+    a {
+      text-decoration: none;
+      color: #5E5E5E;
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 600;
+      transition: color 0.25s ease;
+    }
+    a:hover {
+      text-decoration: none;
+      color: #fff;
+    }
+    .warning {
+      color: #ff8181;
+    }
+  </style>
+</head>
+<body>
+  <div class = "wrapper">
+    <p>Hi there,</p>
+    <p>My name is Minu.</p>
+    <p>I'm 20 years old.</p>
+    <p><a href = "" target="_blank"><p class = "header">VIEW RESUME</p></a></p>
+    <p class = "header">LINKS</p>
+    <p><a href = "https://www.linkedin.com/in/minupalaniappan" target="_blank">LinkedIn</a></p>
+    <p><a href = "https://github.com/minupalaniappan" target="_blank">Github</a></p>
+    <p><a href = "https://www.crunchbase.com/person/minu-palaniappan" target="_blank">Crunchbase</a></p>
+    <p><a href = "https://www.quora.com/profile/Minu-Palaniappan" target="_blank">Quora</a></p>
+    <p><a href = "https://medium.com/@minupalaniappan" target="_blank">Medium</a></p>
+    <p><a href = "https://www.facebook.com/minupal6" target="_blank">Facebook</a></p>
+    <p><a href = "https://twitter.com/minupalaniappan" target="_blank">Twitter</a></p>
+    <p class = "header">EDUCATION</p>
+    <p>I study Computer Science (B.S.) at the <a href = "https://www.ucdavis.edu/" target="_blank">University of California, Davis</a>. Previously, I graduated from <a href = "http://www.saratogahigh.org/" target="_blank">Saratoga High School</a> in California.</p>
+    <p class = "header">PRESENT</p>
+    <p>student.</p>
+    <p>Advisory member of the <a href = "https://efund.ucdavis.edu/" target="_blank">ASUCD E-Fund.</a></p>
+    <p class = "header">PAST</p>
+    <p>Software Engineering Intern at <a href = "http://www.bitglass.com/" target="_blank">Bitglass</a></p>
+    <p>Full-stack web engineer at Piqua</p>
+    <p>Design and Software Engineering Intern at <a href = "http://www.ck12.org/" target="_blank">CK-12</a></p>
+    <p class = "header">MAKER</p>
+    <p>Dojo <a href = "https://github.com/minupalaniappan/dojowebv1" target="_blank">v.1  <a href = "https://github.com/minupalaniappan/dojowebv2" target="_blank">v.2</a></p>
+    <p><a href = "https://www.ucdiscourse.com/" target="_blank">UC Discourse</a> <span class = "warning">The UC has issued a cease and desist on this platform</span></p>
+    <p><a href="https://github.com/minupalaniappan/Wolfio" target="_blank">Wolfio</a></p>
+    <p><a href="https://github.com/minupalaniappan/CK12QuizPro" target="_blank">Quizme</a></p>
+    <p><a href="https://github.com/minupalaniappan/migo" target="_blank">Migo</a></p>
+    <p><a href="https://github.com/minupalaniappan/ShapeLanguage/tree/master/syna_sensor/python" target="_blank">Shapelanguage</a></p>
+    <p class = "header">ME</p>
+    <p>Big into <a href = "https://www.spotify.com/us/" target="_blank">Spotify</a> - you can find me listening to artists anywhere from <a href = "https://play.spotify.com/artist/02kJSzxNuaWGqwubyUba0Z?play=true&utm_source=open.spotify.com&utm_medium=open" target="_blank">G-Eazy</a> to <a href = "https://play.spotify.com/artist/4gzpq5DPGxSnKTe4SA8HAU?play=true&utm_source=open.spotify.com&utm_medium=open" target="_blank">Coldplay</a>.</p>
+    <p>Avid <a href = "http://www.nba.com/">NBA</a> watcher - the <a href = "https://twitter.com/Suns?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank">Pheonix Suns</a> and <a href = "https://twitter.com/spurs" target="_blank">San Antonio Spurs</a> are the teams I watch.</p>
+    <p>I love <a href = "https://fonts.google.com/" target="_blank">fonts</a>. Currently using <a href = "https://fonts.google.com/specimen/Lato" target="_blank">Lato</a> & <a href = "https://fonts.google.com/specimen/Work+Sans" target="_blank">Work Sans</a>.</p>
+    <p>I get around by biking on a <a href = "http://www.sebikes.com/bikes/cat/urban-series/draft" target="_blank">SE Draft Lite</a>.</p>
+    <p>(<a href = "http://www.apple.com/ios/ios-10/" target="_blank">iOS</a>, <a href = "http://www.apple.com/mac/" target="_blank">Mac</a>, <a href = "https://www.bose.com/en_us/products/headphones/over_ear_headphones/quietcomfort-35-wireless.html?gclid=Cj0KEQjwp4fABRCer93Klpaki94BEiQAsXJMGrnvsdbDFUXoR5n69YIx_UiCWcn7Z1cIAZ_ARezFDhkaAkSe8P8HAQ#v=qc35_silver?perfsourceid=MC113165&src=K22350" target="_blank">Bose</a>) & not (Android, Windows, Beats)</p>
+    <p class = "header">CURIOSITIES</p>
+    <p>API concurrency with <a href = "https://en.wikipedia.org/wiki/Scala_(programming_language)" target="_blank">Scala</a></p>
+    <p>R</p>
+    <p><a href = "https://en.wikipedia.org/wiki/TensorFlow" target="_blank">Tensor Flow</a> ML implementation</p>
+    <p class = "header">LANGUAGES</p>
+    <p><a href = "https://www.codecademy.com/learn/web" target="_blank">HTML</a></p>
+    <p><a href = "http://sass-lang.com/" target="_blank">SASS</a></p>
+    <p><a href = "https://www.javascript.com/" target="_blank">JS (Angular, React, Jquery, Node)</a></p>
+    <p><a href = "https://docs.python.org/devguide/" target="_blank">Python</a></p>
+    <p><a href = "http://www.cplusplus.com/reference/clibrary/" target="_blank">C</a></p>
+    <p><a href = "http://www.cplusplus.com/info/description/" target="_blank">C++</a></p>
+    <p><a href = "https://www.java.com/en/download/faq/java_javascript.xml" target="_blank">Java</a></p>
   </div>
-</div>
+</body>
+</html>
