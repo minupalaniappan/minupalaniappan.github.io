@@ -1,0 +1,72 @@
+* {
+	padding: 0px; 
+	margin: 0px;
+}
+
+a { 
+	text-decoration: none;
+}
+
+html, body {
+	max-width: 800px; 
+	margin: 0 auto;
+	padding: 30px 0px;
+}
+
+@font-face { font-family: Normal; src: url(fonts/Regular.ttf); }
+@font-face { font-family: Bold; src: url(fonts/Bold.ttf); }
+@font-face { font-family: Medium; src: url(fonts/Medium.ttf); }
+@font-face { font-family: Italic; src: url(fonts/Italic.ttf); }
+@font-face { font-family: MedItalic; src: url(fonts/MedItalic.ttf); }
+
+p {
+	font-family: Normal; 
+	line-height: 1.2em;
+}
+
+.small {
+	font-family: Normal; 
+	font-size: 0.8em;
+	line-height: 1.7em;
+}
+
+h1 {
+	font-family: Bold; 
+	font-size: 1.5em;
+}
+
+h3 {
+	font-family: Medium; 
+	font-size: 1.1em;
+}
+
+.link {
+	font-family: Italic; 
+	color: #5aa3e8;
+	font-size: 1.1em;
+}.link:hover {
+	text-decoration: underline;
+}
+
+#bio {
+	background: url(imgs/me.jpg); /* 50% 50% centers image in div */
+	background-size:cover;
+	background-repeat:no-repeat;
+	width:250px;
+	height:250px;
+	background-position: left -20px top;
+	margin: 0 auto;
+}
+
+.center {
+	text-align: center; 
+	padding-bottom: 15px;
+}
+
+*[style="display: inline-block"] {
+	margin: 0px 10px;
+}
+
+.margin-vert {
+	margin: 5px 0px;
+}
