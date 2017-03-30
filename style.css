@@ -133,3 +133,13 @@ li {
 	color: #465A61;
 	font-size: 0.9em;
 }
+
+@media (max-width: 600px) /* Desktop */ {
+  #sidebar {
+  	display: block;
+  	margin: 0px 20px;
+  }
+  #view {
+    display: none;
+  }
+}
