@@ -1,198 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Minu Palaniappan</title>
+  <title>Minu Palaniappan | @minupalaniappan</title>
   <link rel="shortcut icon" type="imgs/png" href="imgs/favicon.png"/>
   <link rel="stylesheet" type="text/css" href="style.css">
   <meta name="description" content="Minu Palaniappan: Builder of things">
   <meta name="keywords" content="minupalaniappan, minupalaniappan design, minupalaniappan studio, minupalaniappanweb design and development, web design and development, responsive design, UI design, mobile app design, icon design, logo and identity systems, logo, print design, graphic, design, graphic design, graphic designer, web design, web designer, app design, app designer, interactive, interaction, user interface, UI, user experience, UX, typography, pattern, pattern designer, pattern design, textile, textile designer, textile design, front-end developer, developer, css, css3, html, html5, wordpress, blog design, blog development, California, Silicon Valley, Davis, portfolio, projects, angularfire, firebase, django, fullstack, sundar, palo alto, sunnyvale, ucdiscourse, founder, jekyll, nba, warriors, pheonix, suns, spurs, san antonio">
 </head>
 <body>
-    <div id = "sidebar" class = "inline">
-        <h1 class = "inline">minu</h1>
-        <div class = "padding inline" style = "float: right; position: relative; bottom: 5px">
-            <a href = "https://www.facebook.com/minupalaniappan" target = "blank"><img src = "imgs/fb.svg" class = "img" /></a>
-            <a href = "https://twitter.com/minupalaniappan" target = "blank"><img src = "imgs/tw.svg" class = "img" /></a>
-            <a href = "https://www.linkedin.com/in/minupalaniappan/" target = "blank"><img src = "imgs/in.svg" class = "img" /></a>
-            <a href = "https://github.com/minupalaniappan" target = "blank"><img src = "imgs/gh.svg" class = "img" /></a>
-            <a href = "https://www.quora.com/profile/Minu-Palaniappan" target = "blank"><img src = "imgs/qu.svg" class = "img" /></a>
-        </div>
-        <div class = "padding">
-            <p class = "section inline-text"><a href="mailto:mspal@ucdavis.edu">Inbox</a></p>
-            <p class = "section inline-text"><a href="resume.pdf" target = "blank">Resume</a></p><br><br>
-
-            <p>Hello there! My name is Minu Palaniappan. I am a 20 year old computer science student at the University of California, Davis.</p><br>
-            <p>I will be in Atlanta, GA this summer working on the Site Reliability team at <a href = "https://www.mailchimp.com" target = "blank">Mailchimp</a>.</p><br>
-            <p>I recently built <a href = "https://www.gradfire.com" target = "blank">Gradfire</a> and <a href = "http://www.ballmetric.com" target = "blank">Ballmetric</a>.</p><br>
-            <p>I <a href = "https://www.github.com/minupalaniappan" target = "blank">build</a>, design, ship and <a href = "https://medium.com/@minupalaniappan/an-underground-failure-aceb9c269abd" target = "blank">write</a> about all my technologies.</p>
-        </div>
-        <div class = "padding">
-            <p class = "subsection">Experience</p><br>
-            <p class = "hover-bold" name = "mailchimp">Mailchimp</p><span class = "detail">Atlanta, GA</span><br>
-            <p class = "hover-bold" name = "bitglass">Bitglass</p><span class = "detail">Campbell, CA</span><br>
-            <p class = "hover-bold" name = "ck12">CK-12</p><span class = "detail">Palo Alto, CA</span><br>
-            <p class = "hover-bold" name = "xiqai">Xiqai</p><span class = "detail">Saratoga, CA</span><br>
-        </div>
-        <div class = "padding">
-            <p class = "subsection">Projects</p><br>
-            <p class = "hover-bold" name = "platforms">Platforms</p><span class = "detail">2+ year endeavours</span><br>
-            <p class = "hover-bold" name = "hacks">Hacks</p><span class = "detail">Under 48 hours</span><br>
-        </div>
-        <div class = "padding">
-            <p class = "subsection">Leadership</p><br>
-            <p class = "hover-bold" name = "efund">ASUCD EFund</p><span class = "detail">Davis, CA</span><br>
-            <p class = "hover-bold" name = "bsa">Boy Scouts of America, Eagle Rank</p><span class = "detail">Saratoga, CA</span><br>
-        </div>
-        <div class = "padding">
-            <p class = "subsection">Education</p><br>
-            <p class = "hover-bold" name = "ucdavis">University of California, Davis</p><span class = "detail">Davis, CA</span><br>
-            <p class = "hover-bold" name = "citris">Citris Foundry at University of California</p><span class = "detail">Berkeley, CA</span><br>
-        </div>
-    </div>
-    <div id = "view" class = "inline">
-        <div id = "experience">
-            <p class = "subsection">Position</p><br>
-            <p id = "position" class = "header"></p><br>
-            <p class = "subsection">Overview</p><br>
-            <p id = "overview"></p><br>
-            <p class = "subsection">Technology</p><br>
-            <p id = "technologies"></p><br>
-            <p class = "subsection">Time</p><br>
-            <p id = "time"></p><br>
-        </div>
-        <div id = "project">
-        </div>
-        <div id = "leadership">
-            <p class = "subsection">Involvement</p><br>
-            <p id = "role" class = "header"></p><br>
-            <p class = "subsection">Overview</p><br>
-            <p id = "reflection"></p><br>
-        </div>
-        <div id = "education">
-            <p class = "subsection">Title</p><br>
-            <p id = "title" class = "header"></p><br>
-            <p class = "subsection">Experience</p><br>
-            <p id = "journey"></p><br>
-            <p class = "subsection">Years</p><br>
-            <p id = "years"></p><br>
-        </div>
-    </div>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<script type="text/javascript">
-    $( document ).ready(function() {
-        $("#experience").css("display", "none");
-        $("#project").css("display", "none");
-        $("#education").css("display", "none");
-        $("#leadership").css("display", "none");
-        $(".hover-bold").click(function() {
-            $(".hover-bold").removeClass("highlighted");
-            $("[name=" + this.getAttribute("name") +"]").addClass("highlighted");
-            switch (this.getAttribute("name")) {
-                case "mailchimp":
-                    $("#experience").css("display", "block");
-                    $("#project").css("display", "none");
-                    $("#education").css("display", "none");
-                    $("#leadership").css("display", "none");
-                    $("#position").html("Site Reliability Engineering Intern"); 
-                    $("#overview").html("I am an incoming SRE intern at Mailchimp for the summer of 2017."); 
-                    $("#technologies").html("Coming soon")
-                    $("#time").html("Summer of 2017")
-                    $("#view").css("position", "fixed");
-                    break;
-                case "bitglass":
-                    $("#experience").css("display", "block");
-                    $("#project").css("display", "none");
-                    $("#education").css("display", "none");
-                    $("#leadership").css("display", "none");
-                    $("#position").html("Software Engineering Intern"); 
-                    $("#view").css("position", "static");
-                    $("#overview").html("<ul><li>Powered by Django, I wrote a leak monitor that serviced bugs on all Bitglass security services.</li><li>Leveraged sql tables & Mongo datastores to write and track product performance. </li><li>Incoming leak information was fetched from these datastores.</li><li>Worked on the Salesforce security suite to protect custom applications.</li><li>The Salesforce application ecosystem is much like the iOS app store; securing millions of application flavors proved to be difficult.</li></ul>");
-                    $("#technologies").html("<ul><li>Python</li><li>Bash</li><li>Jenkins & Atlassian</li><li>HTML5</li><li>sql</li><li>Mongo</li></ul>")
-                    $("#time").html("Summer of 2016")
-                    break;
-                case "ck12":
-                    $("#experience").css("display", "block");
-                    $("#project").css("display", "none");
-                    $("#education").css("display", "none");
-                    $("#leadership").css("display", "none");
-                    $("#position").html("Media & Engineering Intern"); 
-                    $("#overview").html("<ul><li>Designed an iOS portfolio to contribute to CK-12 mobile design standards.</li><li>Additionally, I developed an Android application that gamified their K-12 content.</li><li>Android application powered by Java, Python and Flash. Flash was used to speed up in-game interactions.</li><li>Developed an internal system to track resource links, citations and Wiki references. It allowed content editors to preserve accreditation.</li></ul>");
-                    $("#technologies").html("<ul><li>Python</li><li>Bash</li><li>Objective-C</li><li>HTML5</li><li>Java</li><li>Javascript</li><li>Passport Auth</li><li>Illustrator</li></ul>")
-                    $("#time").html("2010 to 2014")
-                    $("#view").css("position", "static");
-                    break;
-                case "xiqai":
-                    $("#experience").css("display", "block");
-                    $("#project").css("display", "none");
-                    $("#education").css("display", "none");
-                    $("#position").html("Platform Engineer"); 
-                    $("#leadership").css("display", "none");
-                    $("#view").css("position", "static");
-                    $("#overview").html("<ul><li>Developed a classification algorithim for sorting buisness to buisness content.</li><li>Wrote scripts that sourced Crunchbase data and rendered Mongo schemas according to data clusters.</li><li>Contributed to the Workbench platform: a premium service that connects you with targeted buisness information.</li><li>Leveraged IBM bluemix to tag articles based upon trigger-words, bias frequency and Levenschtien word similarity.</li></ul>");
-                    $("#technologies").html("<ul><li>Python</li><li>Bash</li><li>MongoDB</li><li>IBM Watson</li><li>Javascript</li><li>HTML5</li></ul>")
-                    $("#time").html("Fall of 2016")
-                    $("#view").css("position", "static");
-                    break;
-                case "platforms":
-                    $("#experience").css("display", "none");
-                    $("#project").css("display", "block");
-                    $("#education").css("display", "none");
-                    $("#leadership").css("display", "none");
-                    $("#project").html("<div class = 'padding'><p class = 'header'>Gradfire</p><p id = 'abstract'>Crowdsourcing student transcripts such that we can effectively recomend courses that students will enjoy and suceed in. Over 40,000 visits a month, 3000 collected transcripts.</p><p class = 'detail'>Technologies</p><p id = 'proccess'>Postgresql,  React.js, Flask,  HTML5,  Ruby,  es6</p><a id = 'code' href = 'https://gradfire.com' target='blank'>View the website</a></div><div class = 'padding'><p class = 'header'>Dojo</p><p id = 'abstract'>The social media sphere has quickly become a carefully protected environment that hesistates to enable the free flow of information. Dojo seeked to enable users discover unadulterated and appealing content. Personalized to your location and interests, Dojo is a convenient way for enjoying your content, no filter. 300+ installs, 40 posts a day. </p><p class = 'detail'>Technologies</p><p id = 'proccess'>PHP, Objective-C, Bash, Javascript, Django-py, HTML5, AWS</p><a id = 'code' href = 'https://github.com/minupalaniappan/dojowebv1' target='blank'>View source code</a></div>");
-                        $("#view").css("position", "fixed");
-                    break;
-                case "hacks":
-                    $("#experience").css("display", "none");
-                    $("#project").css("display", "block");
-                    $("#education").css("display", "none");
-                    $("#leadership").css("display", "none");
-                    $("#view").css("position", "static");
-                    $("#project").html("<div class = 'padding'><p class = 'header'>Ballmetric</p><p id = 'abstract'>The future of NBA player analysis. Every NBA play, categorized by shot and player. Streams 720p video.</p><br><p class = 'detail'>Technologies</p><p id = 'proccess'>Ruby on Rails, Resque, Webpack, React.js, API, CLI</p><a id = 'code' href = 'http://ballmetric.com' target='blank'>View the website</a></div><div class = 'padding'><p class = 'header'>Shape Language</p><p id = 'abstract'>Winner at HackDavis; Draw a shape, and the touchpad will recognize and vocalize it. </p><br><p class = 'detail'>Technologies</p><p id = 'proccess'>Node.js, OpenCV, Jquery, WebGL</p><a id = 'code' href = 'https://github.com/minupalaniappan/ShapeLanguage/tree/master/syna_sensor/python' target='blank'>Source code</a></div><div class = 'padding'><p class = 'header'>Wolfio</p><p id = 'abstract'>Solve any math problem via SMS.</p><br><p class = 'detail'>Technologies</p><p id = 'proccess'>Node.js, Wolfram Cloud, Twilio API, Flask</p><a id = 'code' href = 'https://github.com/minupalaniappan/Wolfio' target='blank'>Source code</a></div><div class = 'padding'><p class = 'header'>Drakify</p><p id = 'abstract'>Speak lyrics and play the associated YouTube music video with the timestamp at which the lyric occurs.</p><br><p class = 'detail'>Technologies</p><p id = 'proccess'>Node.js, Javascript, Rap Genius</p><a id = 'code' href = 'https://github.com/minupalaniappan/drakify' target='blank'>Source code</a></div>")
-                    break;
-                case "efund":
-                    $("#experience").css("display", "none");
-                    $("#project").css("display", "none");
-                    $("#education").css("display", "none");
-                    $("#leadership").css("display", "block");
-                    $("#role").html("Mentor")
-                    $("#reflection").html("After going through the Davis-local project accelerator myself, I decided to share my experiences with my peers. I had the chance to work with student groups that were looking to build impactful products to solve immediete problems in the local and university level. Though I was called a mentor, I saw myself as more of a soundboard who ocassionally provided suggestions.");
-                    $("#view").css("position", "fixed");
-                    break;
-                case "bsa":
-                    $("#experience").css("display", "none");
-                    $("#project").css("display", "none");
-                    $("#education").css("display", "none");
-                    $("#leadership").css("display", "block");
-                    $("#role").html("Attaining the rank of Eagle")
-                    $("#reflection").html("My character and passion has been founded on the values I adopted in involvement with scouting. After being in involved in scouting organizations for more than a decade, I attained the highest rank of Eagle. In this proccess, I contributed to my troop as a historian and senior leader.");
-                    $("#view").css("position", "fixed");
-                    break;
-                case "ucdavis":
-                    $("#experience").css("display", "none");
-                    $("#project").css("display", "none");
-                    $("#education").css("display", "block");
-                    $("#leadership").css("display", "none");
-                    $("#title").html("B.S. in Computer Science")
-                    $("#journey").html("After graduating from Saratoga High School, I started my collegiete education at UC Davis. During my time at Davis, I am looking to complete a Bachelors in Computer Science and hopefully contribute to their academic sphere in some form. Gradfire was my first contribution to forwarding academic success at the University, but I would like to build newer technologies that can be sustained well beyond my graduation.")
-                    $("#years").html("2014-2018");
-                    $("#view").css("position", "fixed");
-                    break;
-                case "citris":
-                    $("#experience").css("display", "none");
-                    $("#project").css("display", "none");
-                    $("#education").css("display", "block");
-                    $("#leadership").css("display", "none");
-                    $("#title").html("Citris backed, Fall 2017 cohort")
-                    $("#journey").html("After launching ucdiscourse.com to all UC Davis students, the platform quickly became the tool of choice for many students looking to grab an easy A or complete a specific fullfilment. With over 40,000 page visits a month and 3000 registered users, our team decided to apply to UC Berkeley's Citris accelerator program. With mentorship from professors, industry leaders and successful entrepreneurs, our platform was able to tackle key issues in the higher education space.")
-                    $("#years").html("2016-2017")
-                    $("#view").css("position", "fixed");
-                    break;
-                default:
-                    break;
-
-            }
-        });
-    });
-</script>
+    <h1>Hi there, I'm Minu</h1>
+    <div class = "padding text">
+        <div class = "padding">
+            <a href = "https://www.facebook.com/minupalaniappan" target = "blank"><img src="imgs/fb.png" class = "img inline"></a>
+            <a href = "https://twitter.com/minupalaniappan" target = "blank"><img src="imgs/tw.png" class = "img inline"></a>
+            <a href = "https://www.linkedin.com/in/minupalaniappan/" target = "blank"><img src="imgs/in.png" class = "img inline"></a>
+            <a href = "https://github.com/minupalaniappan" target = "blank"><img src="imgs/gh.png" class = "img inline"></a>
+            <a href = "https://www.quora.com/profile/Minu-Palaniappan" target = "blank"><img src="imgs/qu.png" class = "img inline"></a>
+        </div>
+        <p>Born and raised in the Bay Area, my fascination for technology came after the launch of <a href = "https://youtu.be/MnrJzXM7a6o?t=2m40s" target = "blank">iPhone 1</a> in 2007. Now a decade later, I continue to write code and ship products that add value to my peers, fellow hackers and internet enthusiasts around the world.</p><br>
+        <p>I plan to graduate from the <a href = "http://www.cs.ucdavis.edu" target = "blank">University of California, Davis</a> in 2018 with a B.S. in Computer Science.</p><br>
+        <p>This summer, I will be in <a href = "https://en.wikipedia.org/wiki/Atlanta" target = "blank">Atlanta, GA</a>; I'll be joining <a href = "https://mailchimp.com" target = "blank">Mailchimp's</a> infrastructure team as a <a href = "https://landing.google.com/sre/interview/ben-treynor.html" target = "blank">Site Reliability</a> Engineering Intern.</p>
+    </div>
+    <div class = "padding text">
+        <h1>Past</h1>
+        <div class = "padding">
+            <p>Software Engineering Intern at <a href = "http://www.bitglass.com" target = "blank">Bitglass</a><span class = "sub">3 mo</span></p>
+            <p>Platforms Engineer at <a href = "https://www.xiq.ai" target = "blank">XiQ</a><span class = "sub">2 mo</span></p>
+            <p>Design & Mobile Engineering Intern at the <a href = "http://www.ck12.org" target = "blank">CK-12 Foundation</a><span class = "sub">4 yr</span></p>
+        </div>
+    </div>
+    <div class = "padding text">
+        <h1>Projects</h1>
+        <div class = "padding">
+            <div class = "padding bt-bottom">
+                <p class = "inline"><a href = "https://www.gradfire.com" target = "blank">Gradfire</a><span class = "sub">2.5 yr</span></p>
+                <p class = "priv">Private</p>
+            </div>
+            <div class = "padding bt-bottom">
+                <p class = "inline"><a href = "https://www.youtube.com/watch?v=uqW92ejxgDM" target = "blank">Dojo</a><span class = "sub">2 yr</span></p>
+                <a href = "https://github.com/minupalaniappan/dojowebv1" target = "blank"><button class = "code">Code</button></a>
+            </div>
+            <div class = "padding bt-bottom">
+                <p class = "inline"><a href = "http://www.ballmetric.com" target = "blank">Ballmetric</a><span class = "sub">4 mo</span></p>
+                <p class = "priv">Private</p>
+            </div>
+            <div class = "padding bt-bottom">
+                <p class = "inline"><a href = "https://devpost.com/software/wolfio" target = "blank">Wolfio</a><span class = "sub">24 hr</span></p>
+                <a href = "https://github.com/minupalaniappan/Wolfio" target = "blank"><button class = "code">Code</button></a>
+            </div>
+            <div class = "padding bt-bottom">
+                <p class = "inline"><a href = "https://www.youtube.com/watch?v=ca-KuZu4P08" target = "blank">Shape Language</a><span class = "sub">24 hr</span></p>
+                <a href = "https://github.com/minupalaniappan/ShapeLanguage/tree/master/syna_sensor/python" target = "blank"><button class = "code">Code</button></a>
+            </div>
+            <div class = "padding bt-bottom">
+                <p class = "inline"><a href = "https://rapthatbeat.herokuapp.com" target = "blank">Rapthatbeat</a><span class = "sub">1 wk</span></p>
+                <p class = "priv">Private</p>
+            </div>
+            <div class = "padding bt-bottom">
+                <p class = "inline"><a href = "https://devpost.com/software/drakify" target = "blank">Drakify</a><span class = "sub">24 hr</span></p>
+                <a href = "https://github.com/minupalaniappan/drakify" target = "blank"><button class = "code">Code</button></a>
+            </div>
+            <div class = "padding bt-bottom">
+                <p class = "inline">Migo<span class = "sub">24 hr</span></p>
+                <a href = "https://github.com/minupalaniappan/migo" target = "blank"><button class = "code">Code</button></a>
+            </div>
+        </div>
+    </div>
+    <div class = "padding">
+        <h1>Education</h1>
+        <div class = "padding">
+            <p><a href = "http://citrisfoundry.org" target = "blank">Citris Foundry</a><span class = "sub">5 mo</span></p>
+            <p><a href = "https://www.ucdavis.edu" target = "blank">University of California, Davis</a><span class = "sub">4 yr</span></p>
+            <p><a href = "http://www.saratogahigh.org" target = "blank">Saratoga High School</a><span class = "sub">4 yr</span></p>
+        </div>
+    </div>
 </html>

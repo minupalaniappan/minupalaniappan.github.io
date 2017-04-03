@@ -1,30 +1,75 @@
 * {
 	padding: 0px; 
 	margin: 0px;
-	background-color: #f3f3f3;
+	background-color: #F4F7F7;
 }
 
 html, body {
-	max-width: 900px;
+	max-width: 1000px;
 	margin: 0 auto;
 	padding: 40px 0px;
 }
 
-a {
-	text-decoration: underline; 
-	color: #333;
+h1 {
+	font-family: GrotesqueMedium;
+	font-size: 1.5em;
+	color: #37454A;
 }
 
-@font-face { font-family: Bold; src: url(fonts/ACaslonPro-Bold.otf); }
-@font-face { font-family: BoldItalic; src: url(fonts/ACaslonPro-BoldItalic.otf); }
-@font-face { font-family: Italic; src: url(fonts/ACaslonPro-Italic.otf); }
-@font-face { font-family: Regular; src: url(fonts/ACaslonPro-Regular.otf); }
-@font-face { font-family: Semibold; src: url(fonts/ACaslonPro-Semibold.otf); }
-@font-face { font-family: SemiboldItalic; src: url(fonts/ACaslonPro-SemiboldItalic.otf); }
-@font-face { font-family: Logo; src: url(fonts/GT-Walsheim-Pro-Bold.ttf); }
+
+p {
+	font-family: Body; 
+	font-size: 1.4em;
+	color: #1B2F36;
+	line-height: 1.8em;
+}
+
+.sub {
+	font-family: Medium;
+	font-size: 0.7em;
+	margin: 0px 10px;
+}
+
+.text {
+	max-width: 800px;
+}
 
 .padding {
-	padding: 10px 0px;
+	padding: 15px 0px;
+}
+
+a {
+	color: #1B2F36;
+	text-decoration: underline; 
+}
+
+a:hover {
+	color: #609dff;
+	cursor: pointer;
+}
+
+.code {
+	border-radius: 3px; 
+	border: 3px solid #6d54ff;
+	color: #6d54ff;
+	background-color: none; 
+	font-family: "Medium";
+	font-size: 1em;
+	padding: 5px 10px;
+	transition: background-color 0.2s ease;
+	display: inline-block;
+	float: right;
+}
+
+.priv {
+	color: #e53939;
+	font-family: "Medium";
+	font-size: 1em;
+	display: inline-block;
+	float: right;
+	position: relative;
+	top: 8px;
+	right: 8px
 }
 
 .inline {
@@ -32,114 +77,23 @@ a {
 	vertical-align: middle;
 }
 
-.inline-text {
-	display: inline-block;
-	margin-right: 5px; 
+.code:hover {
+	background-color: #6d54ff; 
+	color: white;
+	cursor: pointer;
 }
 
-#sidebar {
-	width: 300px;
-}
-
-#view {
-	max-width: 500px;
-	vertical-align: top;
-	padding-left: 30px;
-	position: fixed;
-}
-
-.header {
-	font-family: Bold;
-	font-size: 1.5em;
-	padding-bottom: 10px;
-}
-
-h1 {
-	font-family: Logo; 
-	color: #333;
-	font-size: 1.3em;
-}
-
-p {
-	font-family: Regular;
-	line-height: 1.5em;
-	font-size: 0.9em;
-	letter-spacing: 0.4px;
-}
-
-.section {
-	font-family: Semibold; 
-	font-size: 0.9em;
-}
-
-.subsection {
-	font-size: 1.2em;
-	font-family: Regular;
-	color: #828282;
-}
-
-.detail {
-	font-size: 0.8em;
-	font-family: Regular; 
-	color: #B8B8B8;
-	display: inline-block;
-	padding-top: 5px;
-	display: block;
+.bt-bottom {
+	border-bottom: 1px solid #eaeaea; 
 }
 
 .img {
-	height: 20px;
-	display: inline-block;
-	margin-right: 5px;
-	vertical-align: middle;
+	width: 35px;
+	margin-right: 10px;
 }
 
-.hover-bold {
-	display: inline;
-}
+@font-face { font-family: GrotesqueMedium; src: url(fonts/Brandon_med.otf); }
+@font-face { font-family: Body; src: url(fonts/Body.ttc); }
+@font-face { font-family: Medium; src: url(fonts/Medium.ttf); }
 
-.hover-bold:hover {
-	cursor: pointer;
-	color: #BA862D;
-}
 
-a:hover {
-	cursor: pointer;
-	color: #BA862D;
-}
-
-ol, ul {
-	padding-left: 20px;
-}
-
-.highlighted {
-	color: #BA862D;
-}
-
-li {
-	margin-bottom: 15px;
-}
-
-.header2 {
-	color: #A6A6A6;
-	font-family: Semibold;
-	font-size: 1.3em;
-	line-height: 1.5em;
-}
-
-#code {
-	font-family: Regular; 
-	text-decoration: underline; 
-	color: #465A61;
-	font-size: 0.9em;
-}
-
-@media (max-width: 600px) /* Desktop */ {
-  #sidebar {
-  	display: block;
-  	margin: 0px 20px;
-  }
-  #view {
-    display: none;
-  }
-}
