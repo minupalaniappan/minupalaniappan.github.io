@@ -92,6 +92,21 @@ a:hover {
 	margin-right: 10px;
 }
 
+.inf {
+	font-family: "Medium";
+	margin-left: 30px; 
+	font-size: 1.2em;
+	color: #ABABAB;
+	text-decoration: none;
+}
+
+.right {
+	position: relative;
+	float: right;
+	top: 8px;
+	right: 10px;
+}
+
 @font-face { font-family: GrotesqueMedium; src: url(fonts/Brandon_med.otf); }
 @font-face { font-family: Body; src: url(fonts/Body.ttc); }
 @font-face { font-family: Medium; src: url(fonts/Medium.ttf); }
