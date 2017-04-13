@@ -5,29 +5,37 @@
 }
 
 html, body {
-	max-width: 1000px;
+	max-width: 600px;
 	margin: 0 auto;
 	padding: 40px 0px;
 }
 
 h1 {
-	font-family: GrotesqueMedium;
+	font-family: Medium;
 	font-size: 1.5em;
 	color: #37454A;
 }
 
 
 p {
-	font-family: Body; 
-	font-size: 1.4em;
-	color: #1B2F36;
-	line-height: 1.8em;
+	font-family: Regular; 
+	font-size: 1em;
+	color: #878787;
+	line-height: 1.5em;
+}
+
+.center {
+	text-align: center;
+}
+
+.max {
+	max-width: 300px;
 }
 
 .sub {
 	font-family: Medium;
-	font-size: 0.7em;
-	margin: 0px 10px;
+	font-size: 1em;
+	color: #878787;
 }
 
 .text {
@@ -39,37 +47,31 @@ p {
 }
 
 a {
-	color: #1B2F36;
-	text-decoration: underline; 
+	color: #2768d1;
+	text-decoration: none;
 }
 
 a:hover {
-	color: #609dff;
 	cursor: pointer;
 }
 
+
 .code {
-	border-radius: 3px; 
-	border: 3px solid #6d54ff;
 	color: #6d54ff;
-	background-color: none; 
 	font-family: "Medium";
 	font-size: 1em;
-	padding: 5px 10px;
-	transition: background-color 0.2s ease;
 	display: inline-block;
-	float: right;
+	margin-left: 5px;
 }
+
 
 .priv {
 	color: #e53939;
 	font-family: "Medium";
 	font-size: 1em;
 	display: inline-block;
-	float: right;
-	position: relative;
-	top: 8px;
-	right: 8px
+	margin-left: 5px;
+
 }
 
 .inline {
@@ -78,8 +80,6 @@ a:hover {
 }
 
 .code:hover {
-	background-color: #6d54ff; 
-	color: white;
 	cursor: pointer;
 }
 
@@ -107,8 +107,22 @@ a:hover {
 	right: 10px;
 }
 
-@font-face { font-family: GrotesqueMedium; src: url(fonts/Brandon_med.otf); }
-@font-face { font-family: Body; src: url(fonts/Body.ttc); }
+.grid {
+	display: grid;
+	grid-template-areas: "a a";
+  	grid-gap: 15px;
+  	grid-auto-rows: auto;
+}
+
+.grid > .box {
+    box-sizing: border-box;
+}
+
+@font-face { font-family: Regular; src: url(fonts/Regular.ttf); }
 @font-face { font-family: Medium; src: url(fonts/Medium.ttf); }
 
+
+.mar-left {
+	margin-left: 5px;
+}
 
