@@ -1,128 +1,91 @@
 * {
 	padding: 0px; 
 	margin: 0px;
-	background-color: #F4F7F7;
 }
 
 html, body {
-	max-width: 600px;
+	max-width: 800px;
 	margin: 0 auto;
-	padding: 40px 0px;
+	background-color: #f2f2f2;
+	height: 100%;
+
 }
 
-h1 {
-	font-family: Medium;
-	font-size: 1.5em;
-	color: #37454A;
+body {
+	background-color: white;
 }
 
+@font-face { font-family: med; src: url(fonts/med.ttf); }
+@font-face { font-family: reg; src: url(fonts/reg.ttf); }
+
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: med; 
+}
+
+h3 {
+	font-size: 1.1em;
+	color: black;
+}
+
+h6 {
+	font-size: 1em;
+	color: black;
+}
 
 p {
-	font-family: Regular; 
-	font-size: 1em;
-	color: #878787;
-	line-height: 1.5em;
+	font-family: reg;
+	font-size: 0.9em;
+	color: gray;
+}
+
+.large {
+	font-size: 1.5em;
+	color: #B5B5B5;
+}
+
+.small {
+	font-size: 0.8em;
+	color: #333;
 }
 
 .center {
 	text-align: center;
 }
 
-.max {
-	max-width: 300px;
-}
-
-.sub {
-	font-family: Medium;
-	font-size: 1em;
-	color: #878787;
-}
-
-.text {
-	max-width: 800px;
+.paper {
+	padding: 20px 30px;
 }
 
 .padding {
-	padding: 15px 0px;
-}
-
-a {
-	color: #2768d1;
-	text-decoration: none;
-}
-
-a:hover {
-	cursor: pointer;
-}
-
-
-.code {
-	color: #6d54ff;
-	font-family: "Medium";
-	font-size: 1em;
-	display: inline-block;
-	margin-left: 5px;
-}
-
-
-.priv {
-	color: #e53939;
-	font-family: "Medium";
-	font-size: 1em;
-	display: inline-block;
-	margin-left: 5px;
-
+	padding: 5px 0px;
 }
 
 .inline {
+	vertical-align: middle; 
 	display: inline-block;
-	vertical-align: middle;
+	margin-right: 3px;
 }
 
-.code:hover {
-	cursor: pointer;
-}
-
-.bt-bottom {
-	border-bottom: 1px solid #eaeaea; 
-}
-
-.img {
-	width: 35px;
-	margin-right: 10px;
-}
-
-.inf {
-	font-family: "Medium";
-	margin-left: 30px; 
-	font-size: 1.2em;
-	color: #ABABAB;
-	text-decoration: none;
-}
-
-.right {
+.circle {
+	width: 4px;
+	height: 4px;
+	border-radius: 10px; 
+	background-color: #B5B5B5;
+	display: inline-block;
 	position: relative;
-	float: right;
-	top: 8px;
-	right: 10px;
+	top: 1px;
 }
 
-.grid {
-	display: grid;
-	grid-template-areas: "a a";
-  	grid-gap: 15px;
-  	grid-auto-rows: auto;
+a {
+	text-decoration: none; 
+	color: #2e75e8;
 }
 
-.grid > .box {
-    box-sizing: border-box;
+a:hover {
+	text-decoration: underline;
 }
 
-@font-face { font-family: Regular; src: url(fonts/Regular.ttf); }
-@font-face { font-family: Medium; src: url(fonts/Medium.ttf); }
-
-
-.mar-left {
-	margin-left: 5px;
+.lh {
+	line-height: 2em;
 }
-
