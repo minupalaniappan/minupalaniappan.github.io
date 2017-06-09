@@ -89,3 +89,12 @@ a:hover {
 .lh {
 	line-height: 2em;
 }
+
+img {
+	display: inline-block;
+	width: 25px;
+	vertical-align: middle;
+	position: relative;
+	top: 1px;
+	right: 5px;
+}
