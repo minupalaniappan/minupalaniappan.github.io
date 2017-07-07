@@ -6,10 +6,12 @@
 html, body {
 	max-width: 800px;
 	margin: 0 auto;
-	background-color: #f2f2f2;
+	background-color: white;
 }
 
 body {
+	padding: 50px 0px;
+
 	background-color: white;
 }
 
@@ -22,7 +24,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h3 {
-	font-size: 1.1em;
+	font-size: 1.5em;
 	color: black;
 }
 
@@ -33,17 +35,17 @@ h6 {
 
 p {
 	font-family: reg;
-	font-size: 0.9em;
+	font-size: 1.1em;
 	color: gray;
 }
 
 .large {
-	font-size: 1.5em;
+	font-size: 1.9em;
 	color: #B5B5B5;
 }
 
 .small {
-	font-size: 0.8em;
+	font-size: 1em;
 	color: #333;
 }
 
@@ -88,11 +90,8 @@ a:hover {
 	line-height: 2em;
 }
 
-img {
-	display: inline-block;
-	width: 25px;
-	vertical-align: middle;
-	position: relative;
-	top: 1px;
-	right: 5px;
+.center-uniq {
+	text-align: center;
+	padding: 10px 0px;
 }
+
