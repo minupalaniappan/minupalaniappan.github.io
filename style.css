@@ -4,7 +4,7 @@
 }
 
 html, body {
-	max-width: 800px;
+	max-width: 600px;
 	margin: 0 auto;
 	background-color: white;
 }
@@ -47,6 +47,7 @@ p {
 .small {
 	font-size: 1em;
 	color: #333;
+	padding: 10px 0px;
 }
 
 .center {
