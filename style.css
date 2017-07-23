@@ -1,5 +1,5 @@
 * {
-	padding: 0px; 
+	padding: 0px;
 	margin: 0px;
 }
 
@@ -20,7 +20,7 @@ body {
 
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: med; 
+	font-family: med;
 }
 
 h3 {
@@ -63,7 +63,7 @@ p {
 }
 
 .inline {
-	vertical-align: middle; 
+	vertical-align: middle;
 	display: inline-block;
 	margin-right: 3px;
 }
@@ -71,7 +71,7 @@ p {
 .circle {
 	width: 4px;
 	height: 4px;
-	border-radius: 10px; 
+	border-radius: 10px;
 	background-color: #B5B5B5;
 	display: inline-block;
 	position: relative;
@@ -79,7 +79,7 @@ p {
 }
 
 a {
-	text-decoration: none; 
+	text-decoration: none;
 	color: #2e75e8;
 }
 
@@ -96,3 +96,15 @@ a:hover {
 	padding: 10px 0px;
 }
 
+.link {
+	position: fixed;
+	bottom: 10px;
+}
+
+.link > a {
+	display: inline-block;
+	margin: 0px 5px;
+	font-size: 14px;
+	font-family: reg;
+	color: #666666;
+}
