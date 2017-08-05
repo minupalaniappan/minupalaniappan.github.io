@@ -6,7 +6,13 @@ html {
   background-color: white;
 }
 body {
-  max-width: 800px;
   margin: 0 auto;
-  padding: 50px 0px;
+  max-width: 600px; 
+  padding: 50px;
 }
+
+img {
+	max-width: 600px; 
+	margin: 30px 0px;
+    	border-radius: 3px;
+} 
