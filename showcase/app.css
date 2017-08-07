@@ -1,0 +1,139 @@
+/** Light */
+@font-face {
+  font-family: "Calibre";
+  font-weight: 100;
+  src: url("./fonts/Light.ttf");
+}
+
+/** Regular */
+@font-face {
+  font-family: "Calibre";
+  font-weight: 400;
+  src: url("./fonts/Regular.ttf");
+}
+
+/** Bold */
+@font-face {
+  font-family: "Calibre";
+  font-weight: 700;
+  src: url("./fonts/Medium.ttf");
+}
+
+html, body {
+	margin: 0px;
+	padding: 0px;
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 40px 0px;
+	text-align: center;
+	background-color: #fafafa;
+
+}
+
+* {
+	font-family: "Calibre";
+	margin: 0px;
+}
+
+h1 {
+	font-weight: 700;
+	color: #333;
+	font-size: 3em;
+}
+
+h2 {
+	font-weight: 400;
+	color: #666666;
+	font-size: 2em;
+	margin: 20px 0px;
+}
+
+p {
+	font-weight: 400;
+	color: #333;
+}
+
+.containers {
+
+}
+
+.company {
+	display: table;
+	width: 100%;
+}
+
+.company>div {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.inner {
+	background-color: white;
+	padding: 20px;
+	margin: 5px;
+	width: 250px;
+	height: 150px;
+	position: relative;
+
+}
+
+img {
+	width: 130px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.apple {
+	width: 90px;
+}
+
+.google {
+	width: 90px;
+}
+
+.ycomb {
+	width: 90px;
+}
+
+
+.airbnb {
+	width: 160px;
+}
+
+#apple:hover {
+	background-color: #ededed;
+}
+
+#facebook:hover {
+	background-color: #e2f1ff;
+}
+
+#google:hover {
+	background-color: #7fb8ff;
+}
+
+#airbnb:hover {
+	background-color: #ffe5f9;
+}
+
+#salesforce:hover {
+	background-color: #e2faff;
+}
+
+#tesla:hover {
+	background-color: #ffc8c6;
+}
+
+#samsung:hover {
+	background-color: #d8e4ff;
+}
+
+#twilio:hover {
+	background-color: #ffd4d1;
+}
+
+#ycomb:hover {
+	background-color: #ffe4c1;
+}
