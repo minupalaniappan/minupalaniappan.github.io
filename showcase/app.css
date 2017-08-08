@@ -97,6 +97,9 @@ img {
 	width: 90px;
 }
 
+.e3 {
+	width: 90px;
+}
 
 .airbnb {
 	width: 160px;
@@ -122,8 +125,8 @@ img {
 	background-color: #e2faff;
 }
 
-#ign:hover {
-	background-color: #ffc8c6;
+#e3:hover {
+	background-color: #ffecdb;
 }
 
 #samsung:hover {
