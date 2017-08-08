@@ -2,21 +2,21 @@
 @font-face {
   font-family: "Calibre";
   font-weight: 100;
-  src: url("./fonts/Light.ttf");
+  src: url("Light.ttf");
 }
 
 /** Regular */
 @font-face {
   font-family: "Calibre";
   font-weight: 400;
-  src: url("./fonts/Regular.ttf");
+  src: url("Regular.ttf");
 }
 
 /** Bold */
 @font-face {
   font-family: "Calibre";
   font-weight: 700;
-  src: url("./fonts/Medium.ttf");
+  src: url("Medium.ttf");
 }
 
 html, body {
