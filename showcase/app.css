@@ -53,6 +53,10 @@ p {
 	color: #333;
 }
 
+#enter, #enter>* {
+	background-color: white;
+}
+
 .containers {
 
 }
