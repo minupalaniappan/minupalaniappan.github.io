@@ -1,4 +1,22 @@
 .split {
-  padding-bottom: 20px;
+  padding-bottom: 35px;
   width: 300px;
+}
+
+.split>a {
+	color: #666666;
+	text-decoration: none;
+	-webkit-transition: color 0.5s ease-out;
+	-moz-transition: color 0.5s ease-out;
+	-o-transition: color 0.5s ease-out;
+	transition: color 0.5s ease-out;
+}
+
+.split>a:hover {
+	color: white;
+}
+
+.pic-center {
+	text-align: center; 
+	padding-bottom: 20px;
 }
