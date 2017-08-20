@@ -20,3 +20,19 @@
 	text-align: center; 
 	padding-bottom: 20px;
 }
+
+@media only screen {
+    .split>a {
+    	color: #e2e2e2;
+    	font-size: 1.6em;
+    	display: block;
+    }
+    h3 {
+    	font-size: 2em;
+    	margin: 20px 0px;
+    }
+    .split {
+    	width: 200px;
+    	text-align: center;
+    }
+}
