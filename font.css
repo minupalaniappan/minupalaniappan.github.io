@@ -1,52 +1,51 @@
 /** Light */
 @font-face {
-  font-family: "Calibre";
-  font-weight: 100;
-  src: url("fonts/Light.ttf");
+  font-family: "Bold";
+  src: url("fonts/Bold.ttf");
 }
 
 /** Regular */
 @font-face {
-  font-family: "Calibre";
+  font-family: "Medium";
   font-weight: 400;
-  src: url("fonts/Regular.ttf");
+  src: url("fonts/Medium.ttf");
 }
 
 /** Bold */
 @font-face {
-  font-family: "Calibre";
+  font-family: "Regular";
   font-weight: 700;
-  src: url("fonts/Medium.ttf");
-}
-
-* {
-  font-family: "Calibre";
+  src: url("fonts/Regular.ttf");
 }
 
 p {
-  font-weight: 400;
-  color: #1c1c1c;
-  font-size: 1.5em;
+  font-family: Regular; 
+  color: black;
 }
-h6 {
-  font-weight: 400;
-  color: #9b9b9b;
-  font-size: 1.2em;
+
+div.link {
+  color: #adadad;
+  -webkit-transition: color 1s ease-out;
+  -moz-transition: color 1s ease-out;
+  -o-transition: color 1s ease-out;
+  transition: color 1s ease-out;
 }
-h3 {
-  font-weight: 700;
-  color: #184867;
-  font-size: 1.1em;
+
+div.link:hover {
+  color: #333;
 }
-a {
-  text-decoration: none;
-  color: #232323;
-  font-weight: 400;
-  font-size: 1em;
-  display: inline-block;
-  margin-right: 7px;
-  margin-top: 8px;
+
+.title {
+  color: #333;
+  font-family: Bold;
+  font-size: 2em;
 }
-a:hover {
-  text-decoration: underline;
+
+.text {
+  color: #666;
+  font-family: Regular;
+  line-height: 1.5em; 
+  max-width: 300px;
+  text-align: left;
+  font-size: 18px;
 }
