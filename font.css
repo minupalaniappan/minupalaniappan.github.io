@@ -51,3 +51,22 @@ p.link:hover {
   text-align: left;
   font-size: 18px;
 }
+
+p.work-title {
+  color: #444;
+  font-family: Bold;
+  text-align: left; 
+  font-size: 25px;
+}
+
+p.work-sub {
+  color: #666;
+  font-family: Medium;
+  text-align: left; 
+  font-size: 18px;
+}
+
+p.scroll-select {
+  color: #333;
+  font-family: Medium;
+}

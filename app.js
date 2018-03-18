@@ -12,7 +12,4 @@ sr.reveal('.about', {
 	origin: 'bottom',
 	distance: '40px'
 });
-sr.reveal('.work', {
-	origin: 'bottom',
-	distance: '30px'
-});
+
