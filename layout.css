@@ -46,6 +46,7 @@
 	vertical-align: middle;
 	font-family: Regular; 
 	margin-left: 25px;
+	text-decoration: none;
 }
 .sidebar_element:hover {
 	cursor: pointer;
