@@ -270,6 +270,11 @@
 	padding-left: 10px;
 }
 
+.report_cards:hover {
+	cursor: pointer;
+	background-color: #f4f4f4;
+}
+
 .octo {
 	width: 30px;
 	display: inline-block;
