@@ -13,6 +13,7 @@
 
 .contents {
 	padding: 90px 0px;
+	position: relative;
 }
 
 .header {
@@ -110,15 +111,19 @@
 }
 
 .projects_ {
-  position: relative;
 }
 
 .projects_panel {
-	display: inline-block;
-	left: 200px; 
-	right: 0; 
-	height: 20px;
+	display: block;
 	position: absolute;
+	max-width: none;
+	left: calc((100% - 900px)/2); 
+	right: 0;
+	padding: 15px;
+	background-color: #f7f7f7;
+	margin: 20px 0px;
+	overflow-x: scroll;
+
 }
 
 #ck12 {
@@ -192,7 +197,7 @@
 
 .bottom {
   position: absolute !important;
-  bottom: 0 !important;
+  bottom: 20px !important;
   top: auto !important;
 }
 
@@ -214,4 +219,16 @@
 .top {
 	position: absolute !important; 
 	top: 0px;
+}
+
+.project_card {
+	padding: 10px 0px;
+	background-color: white; 
+	border: 1px solid #c6c6c6;
+	width: calc((100%)/2); 
+	border-radius: 1px;
+	display: inline-block;
+	height: 400px;
+	margin-right: 50px;
+
 }
