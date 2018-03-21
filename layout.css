@@ -22,7 +22,6 @@
 }
 
 .max-content {
-	padding: 20px 0px;
 	max-width: 900px; 
 	margin: 0 auto;
 }
@@ -111,11 +110,15 @@
 }
 
 .projects_ {
-  display: table;
-  margin: 40px 0px;
-  width: 100%; 
-  border-top: 1px solid #d1d1d1;
-  padding: 40px 0px;
+  position: relative;
+}
+
+.projects_panel {
+	display: inline-block;
+	left: 200px; 
+	right: 0; 
+	height: 20px;
+	position: absolute;
 }
 
 #ck12 {
@@ -167,10 +170,12 @@
 }
 
 .wrap {
-  height: 1750px;
-  margin-bottom: 1750px;
+  height: auto;
+  margin-bottom: auto;
   margin: 40px 0px;
   position: relative;
+  border-bottom: 1px solid #d1d1d1;
+  padding-bottom: 35px;
 }
 
 .temp {
