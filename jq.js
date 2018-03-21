@@ -61,11 +61,18 @@ $(document ).ready(function() {
 	    span.addClass('bottom');
 	    var windowScroll = win.scrollTop() + win.height() - 50;
 	    if (spanOffset > windowScroll) {
-	      span.removeClass('bottom');
+	      if (span.hasClass( "bottom_parr" )) {
+	      	span.addClass('bottom');
+	      	span.removeClass("bottom_parr");
+	      } else {
+	      	span.addClass('bottom_parr');
+	      	span.removeClass('bottom');
+	      }
 	    }
 	  } else {
 	  	if (span.offset().top < div.offset().top) {
 	  		span.removeClass('bottom');
+	  		span.removeClass('bottom_parr');
 	  		span.addClass('top');
 	  	}
 	  }

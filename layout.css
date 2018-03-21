@@ -110,6 +110,18 @@
   margin: 40px 0px;
 }
 
+.projects_ {
+  display: table;
+  margin: 40px 0px;
+  width: 100%; 
+  border-top: 1px solid #d1d1d1;
+  padding: 40px 0px;
+}
+
+#ck12 {
+	border-bottom: none;
+}
+
 .about > p {
   display: inline-block;
   vertical-align: top;
@@ -155,8 +167,8 @@
 }
 
 .wrap {
-  height: 1840px;
-  margin-bottom: 1840px;
+  height: 1750px;
+  margin-bottom: 1750px;
   margin: 40px 0px;
   position: relative;
 }
@@ -168,10 +180,15 @@
   width: 60px;
 }
 
+.bottom_parr {
+	bottom: 20px !important;
+	top: auto !important;
+}
 
 .bottom {
   position: absolute !important;
   bottom: 0 !important;
+  top: auto !important;
 }
 
 .work-story {
