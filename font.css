@@ -58,6 +58,13 @@ a.link:hover, p.link:hover {
   font-size: 18px;
 }
 
+.text-small {
+  color: #666;
+  font-family: Regular;
+  line-height: 2em;
+  font-size: 16px;
+}
+
 p.work-title {
   color: #444;
   font-family: Bold;

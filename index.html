@@ -46,7 +46,7 @@
       </div>
       <div class = "max-content">
         <div class = "about">
-          <p class = "title">Bio</p>
+          <p class = "title" id = "bio_temp">Bio</p>
           <p class = "text">Born and raised in the Bay Area, I had the fortune of being surrounded by technology at an early age. Supported by a software engineer and serial entrepreneur, I was always taught to value my curiosity and drop any aversion to risk. But only in 2007, did I find utility for software development to be incredibly powerful. That year, Apple introduced the original iPhone; not only did it's introduction open the floodgates to an era of unparalleled mobile computing, but also enabled the creation of 1-man companies. In 07', I launched my first application on the Apple App Store; more than a decade later, I still use my curiosity to guide me through the development of new and exciting platforms.</p>
         </div>
         <div class = "wrap" id = "work">
@@ -58,27 +58,27 @@
           </div>
           <div class = "container">
                 <div id = "2017">
-                <div class = "work-element">
-                  <p class = "work-title" id = "google">Google</p>
-                  <div class = "sub-padding">
-                    <p class = "work-sub">Palo Alto, CA</p>
+                  <div class = "work-element">
+                    <p class = "work-title" id = "google">Google</p>
+                    <div class = "sub-padding">
+                      <p class = "work-sub">Palo Alto, CA</p>
+                    </div>
+                    <p class = "text-small">Incoming engineering intern on Google Hardware's data services team. I'll be working with services that power all Nest devices.</p>
                   </div>
-                  <p class = "text">Incoming engineering intern on Google Hardware's data services team. I'll be working with services that power all Nest devices.</p>
-                </div>
-                <div class = "work-element">
-                  <p class = "work-title" id = "yelp">Yelp</p>
-                  <div class = "sub-padding">
-                    <p class = "work-sub">San Francisco, CA</p>
+                  <div class = "work-element">
+                    <p class = "work-title" id = "yelp">Yelp</p>
+                    <div class = "sub-padding">
+                      <p class = "work-sub">San Francisco, CA</p>
+                    </div>
+                    <p class = "text-small">Responsible for building Yelp Review Search. Any user interested in learning more about a menu or service can leverage keyword search to read specific reviews. The service, originally slow and ineffective, is now 4 times faster and far smarter. I had the opportunity to re-write Review Search's Elastic Search infrastructure and redistribute the service at a system level. In my 3 months there, I had the freedom to run my own product meetings, AB test, and build data scripts to identify gaps in search.</p>
                   </div>
-                  <p class = "text">Responsible for building Yelp Review Search. Any user interested in learning more about a menu or service can leverage keyword search to read specific reviews. The service, originally slow and ineffective, is now 4 times faster and far smarter. I had the opportunity to re-write Review Search's Elastic Search infrastructure and redistribute the service at a system level. In my 3 months there, I had the freedom to run my own product meetings, AB test, and build data scripts to identify gaps in search.</p>
-                </div>
-                <div class = "work-element">
-                  <p class = "work-title" id = "mailchimp">Mailchimp</p>
-                  <div class = "sub-padding">
-                    <p class = "work-sub">Atlanta, GA</p>
+                  <div class = "work-element">
+                    <p class = "work-title" id = "mailchimp">Mailchimp</p>
+                    <div class = "sub-padding">
+                      <p class = "work-sub">Atlanta, GA</p>
+                    </div>
+                    <p class = "text-small">Responsible for building Yelp Review Search. Any user interested in learning more about a menu or service can leverage keyword search to read specific reviews. The service, originally slow and ineffective, is now 4 times faster and far smarter. I had the opportunity to re-write Review Search's Elastic Search infrastructure and redistribute the service at a system level. In my 3 months there, I had the freedom to run my own product meetings, AB test, and build data scripts to identify gaps in search.</p>
                   </div>
-                  <p class = "text">Responsible for building Yelp Review Search. Any user interested in learning more about a menu or service can leverage keyword search to read specific reviews. The service, originally slow and ineffective, is now 4 times faster and far smarter. I had the opportunity to re-write Review Search's Elastic Search infrastructure and redistribute the service at a system level. In my 3 months there, I had the freedom to run my own product meetings, AB test, and build data scripts to identify gaps in search.</p>
-                </div>
                 </div>
                 <div id = "2016">
                 <div class = "work-element">
@@ -86,14 +86,14 @@
                   <div class = "sub-padding">
                     <p class = "work-sub">San Jose, CA</p>
                   </div>
-                  <p class = "text">Bitglass is a per-client service that protects content for third parties that use big box cloud providers. I worked on building out the Salesforce service that enables any client to encrypt any information in the Salesforce ecosystem. Much of my work revolved around building flexible encryption protocols that could serve any custom application built on top of Salesforce's developer ecosystem.</p>
+                  <p class = "text-small">Bitglass is a per-client service that protects content for third parties that use big box cloud providers. I worked on building out the Salesforce service that enables any client to encrypt any information in the Salesforce ecosystem. Much of my work revolved around building flexible encryption protocols that could serve any custom application built on top of Salesforce's developer ecosystem.</p>
                 </div>
                 <div class = "work-element">
                   <p class = "work-title" id = "xiq">XiQ</p>
                   <div class = "sub-padding">
                     <p class = "work-sub">Cupertino, CA</p>
                   </div>
-                  <p class = "text">XiQ is the first platform to build powerful leads in minutes. Using big data service Apache Spark & in house data mining tools, the platform offers any customer the ability to learn about a company or individual within a matter of minutes. I worked on integrating IBM's Watson API into the core service; this integration added a machine-learning layer to lead generation. This was my first and only remote internship; the largest benefit to this experience was learning how to balance a full academic course load and an engineering internship.</p>
+                  <p class = "text-small">XiQ is the first platform to build powerful leads in minutes. Using big data service Apache Spark & in house data mining tools, the platform offers any customer the ability to learn about a company or individual within a matter of minutes. I worked on integrating IBM's Watson API into the core service; this integration added a machine-learning layer to lead generation. This was my first and only remote internship; the largest benefit to this experience was learning how to balance a full academic course load and an engineering internship.</p>
                 </div>
                 </div>
                 <div id = "2010">
@@ -102,7 +102,7 @@
                     <div class = "sub-padding">
                       <p class = "work-sub">Palo Alto, CA</p>
                     </div>
-                    <p class = "text">The CK-12 Foundation, a non-profit invested in building next-generation technologies for K-12 students, was the first organization I had the priviledge of interning for. I began my work at CK-12 in the summer of 2008, and would return to the organization every summer till I graduated high school in 2014. In my time there, I developed an internal tool that streamlined the content citation process, an android application that gamified a large portion of their testing material, flash applications that demonstrated STEM concepts. I credit my experience at CK-12 for enabling me to build persistence, natural curiosity and professionalism.</p>
+                    <p class = "text-small">The CK-12 Foundation, a non-profit invested in building next-generation technologies for K-12 students, was the first organization I had the priviledge of interning for. I began my work at CK-12 in the summer of 2008, and would return to the organization every summer till I graduated high school in 2014. In my time there, I developed an internal tool that streamlined the content citation process, an android application that gamified a large portion of their testing material, flash applications that demonstrated STEM concepts. I credit my experience at CK-12 for enabling me to build persistence, natural curiosity and professionalism.</p>
                   </div>
                 </div>
           </div>
