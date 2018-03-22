@@ -22,7 +22,11 @@ $(document ).ready(function() {
     divHeight = div.height();
 	$(document).scroll(compute).scroll();
 	$(window).resize(compute).resize();
-  	
+
+	$( ".sidebar_element" ).click(function() {
+	  compute();
+	});
+	  	
   	function isScrolledIntoView(el) {
 	  	//special bonus for those using jQuery
 	    if (typeof jQuery === "function" && el instanceof jQuery) {
