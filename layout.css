@@ -408,4 +408,8 @@ html, body {
   	left: calc((100% - calc(100% - 150px))/2);
   }
 
+  #links_temp {
+  	margin-top: calc(100%/2);
+  }
+
 }
