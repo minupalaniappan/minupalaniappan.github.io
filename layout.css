@@ -94,16 +94,6 @@ html, body {
 	border: 2px solid black;
 }
 
-.mail-note {
-	padding: 10px 20px;
-	border: none;
-	font-family: Regular;
-	font-size: 1em;
-	color: #606060;
-	background-color: #dddddd;
-	border-radius: 2px;
-}
-
 .mail-note:hover {
 	background-color: #4c4c4c;
 	color: white;
@@ -153,13 +143,6 @@ html, body {
 	display: table-cell;
 	max-width: auto; 
 	line-height: 1.8em;
-}
-
-
-.segment > .options {
-	margin-left: 35px; 
-	margin-top: 15px;
-	font-size: 1.3em;
 }
 
 
@@ -244,26 +227,11 @@ html, body {
 	position: relative;
 }
 
-.proj-title {
-	font-family: Medium; 
-	font-size: 2em; 
-	color: #444;
-	margin: 10px 0px;
-}
 
 .l-height {
 	position: relative;
 }
 
-.proj-description {
-	font-family: Regular; 
-	font-size: 1em; 
-	color: #b5b5b5;
-	margin-bottom: 10px;
-	line-height: 2em;
-	white-space: normal;
-	margin-top: 20px;
-}
 
 .report_cards {
 	display: inline-block;
@@ -322,23 +290,6 @@ html, body {
 	padding-left: 0px;
 }
 
-.link_cat > .header_ {
-	font-family: Bold;
-	color: #adadad;
-	margin-bottom: 15px;
-	font-size: 20px;
-}
-
-.link_cat > a {
-	font-family: Regular; 
-	color: #c1c1c1;
-	font-size: 18px;
-	margin: 10px 0px;
-	text-decoration: none;
-	display: inline-block;
-    margin-right: 20px;
-}
-
 .link_cat > a:hover {
 	cursor: pointer;
 	color:  #232323;
@@ -370,4 +321,91 @@ html, body {
 	color: #d0d0d0;
 	margin-bottom: 10px;
 	text-align: right;
+}
+
+@media (max-width: 1080px) {
+
+  .header, .max-content,.restrict {
+    max-width: 750px;
+  }
+
+  .projects_panel {
+  	left: calc((100% - 750px)/2);
+  }
+}
+
+@media (max-width: 920px) {
+
+  .header, .max-content,.restrict {
+    max-width: 700px;
+  }
+
+  .projects_panel {
+  	left: calc((100% - 700px)/2);
+  }
+
+  .fl- {
+    display: block;
+    float: none;
+  }
+  .proj-title.header_inl {
+  	display: block;
+  }
+}
+
+@media (max-width: 810px) {
+
+  .header, .max-content,.restrict {
+    max-width: 650px;
+  }
+
+  .projects_panel {
+  	left: calc((100% - 650px)/2);
+  }
+
+  .fl- {
+    display: block;
+    float: none;
+  }
+  .proj-title.header_inl {
+  	display: block;
+  }
+
+  .proj-description {
+  	line-height: 1.5em;
+  }
+
+  .bio-img {
+  	display: block;
+  	width: 100%; 
+  	margin-right: 0px;
+  }
+
+  .bio {
+  	padding-top: 0px;
+  }
+
+  .bio > div {
+  	display: block;
+    vertical-align: top;
+    margin-right: 0px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 680px) {
+
+   .project_card {
+   	height: auto;
+   	min-height: 250px;
+   }
+
+  .header, .max-content,.restrict {
+    max-width: calc(100% - 150px);
+  }
+
+  .projects_panel {
+  	left: calc((100% - calc(100% - 150px))/2);
+  }
+
 }

@@ -18,6 +18,58 @@
   src: url("fonts/Regular.ttf");
 }
 
+.mail-note {
+  padding: 10px 20px;
+  border: none;
+  font-family: Regular;
+  font-size: 1em;
+  color: #606060;
+  background-color: #dddddd;
+  border-radius: 2px;
+}
+
+
+.segment > .options {
+  margin-left: 35px; 
+  margin-top: 15px;
+  font-size: 1.3em;
+}
+
+.proj-title {
+  font-family: Medium; 
+  font-size: 2em; 
+  color: #444;
+  margin: 10px 0px;
+}
+
+.proj-description {
+  font-family: Regular; 
+  font-size: 1em; 
+  color: #b5b5b5;
+  margin-bottom: 10px;
+  line-height: 2em;
+  white-space: normal;
+  margin-top: 20px;
+}
+
+
+.link_cat > .header_ {
+  font-family: Bold;
+  color: #adadad;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.link_cat > a {
+  font-family: Regular; 
+  color: #c1c1c1;
+  font-size: 18px;
+  margin: 10px 0px;
+  text-decoration: none;
+  display: inline-block;
+    margin-right: 20px;
+}
+
 p {
   font-family: Regular; 
   color: black;
@@ -86,4 +138,66 @@ a.scroll-select, p.scroll-select {
 
 .log {
   text-decoration: none;
+}
+
+
+@media (max-width: 1080px) {
+  .title {
+    color: #333;
+    font-family: Bold;
+    font-size: 1.7em;
+  }
+
+  .text {
+    color: #666;
+    font-family: Regular;
+    line-height: 1.5em; 
+    text-align: left;
+    font-size: 13px;
+  }
+
+  .text-small {
+    color: #666;
+    font-family: Regular;
+    line-height: 2em;
+    font-size: 13px;
+  }
+
+  p.work-title {
+    color: #444;
+    font-family: Bold;
+    text-align: left; 
+    font-size: 20px;
+  }
+
+  p.work-sub {
+    color: #666;
+    font-family: Medium;
+    text-align: left; 
+    font-size: 15px;
+  }
+
+  .mail-note {
+    font-size: 0.8em;
+  }
+
+  .segment > .options {
+    font-size: 1em;
+  }
+
+  .proj-title {
+    font-size: 1.6em;
+  }
+
+  .proj-description {
+    font-size: 0.8em;
+  }
+
+  .link_cat > .header_ {
+    font-size: 16px;
+  }
+
+  .link_cat > a {
+    font-size: 14px;
+  }
 }
