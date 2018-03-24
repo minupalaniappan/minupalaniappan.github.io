@@ -201,3 +201,19 @@ a.scroll-select, p.scroll-select {
     font-size: 14px;
   }
 }
+
+@media (max-width: 810px) {
+  .text {
+      color: #666;
+      font-family: Regular;
+      line-height: 1.3em !important; 
+      text-align: left;
+      font-size: 13px;
+    }
+  .text-small {
+    line-height: 1.3em !important; 
+  }
+  .proj-description {
+    line-height: 1.5em !important;
+  }
+}
