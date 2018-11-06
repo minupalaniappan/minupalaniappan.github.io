@@ -1,0 +1,39 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+body {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.sidebar {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	padding-right: 30px;
+	background-color: red;
+}
+
+.header {
+	background-color: blue;
+    width: 100%;
+    display: inline-block;
+}
+
+.rotate {
+	-ms-transform: rotate(-90deg); /* IE 9 */
+    -webkit-transform: rotate(-90deg); /* Safari */
+    transform: rotate(-90deg);
+}
+
+.nav {
+	display: block;
+	padding: 15px 0px;
+	float: right;
+}
+
+.nav-element {
+	display: inline-block;
+	margin-left: 30px;
+}

@@ -1,0 +1,23 @@
+/** Light */
+@font-face {
+  font-family: "Bold";
+  src: url("../fonts/Bold.ttf");
+}
+
+/** Regular */
+@font-face {
+  font-family: "Italic";
+  font-weight: 400;
+  src: url("../fonts/Italic.ttf");
+}
+
+/** Bold */
+@font-face {
+  font-family: "Regular";
+  font-weight: 700;
+  src: url("../fonts/Regular.ttf");
+}
+
+.navigation {
+	
+}
