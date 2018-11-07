@@ -48,3 +48,11 @@
 	  /* ...and now for the proper property */
   	transition:.5s;
 }
+
+.body-text {
+	font-family: Regular; 
+	text-align: left;
+	line-height: 1.5em;
+	color: #333;
+	font-size: 1em;
+}

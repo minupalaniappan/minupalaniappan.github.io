@@ -48,7 +48,6 @@ body {
 
 .body-fill {
 	padding: 60px 20px;
-	margin-left: 30px;
 	display: table;
 	width: 100%;
 }
@@ -72,9 +71,13 @@ body {
 .content-box {
 	padding: 20px;
 	display: inline-block;
-	vertical-align: text-top; 
-	width: 50%;
+	vertical-align: top; 
+	width: 80%;
 	display: table-cell;
+}
+
+.text {
+	margin-bottom: 30px;
 }
 
 @media screen and (max-height: 300px) /* Mobile */ {
