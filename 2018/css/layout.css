@@ -57,6 +57,7 @@ body {
 	vertical-align: text-top; 
 	display: table-cell;
 	text-align: center;
+	padding: 20px;
 }
 
 .img-src {
@@ -78,6 +79,10 @@ body {
 
 .text {
 	margin-bottom: 30px;
+}
+
+.experience-box {
+	padding: 20px 0px;
 }
 
 @media screen and (max-height: 300px) /* Mobile */ {

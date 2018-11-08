@@ -52,7 +52,17 @@
 .body-text {
 	font-family: Regular; 
 	text-align: left;
-	line-height: 1.5em;
+	line-height: 2em;
 	color: #333;
 	font-size: 1em;
+}
+
+.header-text {
+	font-family: Bold;
+	text-align: left;
+	color: #222;
+	font-size: 1.1em;
+	text-transform: uppercase;
+    letter-spacing: .2em;
+    line-height: 2em;
 }
