@@ -66,3 +66,15 @@
     letter-spacing: .2em;
     line-height: 2em;
 }
+
+
+.job-link {
+	font-family: Italic;
+	font-size: 1em;
+}
+
+.sub-text {
+	font-size: 0.8em;
+	color: #666666;
+	font-family: Regular
+}

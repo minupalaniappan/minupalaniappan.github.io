@@ -82,7 +82,16 @@ body {
 }
 
 .experience-box {
-	padding: 20px 0px;
+	padding-bottom: 20px;
+}
+
+a {
+	text-decoration: none;
+	color: #8c8c8c;
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 @media screen and (max-height: 300px) /* Mobile */ {
