@@ -87,11 +87,17 @@ body {
 
 a {
 	text-decoration: none;
-	color: #8c8c8c;
+	color: #2d2d2d;
 }
 
 a:hover {
 	text-decoration: underline;
+	background-color: #e5ffe8;
+}
+
+
+.project-link {
+	color: #2d2d2d;
 }
 
 @media screen and (max-height: 300px) /* Mobile */ {
