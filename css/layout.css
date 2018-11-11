@@ -86,6 +86,7 @@ body {
 }
 
 a {
+	font-family: Regular;
 	text-decoration: none;
 	color: #2d2d2d;
 }
@@ -93,6 +94,10 @@ a {
 a:hover {
 	text-decoration: underline;
 	background-color: #e5ffe8;
+}
+
+.links-cont>a{
+	margin-right: 20px;
 }
 
 
