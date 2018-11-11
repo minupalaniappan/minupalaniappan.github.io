@@ -105,6 +105,48 @@ a:hover {
 	color: #2d2d2d;
 }
 
+.random {
+	margin: 40px 0px;
+}
+
+.colorswatch {
+	padding: 6px;
+	display: inline-block;
+	margin-right: 10px; 
+	vertical-align: middle;
+}
+
+#one {
+	background-color: #e5ffe8
+}
+
+#two {
+	background-color: #2d2d2d
+}
+
+#three {
+	background-color: #666666
+}
+
+#four {
+	background-color: #333;
+}
+
+#five {
+	background-color: #222;
+}
+
+.style-text {
+	font-family: Regular;
+	color: #bababa;
+	font-size: 0.5em;
+}
+
+.inline- {
+	display: inline-block;
+	vertical-align: middle;
+}
+
 @media screen and (max-height: 300px) /* Mobile */ {
   .height-dissapear {
     display: none;
