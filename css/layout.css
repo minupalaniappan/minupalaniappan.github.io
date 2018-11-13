@@ -258,3 +258,9 @@ a:hover {
 		  padding: 0px;
 	  }
   }
+
+  @media screen and (max-width: 350px) {
+	.logo {
+		display: none;
+	  }
+  }
