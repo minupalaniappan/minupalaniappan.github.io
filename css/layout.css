@@ -225,6 +225,16 @@ a:hover {
 	}
   }
 
+  @media screen and (max-width: 450px) {
+	  .logo {
+		  font-size: 9px;
+	  }
+	  .content-box {
+		  max-width: 300px;
+		  margin: 0 auto;
+	  }
+	}
+
 @media screen and (max-width: 400px) {
   .content-box {
   	display: block;
@@ -232,4 +242,25 @@ a:hover {
   	max-width: 300px;
     margin: 0 auto;
 	}
+  }
+
+  @media screen and (max-width: 385px) {
+	.nav-element {
+		display: block;
+		margin-bottom: 5px;
+		margin-left: 0px;
+	  }
+	  .body-fill {
+		  padding: 0px;
+	  }
+
+	  .content-box {
+		  padding: 0px;
+	  }
+  }
+
+  @media screen and (max-width: 350px) {
+	.logo {
+		display: none;
+	  }
   }
