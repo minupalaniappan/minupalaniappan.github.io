@@ -1,150 +1,153 @@
 * {
-	margin: 0px;
-	padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 body {
-	max-width: 1200px;
-	margin: 0 auto;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .sidebar {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	background-color: red;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: red;
 }
 
 .header {
-    width: 100%;
-    display: inline-block;
+  width: 100%;
+  display: inline-block;
 }
 
 .rotate {
-	/* left: 0; */
-    bottom: 0;
-    -webkit-transform-origin: 0 50%;
-    -moz-transform-origin: 0 50%;
-    -ms-transform-origin: 0 50%;
-    -o-transform-origin: 0 50%;
-    transform-origin: 0 50%;
-    -webkit-transform: rotate(-90deg) translate(10%, 50%);
-    -moz-transform: rotate(-90deg) translate(10%, 50%);
-    -ms-transform: rotate(-90deg) translate(10%, 50%);
-    -o-transform: rotate(-90deg) translate(10%, 50%);
-    transform: rotate(-90deg) translate(10%, 50%);
-    position: fixed;
+  /* left: 0; */
+  bottom: 0;
+  -webkit-transform-origin: 0 50%;
+  -moz-transform-origin: 0 50%;
+  -ms-transform-origin: 0 50%;
+  -o-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  -webkit-transform: rotate(-90deg) translate(10%, 50%);
+  -moz-transform: rotate(-90deg) translate(10%, 50%);
+  -ms-transform: rotate(-90deg) translate(10%, 50%);
+  -o-transform: rotate(-90deg) translate(10%, 50%);
+  transform: rotate(-90deg) translate(10%, 50%);
+  position: fixed;
 }
 
 .nav {
-	display: block;
-	padding: 15px 0px;
-	float: right;
+  display: block;
+  padding: 15px 0px;
+  float: right;
 }
 
 .nav-element {
-	display: inline-block;
-	margin-left: 30px;
+  display: inline-block;
+  margin-left: 30px;
+}
+
+.nav-element:first-child {
+  margin-left: 0;
 }
 
 .body-fill {
-	padding: 60px 0px;
-	display: table;
-	width: 100%;
+  padding: 60px 0px;
+  display: table;
+  width: 100%;
 }
 
 .img-box {
-	display: inline-block;
-	vertical-align: text-top; 
-	display: table-cell;
-	text-align: center;
-	padding: 20px;
+  display: inline-block;
+  vertical-align: text-top;
+  display: table-cell;
+  text-align: center;
+  padding: 20px;
 }
 
 .img-src {
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-	object-fit: cover;
-	-webkit-filter: grayscale(30%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(30%);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  -webkit-filter: grayscale(30%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(30%);
 }
 
 .content-box {
-	padding: 20px;
-	display: inline-block;
-	vertical-align: top; 
-	width: 80%;
-	display: table-cell;
+  padding: 20px;
+  display: inline-block;
+  vertical-align: top;
+  width: 80%;
+  display: table-cell;
 }
 
 .text {
-	margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .experience-box {
-	padding-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 a {
-	font-family: Regular;
-	text-decoration: none;
-	color: #2d2d2d;
+  font-family: Regular;
+  text-decoration: none;
+  color: #2d2d2d;
 }
 
 a:hover {
-	text-decoration: underline;
-	background-color: #e5ffe8;
+  text-decoration: underline;
+  background-color: #e5ffe8;
 }
 
-.links-cont>a{
-	margin-right: 20px;
+.links-cont > a {
+  margin-right: 20px;
 }
-
 
 .project-link {
-	color: #2d2d2d;
+  color: #2d2d2d;
 }
 
 .random {
-	margin: 40px 0px;
+  margin: 40px 0px;
 }
 
 .colorswatch {
-	padding: 6px;
-	display: inline-block;
-	margin-right: 10px; 
-	vertical-align: middle;
+  padding: 6px;
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: middle;
 }
 
 #one {
-	background-color: #e5ffe8
+  background-color: #e5ffe8;
 }
 
 #two {
-	background-color: #2d2d2d
+  background-color: #2d2d2d;
 }
 
 #three {
-	background-color: #666666
+  background-color: #666666;
 }
 
 #four {
-	background-color: #333;
+  background-color: #333;
 }
 
 #five {
-	background-color: #222;
+  background-color: #222;
 }
 
 .style-text {
-	font-family: Regular;
-	color: #bababa;
-	font-size: 0.5em;
+  font-family: Regular;
+  color: #bababa;
+  font-size: 0.5em;
 }
 
 .inline- {
-	display: inline-block;
-	vertical-align: middle;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 @media screen and (max-height: 300px) {
@@ -155,112 +158,112 @@ a:hover {
 
 @media screen and (max-width: 1250px) {
   body {
-  	max-width: 1000px;
+    max-width: 1000px;
   }
 }
 
 @media screen and (max-width: 1000px) {
   body {
-  	max-width: 800px;
+    max-width: 800px;
   }
   .img-src {
-  	width: 75px;
-  	height: 75px;
+    width: 75px;
+    height: 75px;
   }
 }
 
 @media screen and (max-width: 850px) {
   .nav {
-  	float: none;
+    float: none;
   }
   .header {
-  	text-align: center;
+    text-align: center;
   }
 
   .body-fill {
-  	display: block;
+    display: block;
   }
 
   .img-box {
-  	display: block;
+    display: block;
   }
 
   .content-box {
-  	display: block;
-  	width: 100%; 
-  	max-width: 600px;
+    display: block;
+    width: 100%;
+    max-width: 600px;
     margin: 0 auto;
-	}
-
-	.header-text {
-		text-align: center;
-	}
   }
+
+  .header-text {
+    text-align: center;
+  }
+}
 
 @media screen and (max-width: 700px) {
   .nav {
-  	float: none;
+    float: none;
   }
   .header {
-  	text-align: center;
+    text-align: center;
   }
 
   .body-fill {
-  	display: block;
+    display: block;
   }
 
   .img-box {
-  	display: block;
+    display: block;
   }
 
   .content-box {
-  	display: block;
-  	width: 100%; 
-  	max-width: 400px;
+    display: block;
+    width: 100%;
+    max-width: 400px;
     margin: 0 auto;
-	}
-
-	.header-text {
-		text-align: center;
-	}
   }
 
-  @media screen and (max-width: 450px) {
-	  .logo {
-		  font-size: 9px;
-	  }
-	  .content-box {
-		  max-width: 300px;
-		  margin: 0 auto;
-	  }
-	}
+  .header-text {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .logo {
+    font-size: 9px;
+  }
+  .content-box {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
 
 @media screen and (max-width: 400px) {
   .content-box {
-  	display: block;
-  	width: 100%; 
-  	max-width: 300px;
+    display: block;
+    width: 100%;
+    max-width: 300px;
     margin: 0 auto;
-	}
+  }
+}
+
+@media screen and (max-width: 385px) {
+  .nav-element {
+    display: block;
+    margin-bottom: 5px;
+    margin-left: 0px;
+  }
+  .body-fill {
+    padding: 0px;
   }
 
-  @media screen and (max-width: 385px) {
-	.nav-element {
-		display: block;
-		margin-bottom: 5px;
-		margin-left: 0px;
-	  }
-	  .body-fill {
-		  padding: 0px;
-	  }
-
-	  .content-box {
-		  padding: 0px;
-	  }
+  .content-box {
+    padding: 0px;
   }
+}
 
-  @media screen and (max-width: 350px) {
-	.logo {
-		display: none;
-	  }
+@media screen and (max-width: 350px) {
+  .logo {
+    display: none;
   }
+}
